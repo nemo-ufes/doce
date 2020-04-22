@@ -1,0 +1,332 @@
+@prefix : <http://purl.org/nemo/doce#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doce: <http://purl.org/nemo/doce#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@base <http://purl.org/nemo/doce#> .
+
+<http://purl.org/nemo/doce#> rdf:type owl:Ontology ;
+                              owl:imports gufo: ;
+                                                            dc:creator "Almeida, João Paulo A." ;
+                              dc:date "2029-04-22"@en ;
+                              dc:title "The doce water quality ontology"@en ;
+                              dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                              vann:preferredNamespaceUri "http://purl.org/nemo/doce#"^^xsd:anyURI ;
+
+                              rdfs:comment "The doce water quality ontology." ;
+                              rdfs:label "The doce water quality ontology." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/nemo/doce#delegated
+<http://purl.org/nemo/doce#delegated> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf gufo:participatedIn ;
+                                       rdfs:domain <http://purl.org/nemo/doce#ResearchActivityPrincipal> ;
+                                       rdfs:range <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#expressedIn
+<http://purl.org/nemo/doce#expressedIn> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://purl.org/nemo/doce#Measurement> ;
+                                         rdfs:range <http://purl.org/nemo/doce#Unit> .
+
+
+###  http://purl.org/nemo/doce#hasAssociatedChemicalEntityKind
+<http://purl.org/nemo/doce#hasAssociatedChemicalEntityKind> rdf:type owl:ObjectProperty ,
+                                                                      owl:FunctionalProperty ;
+                                                             rdfs:domain <http://purl.org/nemo/doce#ChemicalEntityConcentrationQualityKind> ;
+                                                             rdfs:range <http://purl.org/nemo/doce#ChemicalEntityKind> .
+
+
+###  http://purl.org/nemo/doce#locatedIn
+<http://purl.org/nemo/doce#locatedIn> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
+                                       rdfs:domain <http://purl.org/nemo/doce#GeographicallyLocatedEntity> ;
+                                       rdfs:range <http://purl.org/nemo/doce#GeographicPoint> ;
+                                       rdfs:comment "Identifies a GeographicPoint for a SpatiallyLocatedEntity" .
+
+
+###  http://purl.org/nemo/doce#measured
+<http://purl.org/nemo/doce#measured> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://purl.org/nemo/doce#Measurement> ;
+                                      rdfs:range <http://purl.org/nemo/doce#QualityKind> .
+
+
+###  http://purl.org/nemo/doce#performed
+<http://purl.org/nemo/doce#performed> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf gufo:participatedIn ;
+                                       rdfs:domain <http://purl.org/nemo/doce#ResearchActivityAgent> ;
+                                       rdfs:range <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#wasAdoptedIn
+<http://purl.org/nemo/doce#wasAdoptedIn> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf gufo:participatedIn ;
+                                          rdfs:domain <http://purl.org/nemo/doce#ResearchActivityProcedure> ;
+                                          rdfs:range <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#wasMeasuredIn
+<http://purl.org/nemo/doce#wasMeasuredIn> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf gufo:participatedIn ;
+                                           rdfs:domain <http://purl.org/nemo/doce#ResearchableEntity> ;
+                                           rdfs:range <http://purl.org/nemo/doce#Measurement> .
+
+
+###  http://purl.org/nemo/doce#wasUsedIn
+<http://purl.org/nemo/doce#wasUsedIn> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf gufo:participatedIn ;
+                                       rdfs:domain <http://purl.org/nemo/doce#Device> ;
+                                       rdfs:range <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/nemo/doce#hasConcentrationValue
+<http://purl.org/nemo/doce#hasConcentrationValue> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:subPropertyOf gufo:hasQualityValue .
+
+
+###  http://purl.org/nemo/doce#hasLatitude
+<http://purl.org/nemo/doce#hasLatitude> rdf:type owl:DatatypeProperty ;
+                                         rdfs:subPropertyOf gufo:hasValueComponent ;
+                                         rdfs:domain <http://purl.org/nemo/doce#GeographicPoint> ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
+
+
+###  http://purl.org/nemo/doce#hasLongitude
+<http://purl.org/nemo/doce#hasLongitude> rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf gufo:hasValueComponent ;
+                                          rdfs:domain <http://purl.org/nemo/doce#GeographicPoint> ;
+                                          rdfs:range xsd:float ;
+                                          rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
+
+
+###  http://purl.org/nemo/doce#hasTemperatureValue
+<http://purl.org/nemo/doce#hasTemperatureValue> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:subPropertyOf gufo:hasQualityValue ;
+                                                 rdfs:range xsd:double .
+
+
+###  http://purl.org/nemo/doce#hasVolumePerTimeUnitValue
+<http://purl.org/nemo/doce#hasVolumePerTimeUnitValue> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:subPropertyOf gufo:hasQualityValue .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/nemo/doce#AbioticEntity
+<http://purl.org/nemo/doce#AbioticEntity> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://purl.org/nemo/doce#MaterialEntity> ;
+                                           owl:disjointWith <http://purl.org/nemo/doce#BioticEntity> .
+
+
+###  http://purl.org/nemo/doce#Agent
+<http://purl.org/nemo/doce#Agent> rdf:type owl:Class ;
+                                   rdfs:subClassOf gufo:Object .
+
+
+###  http://purl.org/nemo/doce#ArsenicConcentration
+<http://purl.org/nemo/doce#ArsenicConcentration> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://purl.org/nemo/doce#Concentration> .
+
+
+###  http://purl.org/nemo/doce#ArtificialGeographicFeature
+<http://purl.org/nemo/doce#ArtificialGeographicFeature> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://purl.org/nemo/doce#GeographicFeature> .
+
+
+###  http://purl.org/nemo/doce#BiologicalQualityKind
+<http://purl.org/nemo/doce#BiologicalQualityKind> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.org/nemo/doce#WaterQualityKind> .
+
+
+###  http://purl.org/nemo/doce#BioticEntity
+<http://purl.org/nemo/doce#BioticEntity> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://purl.org/nemo/doce#MaterialEntity> .
+
+
+###  http://purl.org/nemo/doce#ChemicalEntityConcentrationQualityKind
+<http://purl.org/nemo/doce#ChemicalEntityConcentrationQualityKind> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://purl.org/nemo/doce#PhysicalChemicalQualityKind> .
+
+
+###  http://purl.org/nemo/doce#ChemicalEntityKind
+<http://purl.org/nemo/doce#ChemicalEntityKind> rdf:type owl:Class ;
+                                                rdfs:subClassOf gufo:Kind ;
+                                                rdfs:comment "See Chemical Entities of Biological Interest https://www.ebi.ac.uk/ols/ontologies/chebi" .
+
+
+###  http://purl.org/nemo/doce#Concentration
+<http://purl.org/nemo/doce#Concentration> rdf:type owl:Class ;
+                                           rdfs:subClassOf gufo:Quality .
+
+
+###  http://purl.org/nemo/doce#Device
+<http://purl.org/nemo/doce#Device> rdf:type owl:Class ;
+                                    rdfs:subClassOf gufo:Object .
+
+
+###  http://purl.org/nemo/doce#GeographicFeature
+<http://purl.org/nemo/doce#GeographicFeature> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://purl.org/nemo/doce#GeographicallyLocatedEntity> ,
+                                                               gufo:Object .
+
+
+###  http://purl.org/nemo/doce#GeographicPoint
+<http://purl.org/nemo/doce#GeographicPoint> rdf:type owl:Class ;
+                                             rdfs:subClassOf gufo:QualityValue ;
+                                             rdfs:comment """A <latitude, longitude> coordinate tuple in the WGS84 Coordinate Reference System. Used to conceive of a (0-dimensional) location relative to the Earth's surface.
+
+Identity of a point is given by its latitude and longitude components. See hasLatitude, hasLongitude data properties.
+
+Corresponds to <http://www.w3.org/2003/01/geo/wgs84_pos#Point> and \"coordinate tuple\" in ISO 19111:2007.""" .
+
+
+###  http://purl.org/nemo/doce#GeographicallyLocatedEntity
+<http://purl.org/nemo/doce#GeographicallyLocatedEntity> rdf:type owl:Class ;
+                                                         rdfs:subClassOf gufo:ConcreteIndividual .
+
+
+###  http://purl.org/nemo/doce#MaterialEntity
+<http://purl.org/nemo/doce#MaterialEntity> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://purl.org/nemo/doce#ResearchableEntity> .
+
+
+###  http://purl.org/nemo/doce#Measurement
+<http://purl.org/nemo/doce#Measurement> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#MeterologicalQualityKind
+<http://purl.org/nemo/doce#MeterologicalQualityKind> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://purl.org/nemo/doce#QualityKind> .
+
+
+###  http://purl.org/nemo/doce#NaturalGeographicFeature
+<http://purl.org/nemo/doce#NaturalGeographicFeature> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://purl.org/nemo/doce#GeographicFeature> .
+
+
+###  http://purl.org/nemo/doce#PhysicalChemicalQualityKind
+<http://purl.org/nemo/doce#PhysicalChemicalQualityKind> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://purl.org/nemo/doce#WaterQualityKind> .
+
+
+###  http://purl.org/nemo/doce#Preparation
+<http://purl.org/nemo/doce#Preparation> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#QualityKind
+<http://purl.org/nemo/doce#QualityKind> rdf:type owl:Class ;
+                                         rdfs:subClassOf gufo:Kind ;
+                                         rdfs:comment """A QualityKind is a ufo:Kind whose instances are qualities. Instances of QualityKind should specialize Quality.
+
+Examples include \"Volume\", \"Mass\", \"Weight\".
+
+For the purposes of measurements,  corresponds to qudt:QuantityKind
+See: http://qudt.org/2.1/schema/qudt#QuantityKind""" .
+
+
+###  http://purl.org/nemo/doce#ResearchActivity
+<http://purl.org/nemo/doce#ResearchActivity> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://purl.org/nemo/doce#GeographicallyLocatedEntity> ,
+                                                              gufo:Event .
+
+
+###  http://purl.org/nemo/doce#ResearchActivityAgent
+<http://purl.org/nemo/doce#ResearchActivityAgent> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.org/nemo/doce#Agent> .
+
+
+###  http://purl.org/nemo/doce#ResearchActivityPrincipal
+<http://purl.org/nemo/doce#ResearchActivityPrincipal> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://purl.org/nemo/doce#Agent> .
+
+
+###  http://purl.org/nemo/doce#ResearchActivityProcedure
+<http://purl.org/nemo/doce#ResearchActivityProcedure> rdf:type owl:Class ;
+                                                       rdfs:subClassOf gufo:Object .
+
+
+###  http://purl.org/nemo/doce#ResearchableEntity
+<http://purl.org/nemo/doce#ResearchableEntity> rdf:type owl:Class ;
+                                                rdfs:subClassOf gufo:Object .
+
+
+###  http://purl.org/nemo/doce#Sample
+<http://purl.org/nemo/doce#Sample> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://purl.org/nemo/doce#MaterialEntity> .
+
+
+###  http://purl.org/nemo/doce#SampledEntity
+<http://purl.org/nemo/doce#SampledEntity> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://purl.org/nemo/doce#ResearchableEntity> .
+
+
+###  http://purl.org/nemo/doce#Sampling
+<http://purl.org/nemo/doce#Sampling> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://purl.org/nemo/doce#ResearchActivity> .
+
+
+###  http://purl.org/nemo/doce#Temperature
+<http://purl.org/nemo/doce#Temperature> rdf:type owl:Class ;
+                                         rdfs:subClassOf gufo:Quality .
+
+
+###  http://purl.org/nemo/doce#Unit
+<http://purl.org/nemo/doce#Unit> rdf:type owl:Class ;
+                                  rdfs:subClassOf gufo:AbstractIndividual ;
+                                  rdfs:comment """Corresponds to qudt:Unit
+
+See: http://qudt.org/2.1/schema/qudt#Unit for definition.
+
+and \"QUDT All Units\" http://www.qudt.org/doc/2020/04/DOC_VOCAB-UNITS-ALL-v2.1.html for a catalog of units (namespace http://qudt.org/vocab/unit/)""" .
+
+
+###  http://purl.org/nemo/doce#VolumePerUnitTime
+<http://purl.org/nemo/doce#VolumePerUnitTime> rdf:type owl:Class ;
+                                               rdfs:subClassOf gufo:Quality .
+
+
+###  http://purl.org/nemo/doce#WaterQualityKind
+<http://purl.org/nemo/doce#WaterQualityKind> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://purl.org/nemo/doce#QualityKind> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/nemo/doce#ArsenicConcentration
+<http://purl.org/nemo/doce#ArsenicConcentration> rdf:type owl:NamedIndividual ,
+                                                           <http://purl.org/nemo/doce#ChemicalEntityConcentrationQualityKind> ;
+                                                  <http://purl.org/nemo/doce#hasAssociatedChemicalEntityKind> <http://purl.org/nemo/doce#DiatomicArsenic> .
+
+
+###  http://purl.org/nemo/doce#Concentration
+<http://purl.org/nemo/doce#Concentration> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/nemo/doce#QualityKind> .
+
+
+###  http://purl.org/nemo/doce#DiatomicArsenic
+<http://purl.org/nemo/doce#DiatomicArsenic> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/nemo/doce#ChemicalEntityKind> ;
+                                             rdfs:comment "Corresponds to http://purl.obolibrary.org/obo/CHEBI_35831" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -26,8 +26,7 @@
 ###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#MeasurementSolidosSuspensos001
 :MeasurementSolidosSuspensos001 rdf:type owl:NamedIndividual ,
                                          doce:Measurement ;
-                                doce:expressedIn <http://qudt.org/vocab/unit/MilliGM-PER-L> ;
-                                doce:measured doce:TotalSuspendedSolids .
+                                doce:expressedIn <http://qudt.org/vocab/unit/MilliGM-PER-L> .
 
 
 ###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#MeasurementTemperatura001

@@ -447,11 +447,11 @@ Corresponds to <http://www.w3.org/2003/01/geo/wgs84_pos#Point> and \"coordinate 
 :MetereologicalQuality a owl:Class ;
 	rdfs:subClassOf gufo:Quality .
 # 
-# http://purl.org/nemo/doce#MeterologicalQualityKind
+# http://purl.org/nemo/doce#MetereologicalQualityKind
 
-:MeterologicalQualityKind a owl:Class ;
+:MetereologicalQualityKind a owl:Class ;
 	rdfs:subClassOf :QualityKind ;
-	rdfs:comment """A doce:QualityKind for meterological qualities. 
+	rdfs:comment """A doce:QualityKind for metereological qualities. 
 
 Examples include \"RelativeHumidity\", \"AtmosphericPressure\", \"Precipitation\".""" .
 # 
@@ -817,15 +817,6 @@ Examples include \"ArsenicConcentration\", \"TotalDissolvedSolids\",  \"Conducti
 # #################################################################
 # 
 # 
-# http://purl.org/nemo/doce#Arsenic
-
-:Arsenic a owl:NamedIndividual , :ChemicalEntityKind ;
-	rdfs:comment "Corresponds to http://purl.obolibrary.org/obo/CHEBI_22632" .
-# 
-# http://purl.org/nemo/doce#Conductivity
-
-:Conductivity a owl:NamedIndividual , :QualityKind .
-# 
 # http://purl.org/nemo/doce#HazenUnit
 
 :HazenUnit a owl:NamedIndividual , :Unit ;
@@ -850,61 +841,280 @@ https://www.idexx.com/en/blogs/idexx-water-testing-solutions/what-s-the-differen
 and
 http://qudt.org/vocab/unit/CFU (for an absolute count)""" .
 # 
+# http://purl.org/nemo/doce#MethylmercuryConcentration
+
+:MethylmercuryConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#NitrateConcentration
+
+:NitrateConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#NitriteConcentration
+
+:NitriteConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#OrganicNitrogenConcentration
+
+:OrganicNitrogenConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#OxygenSaturation
+
+:OxygenSaturation a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:PERCENT .
+# 
 # http://purl.org/nemo/doce#PH
 
-:PH a owl:NamedIndividual , :Unit .
+:PH a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://registry2.it.csiro.au/def/unit/pH" .
 # 
 # http://purl.org/nemo/doce#PSU
 
 :PSU a owl:NamedIndividual , :Unit ;
 	rdfs:comment "http://registry2.it.csiro.au/def/unit/_PSU" .
 # 
+# http://purl.org/nemo/doce#PheophytinConcentration
+
+:PheophytinConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#PhosphateConcentration
+
+:PhosphateConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#PolyphosphateConcentration
+
+:PolyphosphateConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
 # http://purl.org/nemo/doce#QualityKind
 
 :QualityKind a owl:NamedIndividual , gufo:Type ;
 	gufo:partitions gufo:Quality .
 # 
+# http://purl.org/nemo/doce#Rainfall
+
+:Rainfall a owl:NamedIndividual , :MetereologicalQualityKind ;
+	:hasApplicableUnit unit:MilliM .
+# 
+# http://purl.org/nemo/doce#RedoxPotential
+
+:RedoxPotential a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MilliV .
+# 
+# http://purl.org/nemo/doce#RelativeHumidity
+
+:RelativeHumidity a owl:NamedIndividual , :MetereologicalQualityKind ;
+	:hasApplicableUnit unit:PERCENT .
+# 
 # http://purl.org/nemo/doce#Salinity
 
-:Salinity a owl:NamedIndividual , :QualityKind .
+:Salinity a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit :PSU .
+# 
+# http://purl.org/nemo/doce#SamplingDepth
+
+:SamplingDepth a owl:NamedIndividual , :WaterQualityKind ;
+	:hasApplicableUnit unit:M .
 # 
 # http://purl.org/nemo/doce#SecchiDiskTransparency
 
-:SecchiDiskTransparency a owl:NamedIndividual , :QualityKind .
+:SecchiDiskTransparency a owl:NamedIndividual , :WaterQualityKind ;
+	:hasApplicableUnit unit:M .
+# 
+# http://purl.org/nemo/doce#SettleableSolids
+
+:SettleableSolids a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L .
+# 
+# http://purl.org/nemo/doce#SolidsConcentration
+
+:SolidsConcentration a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L .
+# 
+# http://purl.org/nemo/doce#SulphateConcentration
+
+:SulphateConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
 # 
 # http://purl.org/nemo/doce#Temperature
 
-:Temperature a owl:NamedIndividual , :QualityKind .
+:Temperature a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:DEG_C .
 # 
 # http://purl.org/nemo/doce#TotalAlkalinityAsCaCO3
 
-:TotalAlkalinityAsCaCO3 a owl:NamedIndividual , :PhysicalChemicalQualityKind .
+:TotalAlkalinityAsCaCO3 a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalAluminiumConcentration
+
+:TotalAluminiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalAntimonyConcentration
+
+:TotalAntimonyConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
 # 
 # http://purl.org/nemo/doce#TotalArsenicConcentration
 
 :TotalArsenicConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
-	:hasAssociatedChemicalEntityKind :Arsenic .
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalBariumConcentration
+
+:TotalBariumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalBerylliumConcentration
+
+:TotalBerylliumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalBoronConcentration
+
+:TotalBoronConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalCadmiumConcentration
+
+:TotalCadmiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalCalciumConcentration
+
+:TotalCalciumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalChlorideConcentration
+
+:TotalChlorideConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalChromiumConcentration
+
+:TotalChromiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalCobaltConcentration
+
+:TotalCobaltConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalCopperConcentration
+
+:TotalCopperConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalDissolvedSolids
+
+:TotalDissolvedSolids a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalIronConcentration
+
+:TotalIronConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalLeadConcentration
+
+:TotalLeadConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalMagnesiumConcentration
+
+:TotalMagnesiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalManganeseConcentration
+
+:TotalManganeseConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalMercuryConcentration
+
+:TotalMercuryConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalMolybdenumConcentration
+
+:TotalMolybdenumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalNickelConcentration
+
+:TotalNickelConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalOrganicCarbonConcentration
+
+:TotalOrganicCarbonConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
 # 
 # http://purl.org/nemo/doce#TotalPhosphorousConcentration
 
-:TotalPhosphorousConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind .
+:TotalPhosphorousConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalSeleniumConcentration
+
+:TotalSeleniumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalSilverConcentration
+
+:TotalSilverConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalSodiumConcentration
+
+:TotalSodiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalSolids
+
+:TotalSolids a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalSulfideConcentration
+
+:TotalSulfideConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
 # 
 # http://purl.org/nemo/doce#TotalSuspendedSolids
 
-:TotalSuspendedSolids a owl:NamedIndividual , :PhysicalChemicalQualityKind .
+:TotalSuspendedSolids a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalVanadiumConcentration
+
+:TotalVanadiumConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
+# 
+# http://purl.org/nemo/doce#TotalZincConcentration
+
+:TotalZincConcentration a owl:NamedIndividual , :ChemicalEntityConcentrationQualityKind ;
+	:hasApplicableUnit unit:MicroGM-PER-L , unit:MilliGM-PER-L .
 # 
 # http://purl.org/nemo/doce#TrueColor
 
-:TrueColor a owl:NamedIndividual , :PhysicalChemicalQualityKind .
+:TrueColor a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit :HazenUnit .
 # 
 # http://purl.org/nemo/doce#Turbidity
 
-:Turbidity a owl:NamedIndividual , :QualityKind .
+:Turbidity a owl:NamedIndividual , :PhysicalChemicalQualityKind ;
+	:hasApplicableUnit unit:NTU .
 # 
-# http://purl.org/nemo/doce#pH
+# http://purl.org/nemo/doce#VolumePerUnitTime
 
-:pH a owl:NamedIndividual , :QualityKind ;
-	:hasApplicableUnit :PH .
+:VolumePerUnitTime a owl:NamedIndividual , :QualityKind ;
+	:hasApplicableUnit unit:M3-PER-SEC .
 # 
 # http://purl.org/nemo/gufo#Quality
 
@@ -912,39 +1122,53 @@ gufo:Quality a owl:NamedIndividual , gufo:Category .
 # 
 # http://qudt.org/vocab/unit/DEG_C
 
-unit:DEG_C a owl:NamedIndividual , :Unit .
+unit:DEG_C a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/DEG_C" .
 # 
 # http://qudt.org/vocab/unit/M
 
-unit:M a owl:NamedIndividual , :Unit .
+unit:M a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/M" .
 # 
 # http://qudt.org/vocab/unit/M3-PER-SEC
 
-unit:M3-PER-SEC a owl:NamedIndividual , :Unit .
+unit:M3-PER-SEC a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/M3-PER-SEC" .
 # 
 # http://qudt.org/vocab/unit/MicroGM-PER-L
 
-unit:MicroGM-PER-L a owl:NamedIndividual , :Unit .
+unit:MicroGM-PER-L a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/MicroGM-PER-L" .
 # 
 # http://qudt.org/vocab/unit/MicroS-PER-CentiM
 
-unit:MicroS-PER-CentiM a owl:NamedIndividual , :Unit .
+unit:MicroS-PER-CentiM a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See  http://qudt.org/vocab/unit/MicroS-PER-CentiM" .
 # 
 # http://qudt.org/vocab/unit/MilliGM-PER-L
 
-unit:MilliGM-PER-L a owl:NamedIndividual , :Unit .
+unit:MilliGM-PER-L a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/MilliGM-PER-L" .
+# 
+# http://qudt.org/vocab/unit/MilliM
+
+unit:MilliM a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/MilliM" .
 # 
 # http://qudt.org/vocab/unit/MilliV
 
-unit:MilliV a owl:NamedIndividual , :Unit .
+unit:MilliV a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/MilliV" .
 # 
 # http://qudt.org/vocab/unit/NTU
 
-unit:NTU a owl:NamedIndividual , :Unit .
+unit:NTU a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/NTU" .
 # 
 # http://qudt.org/vocab/unit/PERCENT
 
-unit:PERCENT a owl:NamedIndividual , :Unit .
+unit:PERCENT a owl:NamedIndividual , :Unit ;
+	rdfs:comment "See http://qudt.org/vocab/unit/PERCENT" .
 # 
 # 
 # 
@@ -962,30 +1186,5 @@ Examples include \"Volume\", \"Mass\", \"ElectricalConductivity\".
 
 For the purposes of measurements,  corresponds to qudt:QuantityKind
 See: http://qudt.org/2.1/schema/qudt#QuantityKind""" .
-# 
-
-:Salinity rdfs:comment "http://registry2.it.csiro.au/def/property/practical_salinity" .
-# 
-
-:TotalAlkalinityAsCaCO3 rdfs:comment """http://registry2.it.csiro.au/def/property/_alkalinity_total_CaCO3
-
-Total alkalinity is measured by collecting a water sample, and measuring the amount of acid needed to bring the sample to a pH of 4.2. At this pH all the alkaline compounds in the sample are \"used up.\" The result is reported as milligrams per liter (mg/l) of calcium carbonate.
-https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-method-ph-and-alkalinity""" .
-# 
-
-:TotalArsenicConcentration rdfs:comment "http://registry2.it.csiro.au/def/property/_arsenic_concentration" .
-# 
-
-:TotalPhosphorousConcentration rdfs:comment "http://registry2.it.csiro.au/def/property/_phosphorus_concentration" .
-# 
-
-:TotalSuspendedSolids rdfs:comment "http://registry2.it.csiro.au/def/property/_solids-total_suspended" .
-# 
-
-:TrueColor rdfs:comment """The term “color” is used here to mean true color, that is, the color of water from which turbidity has been removed. 
-https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017""" .
-# 
-
-:pH rdfs:comment "See http://registry2.it.csiro.au/def/property/_PH" .
 # 
 # Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,60 +1,86 @@
-@prefix : <http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#> .
+@prefix : <http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix doce: <http://purl.org/nemo/doce#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@base <http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208> .
 
-<http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199> rdf:type owl:Ontology ;
+<http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208> rdf:type owl:Ontology ;
                                                                                 owl:imports doce: .
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://qudt.org/vocab/quantitykind/Temperature
-<http://qudt.org/vocab/quantitykind/Temperature> rdf:type owl:NamedIndividual .
+###  http://purl.org/nemo/doce#RioDoce
+doce:RioDoce doce:wasMeasuredIn :WaterTemperatureMeasurement314020-2017-1 ,
+                                :WaterTransparencyMeasurement314020-2017-1 .
 
 
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#Colatina
-:Colatina rdf:type owl:NamedIndividual ,
-                   doce:ArtificialGeographicFeature .
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#RCA-01
+:RCA-01 rdf:type owl:NamedIndividual ,
+                 doce:GeographicPoint ;
+        doce:hasLatitude "-20.3471"^^xsd:float ;
+        doce:hasLongitude "-43.1127"^^xsd:float ;
+        rdfs:comment "Ponte férrea sobre o rio do Carmo, em Acaiaca (MG). Não atingido pelo rejeito. Área de pastagem." ;
+        rdfs:label "Acaiaca - Carmo 01" .
 
 
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#MeasurementSolidosSuspensos001
-:MeasurementSolidosSuspensos001 rdf:type owl:NamedIndividual ,
-                                         doce:Measurement ;
-                                doce:expressedIn <http://qudt.org/vocab/unit/MilliGM-PER-L> .
-
-
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#MeasurementTemperatura001
-:MeasurementTemperatura001 rdf:type owl:NamedIndividual ,
-                                    doce:Measurement ;
-                           doce:expressedIn <http://qudt.org/vocab/unit/M3-PER-SEC> ;
-                           doce:locatedIn :Point001 ;
-                           doce:measured <http://qudt.org/vocab/quantitykind/Temperature> ;
-                           doce:hasTemperatureValue "20.0"^^xsd:double .
-
-
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#Merieux
-:Merieux rdf:type owl:NamedIndividual ,
-                  doce:Agent ;
-         doce:performed :MeasurementTemperatura001 .
-
-
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#Point001
-:Point001 rdf:type owl:NamedIndividual ,
-                   doce:GeographicPoint ;
-          doce:hasLatitude "1.0"^^xsd:float ;
-          doce:hasLongitude "2.0"^^xsd:float .
-
-
-###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-199#Renova
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#Renova
 :Renova rdf:type owl:NamedIndividual ,
                  doce:Agent ;
-        doce:delegated :MeasurementTemperatura001 .
+        doce:delegated :WaterMeasurementAlkalinity001 ,
+                       :WaterSampling314020-2017-1 ,
+                       :WaterTemperatureMeasurement314020-2017-1 .
+
+
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterMeasurementAlkalinity001
+:WaterMeasurementAlkalinity001 rdf:type owl:NamedIndividual ,
+                                        doce:Measurement ;
+                               doce:expressedIn unit:MilliGM-PER-L ;
+                               doce:measured doce:TotalAlkalinityAsCaCO3 ;
+                               gufo:hasQualityValue "22.0"^^xsd:double .
+
+
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterSample314020-2017-1
+:WaterSample314020-2017-1 rdf:type owl:NamedIndividual ,
+                                   doce:SurfaceWaterSample ;
+                          doce:represents doce:RioDoce ;
+                          doce:wasMeasuredIn :WaterMeasurementAlkalinity001 ;
+                          gufo:wasCreatedIn :WaterSampling314020-2017-1 .
+
+
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterSampling314020-2017-1
+:WaterSampling314020-2017-1 rdf:type owl:NamedIndividual ,
+                                     doce:Sampling ;
+                            doce:locatedIn :RCA-01 ;
+                            gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                            gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp .
+
+
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterTemperatureMeasurement314020-2017-1
+:WaterTemperatureMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
+                                                   doce:Measurement ;
+                                          doce:expressedIn unit:DEG_C ;
+                                          doce:locatedIn :RCA-01 ;
+                                          doce:measured doce:Temperature ;
+                                          gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                          gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                          gufo:hasQualityValue "21.21"^^xsd:double .
+
+
+###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterTransparencyMeasurement314020-2017-1
+:WaterTransparencyMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
+                                                    doce:Measurement ;
+                                           doce:expressedIn unit:M ;
+                                           doce:measured doce:SecchiDiskTransparency ;
+                                           gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                           gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                           gufo:hasQualityValue "0.43"^^xsd:double .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

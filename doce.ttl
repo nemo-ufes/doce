@@ -17,7 +17,11 @@
 	dc:title "The doce water quality ontology"@en ;
 	dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
 	vann:preferredNamespaceUri "http://purl.org/nemo/doce#"^^xsd:anyURI ;
-	rdfs:comment "The doce water quality ontology." ;
+	rdfs:comment """The doce water quality ontology.
+
+Based partly on P. M. C. Campos, “Designing a Network of Reference Ontologies for the Integration of Water Quality Data,” Master Thesis, Universidade Federal do Espírito Santo, 2019. 
+
+See https://nemo.inf.ufes.br/en/projetos/integradoce/""" ;
 	rdfs:label "The doce water quality ontology." .
 # 
 # 
@@ -33,13 +37,15 @@
 :delegated a owl:ObjectProperty ;
 	rdfs:subPropertyOf gufo:participatedIn ;
 	rdfs:domain :ResearchActivityPrincipal ;
-	rdfs:range :ResearchActivity .
+	rdfs:range :ResearchActivity ;
+	rdfs:comment "Identifies a doce:ResearchActivity which the doce:ResearchActivityPrincipal delegated." .
 # 
 # http://purl.org/nemo/doce#expressedIn
 
 :expressedIn a owl:ObjectProperty ;
 	rdfs:domain :Measurement ;
-	rdfs:range :Unit .
+	rdfs:range :Unit ;
+	rdfs:comment "Identifies a doce:Unit with which the doce:Measurement is expressed." .
 # 
 # http://purl.org/nemo/doce#hasApplicableUnit
 
@@ -60,41 +66,52 @@
 	rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
 	rdfs:domain :GeographicallyLocatedEntity ;
 	rdfs:range :GeographicPoint ;
-	rdfs:comment "Identifies a GeographicPoint for a SpatiallyLocatedEntity" .
+	rdfs:comment "Identifies a doce:GeographicPoint for a doce:GeographicallyLocatedEntity." .
 # 
 # http://purl.org/nemo/doce#measured
 
 :measured a owl:ObjectProperty ;
 	rdfs:domain :Measurement ;
-	rdfs:range :QualityKind .
+	rdfs:range :QualityKind ;
+	rdfs:comment "Identifies the doce:QualityKind that characterizes the measurement." .
 # 
 # http://purl.org/nemo/doce#performed
 
 :performed a owl:ObjectProperty ;
 	rdfs:subPropertyOf gufo:participatedIn ;
 	rdfs:domain :ResearchActivityAgent ;
-	rdfs:range :ResearchActivity .
+	rdfs:range :ResearchActivity ;
+	rdfs:comment "Identifies a doce:ResearchActivity which the doce:ResearchActivityAgent performed." .
+# 
+# http://purl.org/nemo/doce#represents
+
+:represents a owl:ObjectProperty ;
+	rdfs:domain :Sample ;
+	rdfs:range :SampledEntity .
 # 
 # http://purl.org/nemo/doce#wasAdoptedIn
 
 :wasAdoptedIn a owl:ObjectProperty ;
 	rdfs:subPropertyOf gufo:participatedIn ;
 	rdfs:domain :ResearchActivityProcedure ;
-	rdfs:range :ResearchActivity .
+	rdfs:range :ResearchActivity ;
+	rdfs:comment "Identifies a doce:ResearchActivity in which the doce:ResearchActivityProcedure was adopted." .
 # 
 # http://purl.org/nemo/doce#wasMeasuredIn
 
 :wasMeasuredIn a owl:ObjectProperty ;
 	rdfs:subPropertyOf gufo:participatedIn ;
 	rdfs:domain :ResearchableEntity ;
-	rdfs:range :Measurement .
+	rdfs:range :Measurement ;
+	rdfs:comment "Identifies a doce:Measurement in which the doce:ResearchableEntity was measured." .
 # 
 # http://purl.org/nemo/doce#wasUsedIn
 
 :wasUsedIn a owl:ObjectProperty ;
 	rdfs:subPropertyOf gufo:participatedIn ;
 	rdfs:domain :Device ;
-	rdfs:range :ResearchActivity .
+	rdfs:range :ResearchActivity ;
+	rdfs:comment "Identifies a doce:ResearchActivity in which the doce:Device was used." .
 # 
 # 
 # 
@@ -104,11 +121,6 @@
 # #
 # #################################################################
 # 
-# 
-# http://purl.org/nemo/doce#hasConcentrationValue
-
-:hasConcentrationValue a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gufo:hasQualityValue .
 # 
 # http://purl.org/nemo/doce#hasLatitude
 
@@ -125,17 +137,6 @@
 	rdfs:domain :GeographicPoint ;
 	rdfs:range xsd:float ;
 	rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
-# 
-# http://purl.org/nemo/doce#hasTemperatureValue
-
-:hasTemperatureValue a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gufo:hasQualityValue ;
-	rdfs:range xsd:double .
-# 
-# http://purl.org/nemo/doce#hasVolumePerTimeUnitValue
-
-:hasVolumePerTimeUnitValue a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gufo:hasQualityValue .
 # 
 # 
 # 
@@ -417,10 +418,20 @@ Corresponds to <http://www.w3.org/2003/01/geo/wgs84_pos#Point> and \"coordinate 
 :HydrogenSulfideConcentration a owl:Class ;
 	rdfs:subClassOf :NonMetalConcentration .
 # 
+# http://purl.org/nemo/doce#HydrographicFeature
+
+:HydrographicFeature a owl:Class ;
+	rdfs:subClassOf :NaturalGeographicFeature .
+# 
 # http://purl.org/nemo/doce#KjeldahlMethodNitrogenConcentration
 
 :KjeldahlMethodNitrogenConcentration a owl:Class ;
 	rdfs:subClassOf :NonMetalConcentration .
+# 
+# http://purl.org/nemo/doce#Lake
+
+:Lake a owl:Class ;
+	rdfs:subClassOf :SurfaceWater .
 # 
 # http://purl.org/nemo/doce#MaterialEntity
 
@@ -565,6 +576,11 @@ Examples include \"RelativeHumidity\", \"AtmosphericPressure\", \"Precipitation\
 :ResearchableEntity a owl:Class ;
 	rdfs:subClassOf gufo:Object .
 # 
+# http://purl.org/nemo/doce#River
+
+:River a owl:Class ;
+	rdfs:subClassOf :SurfaceWater .
+# 
 # http://purl.org/nemo/doce#Salinity
 
 :Salinity a owl:Class ;
@@ -609,6 +625,16 @@ Examples include \"RelativeHumidity\", \"AtmosphericPressure\", \"Precipitation\
 
 :SulphateConcentration a owl:Class ;
 	rdfs:subClassOf :NonMetalConcentration .
+# 
+# http://purl.org/nemo/doce#SurfaceWater
+
+:SurfaceWater a owl:Class ;
+	rdfs:subClassOf :HydrographicFeature .
+# 
+# http://purl.org/nemo/doce#SurfaceWaterSample
+
+:SurfaceWaterSample a owl:Class ;
+	rdfs:subClassOf :WaterSample .
 # 
 # http://purl.org/nemo/doce#Temperature
 
@@ -803,6 +829,11 @@ and \"QUDT All Units\" http://www.qudt.org/doc/2020/04/DOC_VOCAB-UNITS-ALL-v2.1.
 
 Examples include \"ArsenicConcentration\", \"TotalDissolvedSolids\",  \"Conductivity\", \"Toxicity\".""" .
 # 
+# http://purl.org/nemo/doce#WaterSample
+
+:WaterSample a owl:Class ;
+	rdfs:subClassOf :AbioticEntity , :Sample .
+# 
 # http://purl.org/nemo/doce#pH
 
 :pH a owl:Class ;
@@ -816,6 +847,11 @@ Examples include \"ArsenicConcentration\", \"TotalDissolvedSolids\",  \"Conducti
 # #
 # #################################################################
 # 
+# 
+# http://purl.org/nemo/doce#AmbientTemperature
+
+:AmbientTemperature a owl:NamedIndividual , :MetereologicalQualityKind ;
+	:hasApplicableUnit unit:DEG_C .
 # 
 # http://purl.org/nemo/doce#HazenUnit
 
@@ -910,6 +946,10 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" .
 
 :RelativeHumidity a owl:NamedIndividual , :MetereologicalQualityKind ;
 	:hasApplicableUnit unit:PERCENT .
+# 
+# http://purl.org/nemo/doce#RioDoce
+
+:RioDoce a owl:NamedIndividual , :River .
 # 
 # http://purl.org/nemo/doce#Salinity
 

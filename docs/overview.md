@@ -118,7 +118,7 @@ Doce is anchored in gUFO in the following ways:
 3. Doce *instantiates* gUFO classes in the taxonomy of types  
    For example, `doce:Agent rdf:type gufo:Category`, `doce:SampledEntity rdf:type gufo:Role`.
 
-Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the `unit` prefix is used for namespace http://qudt.org/vocab/unit/.  Some corresponds to QUDT Quantity Kinds are also identified. Corresponds to  Chemical Entities of Biological Interest (CHEBI) <https://www.ebi.ac.uk/ols/ontologies/chebi> are also indicated. 
+Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the `unit` prefix is used for namespace http://qudt.org/vocab/unit/.  Some correspondences to QUDT Quantity Kinds are also identified. Correspondences to  Chemical Entities of Biological Interest (CHEBI) <https://www.ebi.ac.uk/ols/ontologies/chebi> are also indicated. 
 
 
 <a name="activities"></a>

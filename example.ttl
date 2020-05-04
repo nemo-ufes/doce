@@ -7,10 +7,10 @@
 @prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
-@base <http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208> .
+@base <http://purl.org/nemo/examples/doceexample> .
 
-<http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208> rdf:type owl:Ontology ;
-                                                                                owl:imports doce: .
+<http://purl.org/nemo/examples/doceexample> rdf:type owl:Ontology ;
+                                             owl:imports doce: .
 
 #################################################################
 #    Individuals
@@ -35,14 +35,15 @@ doce:RioDoce doce:wasMeasuredIn :WaterTemperatureMeasurement314020-2017-1 ,
                  doce:Agent ;
         doce:delegated :WaterMeasurementAlkalinity001 ,
                        :WaterSampling314020-2017-1 ,
-                       :WaterTemperatureMeasurement314020-2017-1 .
+                       :WaterTemperatureMeasurement314020-2017-1 ,
+                       :WaterTransparencyMeasurement314020-2017-1 .
 
 
 ###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterMeasurementAlkalinity001
 :WaterMeasurementAlkalinity001 rdf:type owl:NamedIndividual ,
                                         doce:Measurement ;
                                doce:expressedIn unit:MilliGM-PER-L ;
-                               doce:measured doce:TotalAlkalinityAsCaCO3 ;
+                               doce:measuredQualityKind doce:TotalAlkalinityAsCaCO3 ;
                                gufo:hasQualityValue "22.0"^^xsd:double .
 
 
@@ -58,8 +59,8 @@ doce:RioDoce doce:wasMeasuredIn :WaterTemperatureMeasurement314020-2017-1 ,
 :WaterSampling314020-2017-1 rdf:type owl:NamedIndividual ,
                                      doce:Sampling ;
                             doce:locatedIn :RCA-01 ;
-                            gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
-                            gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp .
+                            gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                            gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp .
 
 
 ###  http://www.semanticweb.org/jpalmeida/ontologies/2020/3/untitled-ontology-208#WaterTemperatureMeasurement314020-2017-1
@@ -67,9 +68,9 @@ doce:RioDoce doce:wasMeasuredIn :WaterTemperatureMeasurement314020-2017-1 ,
                                                    doce:Measurement ;
                                           doce:expressedIn unit:DEG_C ;
                                           doce:locatedIn :RCA-01 ;
-                                          doce:measured doce:Temperature ;
-                                          gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
-                                          gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                          doce:measuredQualityKind doce:Temperature ;
+                                          gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                          gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
                                           gufo:hasQualityValue "21.21"^^xsd:double .
 
 
@@ -77,9 +78,10 @@ doce:RioDoce doce:wasMeasuredIn :WaterTemperatureMeasurement314020-2017-1 ,
 :WaterTransparencyMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
                                                     doce:Measurement ;
                                            doce:expressedIn unit:M ;
-                                           doce:measured doce:SecchiDiskTransparency ;
-                                           gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
-                                           gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-02:00"^^xsd:dateTimeStamp ;
+                                           doce:locatedIn :RCA-01 ;
+                                           doce:measuredQualityKind doce:SecchiDiskTransparency ;
+                                           gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                           gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
                                            gufo:hasQualityValue "0.43"^^xsd:double .
 
 

@@ -30,735 +30,303 @@
     <h2>Description</h2>
     <div id="description">
         <p>The doce water quality ontology.</p>
+<p>Based partly on P. M. C. Campos, “Designing a Network of Reference Ontologies for the Integration of Water Quality Data,” Master Thesis, Universidade Federal do Espírito Santo, 2019. </p>
+<p>See <a href="https://nemo.inf.ufes.br/en/projetos/integradoce/">https://nemo.inf.ufes.br/en/projetos/integradoce/</a> for background on the project and publications. </p>
+<p>The doce water quality ontology specializes the gUFO implementation of UFO. See <a href="http://purl.org/nemo/doc/gufo">http://purl.org/nemo/doc/gufo</a> for reference documentation.</p>
+<p>Cite this work as: </p>
+<p>J. P. A. Almeida, "The doce water quality ontology", http://purl.org/nemo/doc/doce</p>
+<p>For the source repository, see: <a href="https://github.com/nemo-ufes/doce">https://github.com/nemo-ufes/doce</a></p>
     </div>
 </section>
 <section id="overview">
     <h2>Usage Guide <a name="usageguide"></a></h2>
 <h3>Table of Contents</h3>
 <ul>
-<li>1. <a href="#scenarios">Usage Scenarios</a></li>
-<li>2. <a href="#individuals">Taxonomy of Individuals</a><ul>
-<li>2.1. <a href="#concreteindividuals">Concrete Individuals</a></li>
-<li>2.2. <a href="#objectsandparts">Objects and their parts</a></li>
-<li>2.3. <a href="#intrinsicaspects">Intrinsic Aspects</a></li>
-<li>2.4. <a href="#basicqualities">Qualities - Basic patterns</a></li>
-<li>2.5. <a href="#advancedqualities">Qualities - Advanced usage</a></li>
-<li>2.6. <a href="#intrinsicmodes">Intrinsic Modes</a></li>
-<li>2.7. <a href="#extrinsicaspects">Extrinsic Aspects</a></li>
-<li>2.8. <a href="#events">Events</a></li>
-<li>2.9. <a href="#situations">Situations</a></li>
-</ul>
-</li>
-<li>3. <a href="#types">Taxonomy of Types</a><ul>
-<li>3.1. <a href="#enduranttypes">Endurant Types</a></li>
-<li>3.2. <a href="#relationshiptypes">Relationship Types</a></li>
-<li>3.3. <a href="#highordertypes">Higher-Order Types</a></li>
+<li>1. <a href="#overview">Overview</a></li>
+<li>2. <a href="#activities">Research Activities</a></li>
+<li>3. <a href="#agentsdevices">Agents and Devices</a></li>
+<li>4. <a href="#location">Location and Geographical Features</a></li>
+<li>5. <a href="#material">Material Entities of Interest</a></li>
+<li>6. <a href="#qualities">Water Qualities and their Types</a></li>
+<li>7. <a href="#measurement">Measurement (incl. units)</a></li>
+<li>8. <a href="#monitoring">Environmental Monitoring</a><ul>
+<li>8.1. <a href="#program">Monitoring Program</a></li>
+<li>8.2. <a href="#norms">Environmental Quality Norms</a></li>
 </ul>
 </li>
 </ul>
-<p>Research Activities
-Agents and Devices
-Location and Geographical Features
-Researcheable Entities
-Water Qualities
-Measurement (including Units)
-Environmental Monitoring
-    Norms
-    Programme...</p>
 <p>See also <a href="#toc">reference table of contents</a>.</p>
-<p><a name="scenarios"></a></p>
-<h3>1. Usage Scenarios</h3>
-<p>This section provides an introduction to doce as a primer to prospective users. <a href="https://www.w3.org/TR/turtle/">Turtle</a> is used as a syntax for RDF serialization for illustrative purposes.  </p>
-<p>An overview of the doce taxonomy is shown below, anchored in the gufo implementation of UFO.</p>
+<p><a name="overview"></a></p>
+<h3>1. Overview</h3>
+<p>This section provides an introduction to <em>doce</em> as a primer to prospective users. <a href="https://www.w3.org/TR/turtle/">Turtle</a> is used as a syntax for RDF serialization for illustrative purposes.  </p>
+<p>An overview of the main fragments of the doce taxonomy is shown below, anchored in the gUFO implementation of UFO. <code>gufo</code> is a prefix for the namespace: http://purl.org/nemo/gufo#</p>
+<p>The taxonomy of events of doce concerns research activities of interest:</p>
 <blockquote>
 <ul>
-<li>gufo:Individual<ul>
+<li>gufo:Event<ul>
+<li>ResearchActivity<ul>
+<li>Sampling</li>
+<li>Preparation</li>
+<li>Measurement</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>The taxonomy of objects concern the agents, devices, material entities and procedures that participate in research activities:</p>
+<blockquote>
+<ul>
+<li>gufo:Object<ul>
+<li>Agent<ul>
+<li>ResearchActivityAgent</li>
+<li>ResearchActivityPrincipal</li>
+</ul>
+</li>
+<li>Device</li>
+<li>MaterialEntity<ul>
+<li>AbioticEntity<ul>
+<li>AmountOfWater<ul>
+<li>WaterSample<ul>
+<li>SurfaceWaterSample</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GeographicFeature<ul>
+<li>ArtificialGeographicFeature<ul>
+<li>Reservoir</li>
+</ul>
+</li>
+<li>HydrographicFeature<ul>
+<li>SurfaceWaterFeature<ul>
+<li>Lake</li>
+<li>Reservoir</li>
+<li>River</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NaturalGeographicFeature<ul>
+<li>Lake</li>
+<li>River</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BioticEntity</li>
+<li>Sample<ul>
+<li>WaterSample<ul>
+<li>SurfaceWaterSample</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SampledEntity</li>
+</ul>
+</li>
+<li>ResearchActivityProcedure</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Abstract individuals are used to establish units of measurement and geolocation coordinates:</p>
+<blockquote>
+<ul>
 <li>gufo:AbstractIndividual<ul>
 <li>Unit</li>
-</ul>
-</li>
-<li>gufo:ConcreteIndividual<ul>
-<li>gufo:Endurant<ul>
-<li>gufo:Object<ul>
-<li>Agent</li>
-<li>Agent</li>
-<li>Device</li>
-<li>GeographicFeature</li>
-</ul>
-</li>
-<li>gufo:Aspect</li>
-</ul>
-</li>
-<li>gufo:Event</li>
-<li>gufo:Situation</li>
+<li>gufo:QualityValue<ul>
+<li>GeographicPoint</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</blockquote>
+<p>The taxonomy of qualities concerns those aspects of the material entities that are subject to measurement and further investigation. A number of qualities are defined in doce to facilitate integration:</p>
+<blockquote>
+<ul>
+<li>gufo:Quality<ul>
+<li>MetereologicalQuality<ul>
+<li>AmbientTemperature</li>
+<li>Rainfall</li>
+<li>RelativeHumidity</li>
+</ul>
+</li>
+<li>PhysicalChemicalQuality<ul>
+<li>BiologicalOxygenDemand</li>
+<li>Concentration<ul>
+<li>MetalConcentration</li>
+<li>MetalloidConcentration</li>
+<li>NonMetalConcentration</li>
+<li>SolidsConcentration</li>
+</ul>
+</li>
+<li>Conductivity</li>
+<li>Hardness_CalciumCarbonateEquivalence</li>
+<li>pH</li>
+<li>RedoxPotential</li>
+<li>Salinity</li>
+<li>SecchiDiskTransparency</li>
+<li>Temperature</li>
+<li>TotalAlkalinityAsCaCO3</li>
+<li>TrueColor</li>
+<li>Turbidity</li>
+</ul>
+</li>
+<li>SamplingDepth</li>
+<li>VolumePerUnitTime<ul>
+<li>FlowRate</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Additional (metereological, biological and physical-chemical) qualities may be defined instantiating the taxonomy of Quality Kinds:</p>
+<blockquote>
+<ul>
 <li>gufo:Type<ul>
-<li>gufo:AbstractIndividualType</li>
-<li>gufo:ConcreteIndividualType<ul>
-<li>gufo:EndurantType<ul>
-<li>gufo:Sortal<ul>
-<li>gufo:Kind</li>
-<li>gufo:Phase</li>
-<li>gufo:Role</li>
-<li>gufo:SubKind</li>
-</ul>
-</li>
-<li>gufo:NonSortal<ul>
-<li>gufo:Category</li>
-<li>gufo:PhaseMixin</li>
-<li>gufo:RoleMixin</li>
-<li>gufo:Mixin</li>
+<li>gufo:RigidType<ul>
+<li>gufo:Kind<ul>
+<li>QualityKind<ul>
+<li>MetereologicalQualityKind</li>
+<li>WaterQualityKind<ul>
+<li>BiologicalQualityKind</li>
+<li>PhysicalChemicalQualityKind<ul>
+<li>ChemicalEntityConcentrationQualityKind</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>gufo:EventType</li>
-<li>gufo:SituationType</li>
 </ul>
 </li>
-<li>gufo:RelationshipType</li>
+</ul>
+</li>
+<li>ChemicalEntityType</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<p>Considering these two taxonomies, the following usage scenarios are envisioned and discussed in this document  where appropriate:</p>
+<p>Doce is anchored in gUFO in the following ways:</p>
 <ol>
-<li>A UFO-based ontology <em>instantiates</em> gUFO classes in the taxonomy of individuals<br />
-   For example, <code>:Earth rdf:type gufo:Object</code> and <code>:WorldCup1970Final rdf:type gufo:Event</code>.</li>
-<li>A UFO-based ontology <em>specializes</em> gUFO classes in the taxonomy of individuals<br />
-   For example, <code>:Planet rdfs:subClassOf gufo:Object</code> and <code>:SoccerMatch rdfs:subClassOf gufo:Event</code>.</li>
-<li>A UFO-based ontology <em>instantiates</em> gUFO classes in the taxonomy of types<br />
-   For example, <code>:Planet rdf:type gufo:Kind</code>, <code>:Child rdf:type gufo:Phase</code>.</li>
-<li>A UFO-based ontology <em>specializes</em> gUFO classes in the taxonomy of types<br />
-   For example, <code>:PersonPhase rdfs:subClassOf gufo:Phase</code>.</li>
+<li>Doce (as a UFO-based ontology) <em>specializes</em> gUFO classes in the gUFO taxonomy of individuals<br />
+   For example, <code>doce:Device rdfs:subClassOf gufo:Object</code>, <code>doce:Measurement rdfs:subClassOf gufo:Event</code> and <code>doce:WaterQuality rdfs:subClassOf gufo:Quality</code>.</li>
+<li>Doce <em>specializes</em> gUFO classes in the gUFO taxonomy of types<br />
+   For example, <code>doce:QualityKind rdfs:subClassOf gufo:Kind</code>.</li>
+<li>Doce <em>instantiates</em> gUFO classes in the taxonomy of types<br />
+   For example, <code>doce:Agent rdf:type gufo:Category</code>, <code>doce:SampledEntity rdf:type gufo:Role</code>.</li>
 </ol>
-<p>Users may combine the various scenarios discussed. For example, users will often employ scenarios 2 and 3 in combination as shown in the following fragment, which defines a "Person" class that specializes gufo:Object and instantiates gufo:Kind:</p>
-<pre><code>@prefix : &lt;http://purl.org/nemo/example#&gt; .
-@prefix gufo: &lt;http://purl.org/nemo/gufo#&gt; .
-
-:Person rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Object ;
-        rdf:type gufo:Kind .
-</code></pre>
-<p><a name="individuals"></a></p>
-<h3>2. Taxonomy of Individuals</h3>
-<p>The taxonomy of individuals of gUFO has the following overall structure:</p>
+<p>Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the <code>unit</code> prefix is used for namespace http://qudt.org/vocab/unit/.  Some corresponds to QUDT Quantity Kinds are also identified. Corresponds to  Chemical Entities of Biological Interest (CHEBI) <a href="https://www.ebi.ac.uk/ols/ontologies/chebi">https://www.ebi.ac.uk/ols/ontologies/chebi</a> are also indicated. </p>
+<p><a name="activities"></a></p>
+<h3>2. Research Activities</h3>
+<p>The taxonomy of research activities has the following overall structure:</p>
 <blockquote>
 <ul>
-<li>Individual<ul>
-<li>AbstractIndividual</li>
-<li>ConcreteIndividual<ul>
-<li>Endurant<ul>
-<li>Object</li>
-<li>Aspect</li>
-</ul>
-</li>
-<li>Event</li>
-<li>Situation</li>
+<li>gufo:Event<ul>
+<li>ResearchActivity<ul>
+<li>Sampling</li>
+<li>Preparation</li>
+<li>Measurement</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<p><a name="concreteindividuals"></a></p>
-<h4>2.1. Concrete Individuals</h4>
-<p>A gufo:ConcreteIndividual, differently from a gufo:AbstractIndividual, is one that exists in space-time. Concrete individuals comprise objects (the Mount Everest, John, his car, the Brazilian 1988 Constitution), reified aspects of concrete individuals (John's height, his service agreement with Amazon, Inc.), events (the 1986 Mexico City Earthquake, the 2009 United Nations Climate Change Conference) and situations (the situation in which John weighs 80 kilograms, the situation in which Mary is a professor).</p>
-<p>Together, objects and aspects form what we call endurants, as they are those concrete individuals that endure in time and may change qualitatively while keeping their identity. A gufo:Aspect is a characteristic or trait of a concrete individual that is itself conceived as an individual. Treating aspects as endurants (i.e., reifying aspects) allows us to consider the properties of aspects themselves, and track their change in time.</p>
-<p>gUFO includes a number of data and object properties that can be used with concrete individuals. For example, temporal aspects of concrete individuals can be captured with the data properties gufo:hasBeginPointInXSDDate, gufo:hasBeginPointInXSDDateTimeStamp, gufo:hasEndPointInXSDDate and gufo:hasEndPointInXSDDateTimeStamp. In the case of objects (and aspects), these properties determine the time point when the object (or aspect) comes into existence or ceases to exist. In the case of events, these properties determine the time point when the event starts to take place or when it ends. In the case of situations, the properties determine the time point when the situation begins and ceases to hold. (Temporal instants may also be reified using time:Instant in which case the gufo:hasBeginPoint and gufo:hasEndPoint object properties are applicable, see <a href="https://www.w3.org/TR/owl-time/">OWL-Time</a> for details concerning time:Instant, including support for Allen relations, temporal reference systems, temporal precision.)</p>
-<p>For example, the 1985 Mexico City Earthquake started at 13:17:50 (UTC) on the 19th Sept. 1985 (scenario 1):</p>
-<pre><code>:1985MexicoCityEarthquake rdf:type  gufo:Event ;
-                   gufo:hasBeginPointInXSDDateTimeStamp "1985-09-19T13:17:50Z"^^xsd:dateTimeStamp .
+<p>A doce:ResearchActivity is a gufo:Event which is conducted by one or more agents in order to investigate one or more aspects of a phenomenon of interest.</p>
+<p>Since all research activities are events they can be given temporal boundaries. gUFO includes a number of data and object properties that can be used with events. For example, temporal aspects can be captured with the data properties gufo:hasBeginPointInXSDDate, gufo:hasBeginPointInXSDDateTimeStamp, gufo:hasEndPointInXSDDate and gufo:hasEndPointInXSDDateTimeStamp. These properties determine the time point when the event starts to take place or when it ends. (Instantaneous events can be represented with the same begin and end point.) (Temporal instants may also be reified using time:Instant in which case the gufo:hasBeginPoint and gufo:hasEndPoint object properties are applicable, see <a href="https://www.w3.org/TR/owl-time/">OWL-Time</a> for details concerning time:Instant, including support for Allen relations, temporal reference systems, temporal precision.)</p>
+<p>Further, a doce:ResearchActivity is a doce:GeographicallyLocatedEntity, and hence can be located in space (see the doce:locatedIn object property).</p>
+<p>The following example shows a fragment representing the sampling of water in a geographic point named RCA-01, on 17th August 2009, 14:24 Brasília Time.</p>
+<pre><code>:WaterSampling314020-2017-1 rdf:type owl:NamedIndividual ,
+                                    doce:Sampling ;
+                            doce:locatedIn :RCA-01 ;
+                            gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                            gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp .
 </code></pre>
-<p>By declaring Earthquake to be a sub-class of gufo:Event, the applicable object and data properties can be used with instances of earthquake (scenario 2):</p>
-<pre><code>:Earthquake rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Event .
-
-:1985MexicoCityEarthquake rdf:type  :Earthquake ;
-                        gufo:hasBeginPointInXSDDateTimeStamp "1985-09-19T13:17:50Z"^^xsd:dateTimeStamp .
+<p>The following fragment shows the doce:Sample created in the sampling above. A doce:Sample represents a doce:SampledEntity. In this particular case, the sample entity is the Rio Doce (which is previously defined in doce with the URI doce:RioDoce).</p>
+<pre><code>:WaterSample314020-2017-1 rdf:type owl:NamedIndividual ,
+                                doce:SurfaceWaterSample ;
+                        doce:represents doce:RioDoce ;
+                        gufo:wasCreatedIn :WaterSampling314020-2017-1 .
 </code></pre>
-<p>gUFO also includes a number of part-whole relations for concrete individuals. See <a href="#isProperPartOf">gufo:isProperPartOf</a> and its sub-properties.</p>
-<p><a name="objectsandparts"></a></p>
-<h4>2.2. Objects and their parts</h4>
-<p>Objects are further classified according to the way they are structured into parts, leading to the following subclasses: gufo:FunctionalComplex, gufo:Collection and gufo:Quantity.</p>
-<p>A gufo:FunctionalComplex is a complex gufo:Object whose parts (components) play different roles in its composition, including most ordinary objects. For example, a person could be considered a gufo:FunctionalComplex with the various organs (heart, brain, lungs, etc.) playing different roles.</p>
-<p>A gufo:Collection is a complex gufo:Object whose parts (the members of the collection) have a uniform structure (i.e., members are conceived as playing the same role in the collection). Examples include a deck of cards, a pile of bricks, a forest (conceived as a collection of trees), a group of people. Collections may have a variable or fixed membership (see subclasses gufo:VariableCollection and gufo:FixedCollection).</p>
-<p>A gufo:Quantity is complex gufo:Object that is a maximally-connected portion of stuff. A gufo:Quantity has a fixed constitution, and thus, removing or adding a sub-quantity would result in a different quantity. Examples include the portion of wine in a wine tank, a lump of clay, the gold that constitutes a wedding ring.</p>
-<p>The relations between a part and its whole are captured with the gufo:isObjectPropertPartOf property and its sub-properties, depending on the types of parts and complex objects involved:</p>
-<blockquote>
-<ul>
-<li>isObjectProperPartOf<ul>
-<li>isComponentOf - when the part is a component of a funcional complex</li>
-<li>isCollectionMemberOf - when the part is a member of a collection</li>
-<li>isSubCollectionOf - when the part is a collection containing a proper subset of all the member of another collection</li>
-<li>isSubQuantityOf - when the part and the whole are quantities</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>For example, John's brain is a component of John's:</p>
-<pre><code>:John rdf:type :Person .
-
-:Brain rdf:type owl:Class ; 
-        rdfs:subClassOf gufo:Object .
-
-:JohnsBrain rdf:type :Brain ;
-        gufo:isComponentOf :John .
+<p>The created Sample is typically subject to measurement later, which can be representing using doce:Measurement. A doce:Measurement is a doce:ResearchActivity whose purpose is to ascertain the value of a quality of an entity of interest (a gufo:Object).</p>
+<p>The following example represents the (ex-situ) measurement of alkalinity (doce:TotalAlkalinityAsCaCO3) of the sample identified earlier (which is identified using the doce:measured object property). The measurement is expressed in milligrams per liter (unit:MilliGM-PER-L). (See <a href="#measurement">more on units</a>.) The measured value is represented with the gufo:hasQualityValue data property. In this case, the water sample is found to have a total alkalinity of 22.0 milligrams per liter:</p>
+<pre><code>:WaterMeasurementAlkalinity001 rdf:type owl:NamedIndividual ,
+                                        doce:Measurement ;
+                            doce:measured :WaterSample314020-2017-1 ;
+                            doce:expressedIn unit:MilliGM-PER-L ;
+                            doce:measuredQualityKind doce:TotalAlkalinityAsCaCO3 ;
+                            gufo:hasQualityValue "22.0"^^xsd:double .
 </code></pre>
-<p><a name="intrinsicaspects"></a></p>
-<h4>2.3. Intrinsic Aspects</h4>
-<p>The most straightforward way to describe intrinsic aspects of entities in a RDF/OWL setting is to employ data properties. For example, the following fragment defines a data property to represent the mass of a physical object in kilograms and declare a value for the Moon's mass:</p>
-<pre><code>:hasMassInKilograms rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :PhysicalObject;
-                        rdfs:range xsd:double .
-
-:Moon rdf:type :PhysicalObject ;
-        :hasMassInKilograms "7.34767309E22"^^xsd:double .
+<p>For an in-situ doce:Measurement, the gufo:Object measured is often a doce:GeographicFeature, such as a river of a lake. Note that for an in-situ measurement of a doce:MetereologicalQuality, no specific gufo:Object is indicated.</p>
+<p>The following fragment represents the (in-situ) measurement of water temperature (no sampling involved in this case.) The location of the measurement itself is now relevant (in this case point RCA-01). The quality kind measured is doce:Temperature and the measurement is expressed in degrees Celsius (unit:DEC_C). (See <a href="#measurement">more on units</a>.) The measured value is represented with the gufo:hasQualityValue data property. In this case, the water in point RCA-01 measured 21.21 degrees Celsius on the 17th August 2009 at 14:24 Brasília Time:</p>
+<pre><code>:WaterTemperatureMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
+                                                doce:Measurement ;
+                                        doce:locatedIn :RCA-01 ;
+                                        doce:measured doce:RioDoce ;
+                                        doce:measuredQualityKind doce:Temperature ;
+                                        doce:expressedIn unit:DEG_C ;
+                                        gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                        gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                        gufo:hasQualityValue "21.21"^^xsd:double .
 </code></pre>
-<p>While this is an adequate solution in many settings, some additional flexibility may be required, which can be obtained by treating an aspect as a concrete individual (instances of gufo:Aspect). This strategy is known as "reification".</p>
-<p>Reified aspects in gUFO are further divided into intrinsic aspects (qualities and intrinsic modes) and extrinsic aspects (relators and extrinsic modes):</p>
-<blockquote>
-<ul>
-<li>Endurant<ul>
-<li>Aspect<ul>
-<li>InstrinsicAspect<ul>
-<li>Quality</li>
-<li>IntrinsicMode</li>
-</ul>
-</li>
-<li>ExtrinsicAspect<ul>
-<li>Relator</li>
-<li>ExtrinsicMode</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>A gufo:IntrinsicAspect depends on a single concrete individual in which it inheres. Examples include intrinsic physical aspects, such as the Moon's mass, Lassie's fur color; the fragility of John Lennon's glasses; mental dispositions, such as Bob's math skills, his belief that the number one is odd.</p>
-<p>Intrinsic aspects are divided into qualities, in case the aspect is measurable by a certain value space (for example, Bob's weight, the height of the Statue of Liberty), and intrinsic modes, which are not given a direct value (for example, Bob's belief that the Eiffel Tower is in Paris, his capabilities).</p>
-<p><a name="basicqualities"></a></p>
-<h4>2.4. Qualities - Basic pattern</h4>
-<p>The turtle fragment below shows an example of definition of a quality type (mass) by specializing gufo:Quality:</p>
-<pre><code>:Mass rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Quality .
+<p>The following fragment represents the (in-situ) measurement of water transparency in the same location and time (again no sampling involved in this case.) Transparency is measured in meters (unit:M).</p>
+<pre><code>:WaterTransparencyMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
+                                                    doce:Measurement ;
+                                        doce:locatedIn :RCA-01 ;
+                                        doce:measured doce:RioDoce ;
+                                        doce:measuredQualityKind doce:SecchiDiskTransparency ;
+                                        doce:expressedIn unit:M ;
+                                        gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                        gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
+                                        gufo:hasQualityValue "0.43"^^xsd:double .
 </code></pre>
-<p>As an intrinsic aspect, a gufo:Quality gufo:inheresIn a gufo:ConcreteIndividual. For example, the Moon's mass inheres in the Moon. Further, a quality may be given a value with the gufo:hasQualityValue data property. For example, consider the Moon's mass:</p>
-<pre><code>:Moon rdf:type :PhysicalObject .
-
-:MoonsMass rdf:type :Mass ;
-                gufo:inheresIn :Moon
-                gufo:hasQualityValue "7.34767309E22"^^xsd:double .
+<p>A doce:Preparation activity is a doce:ResearchActivity whose purpose is to prepare a sample for further analysis. For example, consider activities such as "extractions" in the preparation for measuring the concentration of metals in a water sample. In many cases, preparation is not explicitly modeled, and the preparation activities are encompassed in measurement. When preparation is explicit, a doce:Preparation terminates an original doce:Sample, creating a newly prepared doce:Sample. (See gufo:wasTerminatedIn and gufo:wasCreatedIn.) Explicit preparation creates the opportunity to track the agents involved in handling preparation, the procedures and devices employed.</p>
+<p><a name="agentsdevices"></a></p>
+<h3>3. Agents and Devices</h3>
+<p>TODO</p>
+<p>Example of a doce:ResearchActivityPrincipal responsible for delegating the sampling and measurement activities discussed earlier:</p>
+<pre><code>:Renova rdf:type owl:NamedIndividual ,
+                doce:Agent ;
+        doce:delegated :WaterMeasurementAlkalinity001 ,
+                    :WaterSampling314020-2017-1 ,
+                    :WaterTemperatureMeasurement314020-2017-1 ,
+                    :WaterTransparencyMeasurement314020-2017-1 .
 </code></pre>
-<p>A user may add that a mass must inhere in exactly one physical object:</p>
-<pre><code>:Mass rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty gufo:inheresIn ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :PhysicalObject
-                       ] .
+<p><a name="location"></a></p>
+<h3>4. Location and Geographical Features</h3>
+<p>TODO</p>
+<p>Example of a doce:GeographicPoint where the sampling and in-situ measurements took place:</p>
+<pre><code>:RCA-01 rdf:type owl:NamedIndividual ,
+                doce:GeographicPoint ;
+        doce:hasLatitude "-20.3471"^^xsd:float ;
+        doce:hasLongitude "-43.1127"^^xsd:float ;
+        rdfs:comment "Ponte férrea sobre o rio do Carmo, em Acaiaca (MG). Não atingido pelo rejeito. Área de pastagem." ;
+        rdfs:label "Acaiaca - Carmo 01" .
 </code></pre>
-<p>Further, a user may define specialized sub-properties of gufo:inheresIn in order to determine specific domain and range applicable to qualities of a certain type:</p>
-<pre><code>:massOf rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf gufo:inheresIn ;
-        rdfs:domain :Mass ;
-        rdfs:range :PhysicalObject .
-</code></pre>
-<p>A user may also define sub-properties of gufo:hasQualityValue, for example with different ways to quantify a quality. Treating a quality (such as the Moon's mass) as a reified entity,  we can give it a value in different units (kilograms and in short tons):</p>
-<pre><code>:massInKilograms rdf:type owl:DatatypeProperty ;
-                        rdfs:subPropertyOf gufo:hasQualityValue ;
-                        rdfs:domain :Mass ;
-                        rdfs:range xsd:double .
-
-:massInShortTons rdf:type owl:DatatypeProperty ;
-                        rdfs:subPropertyOf gufo:hasQualityValue ;
-                        rdfs:domain :Mass ;
-                        rdfs:range xsd:double .
-
-:MoonsMass rdf:type :Mass ;
-                :massOf :Moon ;
-                :massInKilograms "7.34767309E22"^^xsd:double ;
-                :massInShortTons "8.099423160000001E19"^^xsd:double .
-</code></pre>
-<p>(Other patterns for the representation of quality values are discussed below, including reification of quality values and situations employed to represent changes in qualities.)</p>
-<p><a name="advancedqualities"></a></p>
-<h4>2.5. Qualities - Advanced usage</h4>
-<p>In addition to the gufo:hasQualityValue data property, an object property called gufo:hasReifiedQualityValue is provided for those cases in which an instance of gufo:QualityValue is used instead of a literal to provide the value of a quality. Reifying a gufo:QualityValue may be useful in the case of enumerated values (for example, the various sizes of t-shirts), nominal qualities (for example, ethnicity or gender) or for quality values that are defined in terms of a multidimensional quality structure (such as color conceived in terms of red, green and blue components or hue, saturation and brightness).</p>
-<p>In all these cases, a specialization of gufo:QualityValue is introduced. For example, consider the enumeration of shirt sizes:</p>
-<pre><code>:ShirtSize rdf:type owl:Class ;
-        rdfs:subClassOf gufo:QualityValue ;
-        owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:oneOf ( :S
-                                            :M
-                                            :L
-                                            :XL
-                                        )
-                            ] .
-
-:S rdf:type :ShirtSize .
-:M rdf:type :ShirtSize .
-:L rdf:type :ShirtSize .
-:XL rdf:type :ShirtSize .
-</code></pre>
-<p>Consider color in a multidimensional RGB quality structure. Here, a corresponding sub-property of gufo:hasReifiedQualityValue ("hasColorValueInRGB") is also defined:</p>
-<pre><code>:ColorValueInRGB rdf:type owl:Class ;
-                rdfs:subClassOf gufo:QualityValue .
-
-:hasColorValueInRGB rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf gufo:hasReifiedQualityValue ;
-                    rdfs:domain :Color ;
-                    rdfs:range :ColorValueInRGB .
-</code></pre>
-<p>In the case of multidimensional quality values, it is recommended that subproperties of gufo:hasValueComponent are created to indicate values for particular dimensions, possibly identifying the datatype to be used. For example "hasRedValueComponent", "hasGreenValueComponent" and "hasBlueValueComponent" could be used as data properties specializing gufo:hasValueComponent with the xsd:nonNegativeInteger datatype.</p>
-<pre><code>:hasRedValueComponent rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf gufo:hasValueComponent ;
-                    rdfs:domain :ColorValueInRGB ;
-                    rdfs:range xsd:nonNegativeInteger .
-
-:hasGreenValueComponent rdf:type owl:DatatypeProperty ;
-                        rdfs:subPropertyOf gufo:hasValueComponent ;
-                        rdfs:domain :ColorValueInRGB ;
-                        rdfs:range xsd:nonNegativeInteger .
-
-:hasBlueValueComponent rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf gufo:hasValueComponent ;
-                    rdfs:domain :ColorValueInRGB ;
-                    rdfs:range xsd:nonNegativeInteger .
-</code></pre>
-<p>The following fragment determines the color of Yves Klein's "Blue Monochrome" painting made in 1961 (MoMA's object with number 618.1967) respecting the multidimensional scheme we have defined above:</p>
-<pre><code>:YvesKleinBlueMonochromePainting rdf:type :PhysicalObject .
-
-:YvesKleinBlueMonochromePaintingColor rdf:type :Color ;
-                    gufo:inheresIn :YvesKleinBlueMonochromePainting ;
-                    :hasColorValueInRGB [ 
-                        rdf:type :ColorValueInRGB ;
-                        :hasRedValueComponent "0"^^xsd:nonNegativeInteger ;
-                        :hasGreenValueComponent "47"^^xsd:nonNegativeInteger ;
-                        :hasBlueValueComponent "167"^^xsd:nonNegativeInteger ] .
-</code></pre>
-<p>The example can be extended to capture the color in CMYK, HSB or other schemes.</p>
-<p><a name="intrinsicmodes"></a></p>
-<h3>2.6. Intrinsic Modes</h3>
-<p>Intrinsic modes, unlike qualities, are not given values. The following fragment shows an example of a sub-class of gufo:IntrinsicMode and the corresponding sub-property of gufo:inheresIn establishing that a headache inheres in a person:</p>
-<pre><code>:Headache rdf:type owl:Class ;
-        rdfs:subClassOf gufo:IntrinsicMode .
-
-:headacheOf rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf gufo:inheresIn ;
-            rdfs:domain :Headache ;
-            rdfs:range :Person .
-</code></pre>
-<p>Since a gufo:IntrinsicMode is a gufo:ConcreteIndividual, we may track its temporal properties, as well as ascribe qualities (or other aspects) to it. For example, we may quantify the intensity of a headache with a quality and a <a href="https://doi.org/10.1177%2F0333102411434812">Verbal Rating Scale</a>  (1 corresponding to "Mild pain", 2 corresponding to "Moderate pain", 3 corresponding to "Severe"):</p>
-<pre><code>:johnsHeadache rdf:type :Headache ;
-            :headacheOf :John;
-            gufo:hasBeginPointInXSDDateTimeStamp "2019-11-19T14:14:50Z"^^xsd:dateTimeStamp .
-
-:HeadacheIntensity rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Quality .
-
-:johnsHeadacheIntensity rdf:type :HeadacheIntensity ;
-            gufo:inheresIn :johnsHeadache  ;
-            gufo:hasQualityValue "2"^^xsd:nonNegativeInteger .
-</code></pre>
-<p>Further, by using situations, we can also track changes in an aspect over time, for example, to capture the evolution of a symptom, such as a headache and its intensity. See <a href="#situations">situations</a> below.</p>
-<p><a name="extrinsicaspects"></a></p>
-<h4>2.7. Extrinsic Aspects</h4>
-<p>A gufo:ExtrinsicAspect is one that depends on one or more concrete individuals. Extrinsic (or "relational") aspects are reified relationships (instances of gufo:Relator), e.g., John and Mary's marriage, Mary's employment contract at Nasa.</p>
-<p>A relator gufo:mediates concrete individuals. The following fragment shows an example of a sub-class of gufo:Relator and the corresponding sub-property of gufo:mediates establishing that persons are mediated through marriage:</p>
-<pre><code>:Marriage rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Relator .
-
-:marriageInvolves rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:mediates ;
-                rdfs:domain :Marriage ;
-                rdfs:range :Person .
-</code></pre>
-<p>The following fragment instantiates Marriage and establishes the related persons (John and Mary):</p>
-<pre><code>:John rdf:type :Person .
-:Mary rdf:type :Person .
-
-:JohnMarysMarriage rdf:type :Marriage ;
-                :marriageInvolves :John ,
-                                  :Mary .
-</code></pre>
-<p>A fuller application of the relator pattern can also make explicit the roles that are played in the scope of a relationship:</p>
-<pre><code>:Employment rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Relator .
-
-:Employee rdf:type owl:Class ;
-        rdfs:subClassOf :Person .
-
-:Organization rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Object .
-
-:Employer rdf:type owl:Class ;
-        rdfs:subClassOf :Organization .
-
-:involvesEmployee rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:mediates ;
-                rdfs:domain :Employment ;
-                rdfs:range :Employee .
-
-:involvesEmployer rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf gufo:mediates ;
-                rdfs:domain :Employment ;
-                rdfs:range :Employer .
-</code></pre>
-<p>In the simpler cases, a user may alternatively choose to only declare that a marriage is a relator that involves persons. This pattern avoids the creation of subproperties of gufo:involves, but it prevents the explicit representation of roles:</p>
-<pre><code>:Marriage rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty gufo:mediates ;
-                            owl:someValuesFrom :Person
-                          ] .
-</code></pre>
-<p>Since a relator is a concrete individual, we may also track its temporal properties (begin and end date of employment) and ascribe other aspects to it (salary in the scope of the employment).</p>
-<p>Note that, since OWL does not have dynamic classification, a person will be classified as an employee regardless of whether they have a current or past employment. Temporal properties of the employment will reflect whether employment is past.</p>
-<p>Extrinsic aspects can also be reified one-sided relationships, e.g., John's admiration for Obama (which depends on Obama but does not characterize him). They can also be used to reveal parts of relators (instances of gufo:ExtrinsicMode), e.g., John's rights towards Amazon, Inc. (in the scope of a service agreement) and Amazon's reciprocal duties, Amazon's rights towards John, John's reciprocal duties:</p>
-<pre><code>:AmazonInc rdf:type :Organization .
-
-:ServiceAgreement rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Relator .
-
-:JohnAmazonAgreement rdf:type :ServiceAgreement ;
-                :mediates :AmazonInc ,
-                            :John .
-
-:JohnsRightToServiceProvisioning rdf:type gufo:ExtrinsicMode ;
-                gufo:inheresIn :John ;
-                gufo:externallyDependsOn :AmazonInc ;
-                gufo:isAspectProperPartOf :JohnAmazonAgreement .
-
-:AmazonsDutyToProvideService rdf:type gufo:ExtrinsicMode ;
-                gufo:inheresIn :AmazonInc ;
-                gufo:externallyDependsOn :John ;
-                gufo:isAspectProperPartOf :JohnAmazonAgreement .
-
-:AmazonsRightToPayment rdf:type gufo:ExtrinsicMode ;
-                gufo:inheresIn :AmazonInc ;
-                gufo:externallyDependsOn :John ;
-                gufo:isAspectProperPartOf :JohnAmazonAgreement .
-
-:JohnsDutyToPay rdf:type gufo:ExtrinsicMode ;
-                gufo:inheresIn :John ;
-                gufo:externallyDependsOn :AmazonInc ;
-                gufo:isAspectProperPartOf :JohnAmazonAgreement .
-</code></pre>
-<p><a name="events"></a></p>
-<h4>2.8. Events</h4>
-<p>A gufo:Event is a gufo:ConcreteIndividual that 'occurs' or 'happens' in time. They may be instantaneous or long-running. Events are those "things that happen to or are performed by" endurants (<a href="https://plato.stanford.edu/archives/win2015/entries/events/">Casati and Varzi, 2015</a>).</p>
-<p>Examples include actions and processes, such as a business meeting, a communicative act, a soccer match, a goal kick, the clicking of a mouse button; as well as natural occurrences such as an earthquake, the fall of the meteor that caused the extinction of the dinosaurs.</p>
-<p>The following fragment shows examples of sub-classes of gufo:Event (NaturalDisaster, Earthquake, Tsunami, SoccerMatch), and an instance of SoccerMatch (WorldCup1970Final).</p>
-<pre><code>:NaturalDisaster rdf:type owl:Class ;
-                rdfs:subClassOf gufo:Event .
-
-:Earthquake rdf:type owl:Class ;
-            rdfs:subClassOf :NaturalDisaster ;
-            owl:disjointWith :Tsunami .
-
-:Tsunami rdf:type owl:Class ;
-        rdfs:subClassOf :NaturalDisaster .
-
-:SoccerMatch rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Event .
-
-:WorldCup1970Final rdf:type :SoccerMatch .
-</code></pre>
-<p>The implementation includes an object property to declare historical dependence between events. For example, the WorldCup1970Final depends historically on the two  semifinals:</p>
-<pre><code>:WorldCup1970Final  gufo:historicallyDependsOn :BrazilUruguayWorldCup1970SemiFinal .
-:WorldCup1970Final  gufo:historicallyDependsOn :ItalyWestGermanyWorldCup1970SemiFinal .
-</code></pre>
-<p>The relations between objects and events may be captured with gufo:participatedIn, gufo:wasCreatedIn, gufo:wasTerminatedIn. Sub-properties of these object properties may be created to establish a particular domain and range. The following fragment establishes the participation of players in soccer matches, and defines that Pelé participated in the 1970 World Cup Final:</p>
-<pre><code>:SoccerMatchPlayer rdf:type owl:Class ;
-                rdfs:subClassOf :Person .
-
-:participatedInMatch rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf gufo:participatedIn ;
-                    rdfs:domain :SoccerMatchPlayer ;
-                    rdfs:range :SoccerMatch .
-
-:Pele rdf:type :Person ;
-    :participatedInMatch :WorldCup1970Final .
-</code></pre>
-<p>Part-whole relations between events can be represented with the gufo:isEventProperPartOf object property:</p>
-<pre><code>:WorldCup1970 rdf:type gufo:Event .
-
-:WorldCup1970Final rdf:type :SoccerMatch ;
-                gufo:isEventProperPartOf :WorldCup1970 .
-</code></pre>
-<p>See gufo:Participation for the cases in which we want to treat each participation as a part of an event with multiple participations.</p>
-<p>An event can also be related to the endurants that are created or terminated in it. For example, John and Mary's marriage was brought into existence in their wedding ceremony:</p>
-<pre><code>:JohnMarysMarriage rdf:type :Marriage ;
-                :marriageInvolves :John ,
-                                    :Mary ;
-                gufo:wasCreatedIn :JohnMarysWedding.
-
-:JohnMarysWedding rdf:type gufo:Event 
-                    gufo:hasBeginPointInXSDDate "2001-12-12"^^xsd:date .
-                    gufo:hasEndPointInXSDDate "2001-12-12"^^xsd:date .
-</code></pre>
-<p>The Space Shuttle Challenger (OV-099) was tragically destroyed during the launch of its tenth flight on January 28, 1986:</p>
-<pre><code>:Challenger rdf:type gufo:FunctionalComplex ;
-        gufo:wasTerminatedIn :Challengers10thFlight .
-
-:Challengers10thLaunch rdf:type gufo:Event 
-    gufo:hasBeginPointInXSDDate "1986-01-28"^^xsd:date ;
-    gufo:hasEndPointInXSDDate "1986-01-28"^^xsd:date .
-</code></pre>
-<p>The gufo:manifestedIn property can be used to identify specific aspects that  manifest themselves in an event. For example, during the Challenger launch, a flaw in the seals of one of its rocket boosters led to catastrophic failure. Such a flaw can be considered an aspect of the seal, which was manifested in that event:</p>
-<pre><code>:ChallengerRightBoosterSeal rdf:type gufo:FunctionalComplex ;
-        gufo:isComponentOf :Challenger .
-
-:ChallengerRightBoosterSealFlaw rdf:type gufo:IntrinsicMode ;
-        gufo:inheresIn :ChallengerRightBoosterSeal ;
-        gufo:manifestedIn :Challengers10thLaunch .
-</code></pre>
-<p><a name="situations"></a></p>
-<h4>2.9. Situations</h4>
-<p>Situations can be used to represent certain configurations of entities that can be comprehended as a whole. When that configuration is actual (present in reality), we say that a situation is a fact.</p>
-<p>The various subclasses of gufo:Situation are used to represent "mutable" facts which obtain during some time and fail to obtain at other times. This includes the attribution of value to mutable qualities (such as a person's weight), the temporary instantiation of non-rigid types (e.g., as someone is a child at one point in time and a teenager later), the temporary participation in part-whole relations for replaceable parts (such as a car's tires), the temporary participation in constitution relations, and the temporary participation in mutable relations. Other subclasses may be created to capture domain-specific notions such as "HazardousSituation", "PersonHasFever".</p>
-<p>We discuss here three of the various sub-classes of gufo:Situation (see <a href="#Situation">gufo:Situation</a> and its sub-classes for other types of situations):</p>
-<blockquote>
-<ul>
-<li>Individual<ul>
-<li>AbstractIndividual</li>
-<li>ConcreteIndividual<ul>
-<li>Situation<ul>
-<li>QualityValueAttributionSituation</li>
-<li>TemporaryInstantiationSituation</li>
-<li>TemporaryParthoodSituation</li>
-<li>TemporaryConstitutionSituation</li>
-<li>TemporaryRelationshipSituation</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>A gufo:QualityValueAttributionSituation is used in a pattern when it is necessary to indicate the period of time in which the quality value attribution holds, and track changes in quality value. For example, consider tracking John's weight (technically, his mass) over the years. We declare various instances of gufo:QualityValueAttributionSituation and declare John to stand in these different situations with the gufo:standsInQualifiedAttribution object property:</p>
-<pre><code>:JohnWeighs80Kgin2015 rdf:type gufo:QualityValueAttributionSituation ;
-                    gufo:concernsQualityType :Mass ;
-                    gufo:concernsQualityValue "80.0"^^xsd:double ;
-                    gufo:hasBeginPointInXSDDate "2015-01-01"^^xsd:date ;
-                    gufo:hasEndPointInXSDDate "2015-12-31"^^xsd:date .
-
-:JohnWeights70Kgin2018 rdf:type gufo:QualityValueAttributionSituation ;
-                    gufo:concernsQualityType :Mass ;
-                    gufo:concernsQualityValue "70.0"^^xsd:double ;
-                    gufo:hasBeginPointInXSDDate "2018-01-01"^^xsd:date ;
-                    gufo:hasEndPointInXSDDate "2018-12-31"^^xsd:date .
-
-:John gufo:standsInQualifiedAttribution :JohnWeighs80Kgin2015 ;
-      gufo:standsInQualifiedAttribution :JohnWeights70Kgin2018 .
-</code></pre>
-<p>The gufo:concernsQualityValue data property is used to indicate a quality value attributed to the gufo:Endurant standing in the situation, and the gufo:concernsQualityType is used to identify the quality type (sub-class of gufo:Quality) whose value is attributed in the gufo:QualityValueAttributionSituation. (Use of a class such as Mass as an object in an object property requires punning. See <a href="#types">types</a> below.)</p>
-<p>Instances of gufo:TemporaryInstantiationSituation are used in a pattern when it is necessary to qualify the instantiation of non-rigid types with the period in time in which the instantiation holds. For example, consider subclasses of person representing life phases, such as Child, Adult, Senior:</p>
-<pre><code>:Child rdf:type owl:Class ;
-   rdfs:subClassOf :Person .
-
-:Adult rdf:type owl:Class ;
-   rdfs:subClassOf :Person .
-</code></pre>
-<p>In this case, John was born in 1977 and is considered a child until 1995:</p>
-<pre><code>:JohnWasAChildFrom1977to1995 rdf:type gufo:TemporaryInstantiationSituation ;
-                            gufo:concernsNonRigidType :Child ;
-                            gufo:hasBeginPointInXSDDate "1977-10-01"^^xsd:date ;
-                            gufo:hasEndPointInXSDDate "1995-09-31"^^xsd:date .
-
-:JohnIsAdultFrom1995 rdf:type gufo:TemporaryInstantiationSituation ;
-                            gufo:concernsNonRigidType :Adult ;
-                            gufo:hasBeginPointInXSDDate "1995-10-01"^^xsd:date .
-</code></pre>
-<p>This is a reification of the instantiation (in a solution that is similar to the <a href="http://patterns.dataincubator.org/book/qualified-relation.html">qualified relation pattern</a>).</p>
-<p>Instances of gufo:TemporaryParthoodSituation are used in a pattern when it is necessary to qualify parthood and its change in time. In the following fragment, a heart transplant is tracked (from situations in which John and Paul have their original parts, to a situation in which there was a heart transplant from John to Paul).</p>
-<pre><code>:JohnsHeart rdf:type :Heart ;
-            gufo:standsInQualifiedParthood :JohnHasOriginalHeart .
-
-:PaulsHeart rdf:type :Heart ;
-            gufo:standsInQualifiedParthood :PaulHasJohnsHeart ,
-                                        :PaulHasOriginalHeart .
-
-:JohnHasOriginalHeart rdf:type gufo:TemporaryParthoodSituation ;
-                    gufo:concernsTemporaryWhole :John ;
-                    gufo:hasEndPointInXSDDate "2018-11-01"^^xsd:date .
-
-:PaulHasOriginalHeart rdf:type gufo:TemporaryParthoodSituation ;
-                    gufo:concernsTemporaryWhole :Paul ;
-                    gufo:hasEndPointInXSDDate "2018-11-01"^^xsd:date .
-
-:PaulHasJohnsHeart rdf:type gufo:TemporaryParthoodSituation ;
-                    gufo:concernsTemporaryWhole :Paul ;
-                    gufo:hasBeginPointInXSDDate "2018-11-01"^^xsd:date .
-</code></pre>
-<p>Instances of gufo:TemporaryConstitutionSituation are used in a pattern when it is necessary to qualify constitution and its change in time. In the following fragment, the quantity of marble that constitutes the Venus of Milo is tracked (from a situation in which it was constituted by its original quantity of marble, to a situation in which it is constituted by a smaller quantity of marble--after losing its arms, presumably in 1820).</p>
-<pre><code>:VenusOfMilo rdf:type :Statue .
-
-:OriginalQuantityOfMarble rdf:type :AmountOfMarble ;
-            gufo:standsInQualifiedConstitution :VenusHasArms .
-
-:ReducedQuantityOfMarble rdf:type :AmountOfMarble ;
-            gufo:standsInQualifiedConstitution :VenusHasNoArms .
-
-:VenusHasArms rdf:type gufo:TemporaryConstitutionSituation ;
-                    gufo:concernsConstitutedObject :VenusOfMilo ;
-                    gufo:hasEndPointInXSDDate "1820-01-01"^^xsd:date .
-
-:VenusHasNoArms rdf:type gufo:TemporaryConstitutionSituation ;
-                    gufo:concernsConstitutedObject :VenusOfMilo ;
-                    gufo:hasBeginPointInXSDDate "1820-01-02"^^xsd:date .
-</code></pre>
-<p>Use gufo:TemporaryRelationshipSituation when it is necessary to qualify relations that change in time and determine the interval (or point in time) when the relationship applies to the involved entities. In the following fragment, John is declared heavier than Paul in a particular date.</p>
-<pre><code>:heavierThan rdf:type owl:ObjectProperty ;
-            rdfs:domain :PhysicalObject ;
-            rdfs:range :PhysicalObject .
-
-:John rdf:type :PhysicalObject .
-:Paul rdf:type :PhysicalObject .
-
-:John :standsAsHeavierObject :JohnIsHeavier .
-
-:JohnIsHeavier rdf:type gufo:TemporaryRelationshipSituation ;
-                    gufo:concernsRelationshipType :heavierThan ;
-                    :concernsLighterObject :Paul ;
-                    gufo:hasBeginPointInXSDDate "2019-05-30"^^xsd:date ;
-                    gufo:hasEndPointInXSDDate "2019-05-30"^^xsd:date.
-
-:standsAsHeavierObject rdfs:subPropertyOf gufo:standsInQualifiedRelationship .
-:concernsLighterObject rdfs:subPropertyOf gufo:concernsRelatedEndurant .
-</code></pre>
-<p>For material relations (for example, Marriage, Enrollment, ServiceAgreement) prefer gufo:Relator to qualify relationships (see <a href="#extrinsicaspects">Extrinsic Aspects</a>).</p>
-<p>Situations can also be related to events through the gufo:broughtAbout and the gufo:contributedToTrigger properties. gufo:broughtAbout identifies a gufo:Situation that is brought about by a gufo:Event. For example, if the transplant had been represented explicitly, we could have established that it is the transplant that led to the new situations:</p>
-<pre><code>:Transplant rdf:type owl:Class ;
-   rdfs:subClassOf gufo:Event .
-
-:JohnToPaulHeartTransplant rdf:type :Transplant ;
-    gufo:broughtAbout :PaulHasJohnsHeart .
-</code></pre>
-<p>We can also identify with gufo:contributedToTrigger those situations that contributed to triggering an event. For example, the fact that Host1234 was vulnerable contributed to its being involved in a security incident:</p>
-<pre><code>:SecurityIncident rdf:type owl:Class ;
-   rdfs:subClassOf gufo:Event .
-
-:WannaCryRansomwareAttackOnHost1234 rdf:type :SecurityIncident ;
-                        gufo:hasBeginPointInXSDDate "2017-05-12"^^xsd:date ;
-                        gufo:hasEndPointInXSDDate "2017-05-13"^^xsd:date ; .
-
-:ComputerSystem  rdf:type owl:Class ;
-   rdfs:subClassOf gufo:Object .
-
-:Host1234 rdf:type :ComputerSystem ;
-    gufo:participatedIn  :WannaCryRansomwareAttackOnHost1234 .
-
-:VulnerableSystem rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Object .
-
-:Host1234Vulnerable12May2017 rdf:type gufo:TemporaryInstantiationSituation ;
-                            gufo:concernsNonRigidType :VulnerableSystem ;
-                            gufo:hasBeginPointInXSDDate "2017-05-12"^^xsd:date ;
-                            gufo:hasEndPointInXSDDate "2017-05-12"^^xsd:date ;
-                            gufo:contributedToTrigger :WannaCryRansomwareAttackOnHost1234.
-</code></pre>
-<p><a name="types"></a></p>
-<h3>3. Taxonomy of Types</h3>
-<p>The taxonomy of types may be used to provide additional information about classes in UFO-based ontologies (usage scenario 3).</p>
-<p>The taxonomy of types has the following overall structure:</p>
-<blockquote>
-<ul>
-<li>Type<ul>
-<li>AbstractIndividualType</li>
-<li>ConcreteIndividualType<ul>
-<li>EndurantType<ul>
-<li>Sortal<ul>
-<li>Kind</li>
-<li>Phase</li>
-<li>Role</li>
-<li>SubKind</li>
-</ul>
-</li>
-<li>NonSortal<ul>
-<li>Category</li>
-<li>PhaseMixin</li>
-<li>RoleMixin</li>
-<li>Mixin</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>EventType</li>
-<li>SituationType</li>
-</ul>
-</li>
-<li>RelationshipType</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>The most abstract classes in this structure mostly reflect the taxonomy of individuals. For example, a gufo:AbstractIndividualType is a gufo:Type whose instances are abstract individuals (e.g., "NaturalNumber", "Set", "Proposition"), a gufo:EndurantType is a gufo:Type whose instances are objects and aspects (e.g., "Person", "Marriage", "Color"),  a gufo:EventType is a gufo:Type whose instances are events (e.g., "Earthquake", "MusicalPerformance"),  and so on.</p>
-<p><a name="enduranttypes"></a></p>
-<h4>3.1. Endurant types</h4>
-<p>The taxonomy of endurant types is more detailed, in order to qualify the ways in which an endurant type applies to their instances. For example, the following fragment declares Person to be a rigid sortal (a type that applies necessarily to its instances and provides them with identity criteria), Adult and Student to be anti-rigid sortals (types that apply contingently to their instances and carry a principle of identify provided by a kind). Since Adult is a phase, it applies to its instances in virtue of some intrinsic aspects. Since Student is a role, it applies to its instances in virtue of some extrinsic aspects.  </p>
-<pre><code>:Person rdf:type gufo:Kind .
-
-:Adult rdf:type gufo:Phase ;
-    rdfs:subClassOf :Person .
-
-:Student rdf:type gufo:Role ;
-    rdfs:subClassOf :Person .
-</code></pre>
-<p>These declarations allow tools to detect representational mistakes, e.g., it is invalid for a gufo:Kind to be a sub-class of a gufo:Phase or gufo:Role; for an object to be an instance of more than one gufo:Kind, for a gufo:Kind to specializes any other sortal that specializes another gufo:Kind, etc.</p>
-<p>See <a href="https://research.utwente.nl/en/publications/ontological-foundations-for-structural-conceptual-models">Guizzardi, 2005</a> and <a href="https://doi.org/10.1007/978-3-030-00847-5_12">Guizzardi et al., 2018</a> for details concerning the taxonomy of endurant types.</p>
-<p>This representation strategy employs OWL 2 punning, when a class is also treated as an instance of another class (in this case, <code>:Person rdf:type gufo:Kind</code> and, as defined in gUFO, <code>gufo:Kind rdf:type owl:Class</code>).</p>
-<p><a name="relationshiptypes"></a></p>
-<h4>3.2. Relationship types</h4>
-<p>The gufo:RelationshipType class and its subclasses are introduced to qualify the ways in which an object property relates entities in UFO-based ontologies. For example, object properties such as "marriedWith" and "enrolledIn" can  be declared to be instances of gufo:MaterialRelationshipType, which means we can identify the type of extrinsic aspect from which the material relationship type is derived (see <a href="#isDerivedFrom">gufo:isDerivedFrom</a>). For instance, "marriedWith" can be derived from the "Marriage" relator type:</p>
-<pre><code>:marriedWith rdf:type owl:ObjectProperty ,
-                gufo:MaterialRelationshipType;
-         rdfs:domain :Person ;
-         rdfs:range :Person ;
-         gufo:isDerivedFrom :Marriage .
-</code></pre>
-<p>See <a href="#RelationshipType">gufo:RelationshipType</a> for other sub-classes, including gufo:ComparativeRelationshipType, which can be reduced to intrinsic aspects of related entities.</p>
-<p><a name="highordertypes"></a></p>
-<h4>3.3. High-order types</h4>
-<p>In usage scenario 4, a UFO-based ontology specializes gUFO classes in the taxonomy of types, for example, in order to represent roles that persons play: <code>:PersonRole rdfs:subClassOf gufo:Role</code>.</p>
-<p>In these cases, a user may want to establish explicitly the relation between "PersonRole" (the second-order type) and "Person" (the first-order type). For this purpose, the gufo:categorizes property is provided. It identifies a gufo:Type whose instances may be classified by instances of the categorizing higher-order type.</p>
-<p>The categorized type is termed the "base type" in the "powertype pattern" see (<a href="http://dx.doi.org/10.1016/j.datak.2017.03.002">Carvalho et al., 2017</a>), the higher-order type is often called the "powertype".  </p>
-<pre><code>:PersonRole gufo:categorizes :Person ;
-    rdfs:subClassOf gufo:Role .
-
-:Student rdf:type :PersonRole ;
-        rdfs:subClassOf :Person .
-:Professor rdf:type :PersonRole ;
-        rdfs:subClassOf :Person .
-</code></pre>
-<p>OWL 2 punning is used to capture the two facets of "Student" and "Professor" in this example: (i) as instances of "PersonRole", and (ii) as subclasses of "Person".</p>
-<p>In another example, "ShipType" gufo:categorizes "Ship" and is a subclass of "gufo:SubKind". Instances of "ShipType" such as "Supercarrier" and "CargoShip" should be declared subclasses of "Ship".</p>
-<pre><code>:ShipType gufo:categorizes :Ship ;
-    rdfs:subClassOf gufo:SubKind .
-
-:Supercarrier rdf:type :ShipType ;
-        rdfs:subClassOf :Ship .
-:CargoShip rdf:type :ShipType ;
-        rdfs:subClassOf :Ship .
-</code></pre>
-<p>gufo:categorizes is the general (unspecific) form of categorization. The sub-property gufo:partitions provides a more specific form, in which instances of the categorized type are classified by <em>exactly one</em> instance of the higher-order type.</p>
-<p>For example, "AnimalSpecies" gufo:partitions "Animal". Instances of "AnimalSpecies" such as "Lion", "Hiena" must be disjoint subclasses of "Animal". OWL 2 punning should be used to capture the two facets of "Lion" and "Hiena" in this example: (i) as instances of "AnimalSpecies", and (ii) as  subclasses of "Animal".</p>
-<pre><code>:AnimalSpecies gufo:partitions :Animal .
-
-:Hiena rdf:type :AnimalSpecies ;
-        rdfs:subClassOf :Animal .
-:Lion rdf:type :AnimalSpecies ;
-        rdfs:subClassOf :Animal ;
-        owl:disjointWith :Hiena .
-
-:Cecil rdf:type :Lion .
-</code></pre>
-<p>Note that the partitioned type (in the example "Animal") may or may not be declared to be a disjoint union of the explicitly enumerated subclasses (such as "Lion", "Hiena"). This is because other instances of the higher-order type ("AnimalSpecies") may exist that are not explicitly enumerated in the ontology.</p>
-<p>The partitioned type is termed the "base type" in the "powertype pattern" see (<a href="http://dx.doi.org/10.1016/j.datak.2017.03.002">Carvalho et al., 2017</a>), the higher-order type is often called the "powertype".  </p>
-<p>For further details and formalization of "partitioning", see (<a href="http://dx.doi.org/10.1016/j.datak.2017.03.002">Carvalho et al., 2017</a>) which combines UFO with MLT (a multi-level modeling theory).  </p>
+<p><a name="material"></a></p>
+<h3>5. Material Entities of Interest</h3>
+<p>TODO</p>
+<p><a name="qualities"></a></p>
+<h3>6. Water Qualities and their Types</h3>
+<p>TODO</p>
+<p><a name="measurement"></a></p>
+<h3>7. Measurement (incl. units)</h3>
+<p>TODO</p>
+<p><a name="monitoring"></a></p>
+<h3>8. Environmental Monitoring</h3>
+<p>TODO</p>
+<p><a name="program"></a></p>
+<h3>8.1. Monitoring Program</h3>
+<p>TODO</p>
+<p><a name="norms"></a></p>
+<h3>8.2. Environmental Quality Norms</h3>
+<p>TODO</p>
 </section>
 <section id="toc">
     <h2>Reference Table of Contents</h2>
@@ -775,13 +343,15 @@ Environmental Monitoring
     <ul class="hlist">
         <li><a href="#AbioticEntity">AbioticEntity</a></li>
         <li><a href="#Agent">Agent</a></li>
+        <li><a href="#AmbientTemperature">AmbientTemperature</a></li>
         <li><a href="#AmmoniacalNitrogenConcentration">AmmoniacalNitrogenConcentration</a></li>
+        <li><a href="#AmountOfWater">AmountOfWater</a></li>
         <li><a href="#ArtificialGeographicFeature">ArtificialGeographicFeature</a></li>
         <li><a href="#BiologicalOxygenDemand">BiologicalOxygenDemand</a></li>
         <li><a href="#BiologicalQualityKind">BiologicalQualityKind</a></li>
         <li><a href="#BioticEntity">BioticEntity</a></li>
         <li><a href="#ChemicalEntityConcentrationQualityKind">ChemicalEntityConcentrationQualityKind</a></li>
-        <li><a href="#ChemicalEntityKind">ChemicalEntityKind</a></li>
+        <li><a href="#ChemicalEntityType">ChemicalEntityType</a></li>
         <li><a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a></li>
         <li><a href="#Concentration">Concentration</a></li>
         <li><a href="#Conductivity">Conductivity</a></li>
@@ -818,17 +388,21 @@ Environmental Monitoring
         <li><a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a></li>
         <li><a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a></li>
         <li><a href="#FlourideConcentration">FlourideConcentration</a></li>
+        <li><a href="#FlowRate">FlowRate</a></li>
         <li><a href="#GeographicFeature">GeographicFeature</a></li>
         <li><a href="#GeographicPoint">GeographicPoint</a></li>
         <li><a href="#GeographicallyLocatedEntity">GeographicallyLocatedEntity</a></li>
         <li><a href="#Hardness_CalciumCarbonateEquivalence">Hardness_CalciumCarbonateEquivalence</a></li>
         <li><a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a></li>
+        <li><a href="#HydrographicFeature">HydrographicFeature</a></li>
         <li><a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a></li>
+        <li><a href="#Lake">Lake</a></li>
         <li><a href="#MaterialEntity">MaterialEntity</a></li>
         <li><a href="#Measurement">Measurement</a></li>
         <li><a href="#MetalConcentration">MetalConcentration</a></li>
         <li><a href="#MetalloidConcentration">MetalloidConcentration</a></li>
-        <li><a href="#MeterologicalQualityKind">MeterologicalQualityKind</a></li>
+        <li><a href="#MetereologicalQuality">MetereologicalQuality</a></li>
+        <li><a href="#MetereologicalQualityKind">MetereologicalQualityKind</a></li>
         <li><a href="#MethylmercuryConcentration">MethylmercuryConcentration</a></li>
         <li><a href="#NaturalGeographicFeature">NaturalGeographicFeature</a></li>
         <li><a href="#NitrateConcentration">NitrateConcentration</a></li>
@@ -838,16 +412,20 @@ Environmental Monitoring
         <li><a href="#OxygenSaturation">OxygenSaturation</a></li>
         <li><a href="#PheophytinConcentration">PheophytinConcentration</a></li>
         <li><a href="#PhosphateConcentration">PhosphateConcentration</a></li>
+        <li><a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a></li>
         <li><a href="#PhysicalChemicalQualityKind">PhysicalChemicalQualityKind</a></li>
         <li><a href="#PolyphosphateConcentration">PolyphosphateConcentration</a></li>
         <li><a href="#Preparation">Preparation</a></li>
         <li><a href="#QualityKind">QualityKind</a></li>
+        <li><a href="#Rainfall">Rainfall</a></li>
         <li><a href="#RedoxPotential">RedoxPotential</a></li>
+        <li><a href="#RelativeHumidity">RelativeHumidity</a></li>
         <li><a href="#ResearchActivity">ResearchActivity</a></li>
         <li><a href="#ResearchActivityAgent">ResearchActivityAgent</a></li>
         <li><a href="#ResearchActivityPrincipal">ResearchActivityPrincipal</a></li>
         <li><a href="#ResearchActivityProcedure">ResearchActivityProcedure</a></li>
-        <li><a href="#ResearchableEntity">ResearchableEntity</a></li>
+        <li><a href="#Reservoir">Reservoir</a></li>
+        <li><a href="#River">River</a></li>
         <li><a href="#Salinity">Salinity</a></li>
         <li><a href="#Sample">Sample</a></li>
         <li><a href="#SampledEntity">SampledEntity</a></li>
@@ -857,6 +435,8 @@ Environmental Monitoring
         <li><a href="#SettleableSolids">SettleableSolids</a></li>
         <li><a href="#SolidsConcentration">SolidsConcentration</a></li>
         <li><a href="#SulphateConcentration">SulphateConcentration</a></li>
+        <li><a href="#SurfaceWaterFeature">SurfaceWaterFeature</a></li>
+        <li><a href="#SurfaceWaterSample">SurfaceWaterSample</a></li>
         <li><a href="#Temperature">Temperature</a></li>
         <li><a href="#TotalAlkalinityAsCaCO3">TotalAlkalinityAsCaCO3</a></li>
         <li><a href="#TotalAluminiumConcentration">TotalAluminiumConcentration</a></li>
@@ -894,6 +474,7 @@ Environmental Monitoring
         <li><a href="#Unit">Unit</a></li>
         <li><a href="#VolumePerUnitTime">VolumePerUnitTime</a></li>
         <li><a href="#WaterQualityKind">WaterQualityKind</a></li>
+        <li><a href="#WaterSample">WaterSample</a></li>
         <li><a href="#pH">pH</a></li>
     </ul>
     <div class="entity class" id="AbioticEntity">
@@ -904,9 +485,24 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#AbioticEntity</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A non-living non-biological <a href="#MaterialEntity">doce:MaterialEntity</a>.</p>
+<p>"In biology and ecology, abiotic components or abiotic factors are non-living chemical and physical parts of the environment that affect living organisms and the functioning of ecosystems."</p>
+<p>https://en.wikipedia.org/wiki/Abiotic_component</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#GeographicFeature">GeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AmountOfWater">AmountOfWater</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -919,6 +515,12 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#Agent</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A gufo:Object capable of performing actions, typically a person or an organization.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup><br/>
@@ -929,6 +531,21 @@ Environmental Monitoring
                 <td>
                     <a href="#ResearchActivityAgent">ResearchActivityAgent</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#ResearchActivityPrincipal">ResearchActivityPrincipal</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AmbientTemperature">
+        <h3>AmbientTemperature<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#AmbientTemperature</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#MetereologicalQuality">MetereologicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -948,6 +565,34 @@ Environmental Monitoring
             </tr>
         </table>
     </div>
+    <div class="entity class" id="AmountOfWater">
+        <h3>AmountOfWater<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#AmountOfWater</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A portion of matter that consists mostly in water.</p>
+<p>(Not necessarily a gufo:Quantity, since the identity of a gufo:Quantity is tied to its matter, and amounts of water in this ontology may lose parts while keeping their identity.)</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AbioticEntity">AbioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#WaterSample">WaterSample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="ArtificialGeographicFeature">
         <h3>ArtificialGeographicFeature<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -956,9 +601,22 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#ArtificialGeographicFeature</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>An artificial <a href="#GeographicFeature">doce:GeographicFeature</a>.</p>
+<p>Examples include "Colatina", the "Candonga Hydroelectric Power Plant Reservoir".</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#GeographicFeature">GeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Reservoir">Reservoir</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -973,7 +631,7 @@ Environmental Monitoring
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1008,6 +666,14 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#BioticEntity</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#MaterialEntity">doce:MaterialEntity</a> that is alive or that originates from living organisms.</p>
+<p>"Biotic components, or biotic factors, can be described as any living component that affects another organism or shapes the ecosystem. This includes both animals that consume other organisms within their ecosystem, and the organism that is being consumed."
+https://en.wikipedia.org/wiki/Biotic_component</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
@@ -1023,6 +689,13 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#ChemicalEntityConcentrationQualityKind</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#PhysicalChemicalQualityKind">doce:PhysicalChemicalQualityKind</a> concerning the concentration of chemical entities in water. </p>
+<p>Examples include "ArsenicConcentration", "DissolvedOxygenConcentration".</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#PhysicalChemicalQualityKind">PhysicalChemicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
@@ -1031,34 +704,37 @@ Environmental Monitoring
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="#hasAssociatedChemicalEntityKind">hasAssociatedChemicalEntityKind</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasAssociatedChemicalEntityType">hasAssociatedChemicalEntityType</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="ChemicalEntityKind">
-        <h3>ChemicalEntityKind<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="ChemicalEntityType">
+        <h3>ChemicalEntityType<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#ChemicalEntityKind</code></td>
+                <td><code>http://purl.org/nemo/doce#ChemicalEntityType</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>See Chemical Entities of Biological Interest https://www.ebi.ac.uk/ols/ontologies/chebi</p>
+                    <p>A gufo:Type of chemical entity.</p>
+<p>Examples include types of atoms, types of molecular entities, types of chemical substances.</p>
+<p>Corresponds to <a href="http://purl.obolibrary.org/obo/CHEBI_24431">http://purl.obolibrary.org/obo/CHEBI_24431</a></p>
+<p>See Chemical Entities of Biological Interest <a href="https://www.ebi.ac.uk/ols/ontologies/chebi">https://www.ebi.ac.uk/ols/ontologies/chebi</a></p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Kind">gufo:Kind</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/nemo/gufo#RigidType">gufo:RigidType</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#hasAssociatedChemicalEntityKind">hasAssociatedChemicalEntityKind</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasAssociatedChemicalEntityType">hasAssociatedChemicalEntityType</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1088,22 +764,22 @@ Environmental Monitoring
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Corresponds to qudt quantity kind Concentration</p>
+                    <p>Corresponds to http://qudt.org/vocab/quantitykind/Concentration</p>
                 </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#SolidsConcentration">SolidsConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#MetalloidConcentration">MetalloidConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#NonMetalConcentration">NonMetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#MetalConcentration">MetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#MetalloidConcentration">MetalloidConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SolidsConcentration">SolidsConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1118,7 +794,7 @@ Environmental Monitoring
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1144,6 +820,12 @@ Environmental Monitoring
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#Device</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A gufo:Object that participates in a <a href="#ResearchActivity">doce:ResearchActivity</a> as an instrument.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -1624,6 +1306,21 @@ Environmental Monitoring
             </tr>
         </table>
     </div>
+    <div class="entity class" id="FlowRate">
+        <h3>FlowRate<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#FlowRate</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#VolumePerUnitTime">VolumePerUnitTime</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="GeographicFeature">
         <h3>GeographicFeature<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -1632,10 +1329,17 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#GeographicFeature</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A gufo:Object which is a natural or artificial feature of the Earth.</p>
+<p>Examples include the "Doce river", the "Juparanã lake", the city of "Colatina".</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
+                    <a href="#AbioticEntity">AbioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#GeographicallyLocatedEntity">GeographicallyLocatedEntity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1643,6 +1347,7 @@ Environmental Monitoring
                 <td>
                     <a href="#ArtificialGeographicFeature">ArtificialGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#NaturalGeographicFeature">NaturalGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#HydrographicFeature">HydrographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1671,8 +1376,8 @@ Environmental Monitoring
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="#hasLongitude">hasLongitude</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                     <a href="#hasLatitude">hasLatitude</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#hasLongitude">hasLongitude</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1689,6 +1394,14 @@ Environmental Monitoring
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#GeographicallyLocatedEntity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A  gufo:ConcreteIndividual that is located in the Earth. A <a href="#GeographicallyLocatedEntity">doce:GeographicallyLocatedEntity</a> can be a gufo:Endurant or a gufo:Event. </p>
+<p>Examples include a surface water feature (such as the "Doce river"), a city (such as "Mariana"), a sampling event (the measurement of transparency of a river in a particular date and time).</p>
+<p>See <a href="#locatedIn">doce:locatedIn</a> to related a <a href="#GeographicallyLocatedEntity">doce:GeographicallyLocatedEntity</a> with one or more <a href="#GeographicPoint">doce:GeographicPoint</a>.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -1721,7 +1434,7 @@ Environmental Monitoring
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1741,6 +1454,33 @@ Environmental Monitoring
             </tr>
         </table>
     </div>
+    <div class="entity class" id="HydrographicFeature">
+        <h3>HydrographicFeature<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#HydrographicFeature</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#NaturalGeographicFeature">doce:NaturalGeographicFeature</a> that is composed mainly of a body of water, such as an ocean, a sea, a lake, a river, an underground aquifer.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#GeographicFeature">GeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SurfaceWaterFeature">SurfaceWaterFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="KjeldahlMethodNitrogenConcentration">
         <h3>KjeldahlMethodNitrogenConcentration<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -1756,6 +1496,30 @@ Environmental Monitoring
             </tr>
         </table>
     </div>
+    <div class="entity class" id="Lake">
+        <h3>Lake<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#Lake</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A natural <a href="#SurfaceWaterFeature">doce:SurfaceWaterFeature</a> "where surface-water runoff and groundwater seepage have accumulated in a low spot, relative to the surrounding countryside." </p>
+<p>For example, the "Juparanã Lake". </p>
+<p>See https://www.usgs.gov/special-topic/water-science-school/science/lakes-and-reservoirs?qt-science_center_objects=0#qt-science_center_objects</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#SurfaceWaterFeature">SurfaceWaterFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NaturalGeographicFeature">NaturalGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="MaterialEntity">
         <h3>MaterialEntity<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -1764,17 +1528,24 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#MaterialEntity</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A physical gufo:Object whose qualities are ammenable to measurement.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#ResearchableEntity">ResearchableEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Sub-classes</th>
                 <td>
                     <a href="#BioticEntity">BioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AbioticEntity">AbioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampledEntity">SampledEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1787,6 +1558,18 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#Measurement</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#ResearchActivity">doce:ResearchActivity</a> whose purpose is to ascertain the value of a quality of a researcheable entity of interest (a gufo:Object). </p>
+<p>For the relation between the gufo:Object subject to measurement and a <a href="#Measurement">doce:Measurement</a>, see the <a href="#wasMeasuredIn">doce:wasMeasuredIn</a> object property.</p>
+<p>For the relation between a <a href="#Measurement">doce:Measurement</a> and the <a href="#QualityKind">doce:QualityKind</a> measured, see the <a href="#measuredQualityKind">doce:measuredQualityKind</a> object property.</p>
+<p>A <a href="#Measurement">doce:Measurement</a> may be in-situ or ex-situ. </p>
+<p>For an in-situ <a href="#Measurement">doce:Measurement</a>, the gufo:Object measured is often a <a href="#GeographicFeature">doce:GeographicFeature</a>, such as a river of a lake. Note that for an in-situ measurement of a <a href="#MetereologicalQuality">doce:MetereologicalQuality</a>, no specific gufo:Object is indicated.</p>
+<p>For ex-situ measurements, the <a href="#ResearchableEntity">doce:ResearchableEntity</a> is a <a href="#Sample">doce:Sample</a> that <a href="#represents">doce:represents</a> a <a href="#GeographicFeature">doce:GeographicFeature</a>.</p>
+<p>For the relation between the <a href="#Sample">doce:Sample</a> and the sampled gufo:Object see the <a href="#represents">doce:represents</a> object property.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#ResearchActivity">ResearchActivity</a><sup class="sup-c" title="class">c</sup><br/>
@@ -1796,6 +1579,7 @@ Environmental Monitoring
                 <th>In domain of</th>
                 <td>
                     <a href="#measured">measured</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#measuredQualityKind">measuredQualityKind</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#expressedIn">expressedIn</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
@@ -1823,47 +1607,47 @@ Environmental Monitoring
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#DissolvedChromiumConcentration">DissolvedChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalCobaltConcentration">TotalCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalAluminiumConcentration">TotalAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalChromiumConcentration">TotalChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSodiumConcentration">TotalSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedMercuryConcentration">DissolvedMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSilverConcentration">TotalSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCopperConcentration">TotalCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalIronConcentration">TotalIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedManganeseConcentration">DissolvedManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedIronConcentration">DissolvedIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedMolybdenumConcentration">DissolvedMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCobaltConcentration">DissolvedCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalBariumConcentration">TotalBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedVanadiumConcentration">DissolvedVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalNickelConcentration">TotalNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedBariumConcentration">DissolvedBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCalciumConcentration">DissolvedCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCopperConcentration">DissolvedCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedZincConcentration">DissolvedZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedAluminiumConcentration">DissolvedAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedPotassiumConcentration">DissolvedPotassiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSilverConcentration">DissolvedSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalMolybdenumConcentration">TotalMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalZincConcentration">TotalZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCalciumConcentration">TotalCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedMagnesiumConcentration">DissolvedMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSodiumConcentration">DissolvedSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalManganeseConcentration">TotalManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalMercuryConcentration">TotalMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCadmiumConcentration">DissolvedCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedBerylliumConcentration">DissolvedBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedLeadConcentration">DissolvedLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedNickelConcentration">DissolvedNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalBerylliumConcentration">TotalBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalLeadConcentration">TotalLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCadmiumConcentration">TotalCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalMagnesiumConcentration">TotalMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBariumConcentration">DissolvedBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalMolybdenumConcentration">TotalMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCalciumConcentration">DissolvedCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalManganeseConcentration">TotalManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalAluminiumConcentration">TotalAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalMercuryConcentration">TotalMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSodiumConcentration">TotalSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedChromiumConcentration">DissolvedChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedZincConcentration">DissolvedZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedLeadConcentration">DissolvedLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCopperConcentration">TotalCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedMercuryConcentration">DissolvedMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedMolybdenumConcentration">DissolvedMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalChromiumConcentration">TotalChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSilverConcentration">TotalSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCopperConcentration">DissolvedCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBerylliumConcentration">DissolvedBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedPotassiumConcentration">DissolvedPotassiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCadmiumConcentration">DissolvedCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalLeadConcentration">TotalLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedIronConcentration">DissolvedIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedManganeseConcentration">DissolvedManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalZincConcentration">TotalZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCadmiumConcentration">TotalCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalVanadiumConcentration">TotalVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalBerylliumConcentration">TotalBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCobaltConcentration">DissolvedCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedNickelConcentration">DissolvedNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCalciumConcentration">TotalCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedAluminiumConcentration">DissolvedAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedMagnesiumConcentration">DissolvedMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalNickelConcentration">TotalNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSodiumConcentration">DissolvedSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedVanadiumConcentration">DissolvedVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalIronConcentration">TotalIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSilverConcentration">DissolvedSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalBariumConcentration">TotalBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1884,27 +1668,57 @@ Environmental Monitoring
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#DissolvedBoronConcentration">DissolvedBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedAntimonyConcentration">DissolvedAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalAntimonyConcentration">TotalAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalArsenicConcentration">TotalArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedArsenicConcentration">DissolvedArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalBoronConcentration">TotalBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedArsenicConcentration">DissolvedArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalAntimonyConcentration">TotalAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBoronConcentration">DissolvedBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="MeterologicalQualityKind">
-        <h3>MeterologicalQualityKind<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="MetereologicalQuality">
+        <h3>MetereologicalQuality<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#MeterologicalQualityKind</code></td>
+                <td><code>http://purl.org/nemo/doce#MetereologicalQuality</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>A <a href="#QualityKind">doce:QualityKind</a> for meterological qualities. </p>
+                    <p>A gufo:Quality that concerns the weather, i.e., the state of the atmosphere.</p>
+<p>For example "AmbientTemperature" concerns the degree to which the atmosphere is hot or cold, "RelativeHumidity" concerns the degree to which the atmosphere is wet or dry.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AmbientTemperature">AmbientTemperature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RelativeHumidity">RelativeHumidity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Rainfall">Rainfall</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MetereologicalQualityKind">
+        <h3>MetereologicalQualityKind<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#MetereologicalQualityKind</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#QualityKind">doce:QualityKind</a> for metereological qualities. </p>
 <p>Examples include "RelativeHumidity", "AtmosphericPressure", "Precipitation".</p>
                 </td>
             </tr>
@@ -1939,9 +1753,23 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#NaturalGeographicFeature</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A natural <a href="#GeographicFeature">doce:GeographicFeature</a>. </p>
+<p>Examples include the "Amazon River", the "Juparanã Lake", the "Jungfrau Mountain".</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#GeographicFeature">GeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#River">River</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Lake">Lake</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1992,31 +1820,31 @@ Environmental Monitoring
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#TotalPhosphorousConcentration">TotalPhosphorousConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSilicaConcentration">DissolvedSilicaConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSeleniumConcentration">DissolvedSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#FlourideConcentration">FlourideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#OxygenSaturation">OxygenSaturation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#OrganicNitrogenConcentration">OrganicNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#MethylmercuryConcentration">MethylmercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSulfideConcentration">TotalSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PheophytinConcentration">PheophytinConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedPhosphorusConcentration">DissolvedPhosphorusConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#NitriteConcentration">NitriteConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PhosphateConcentration">PhosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SulphateConcentration">SulphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PolyphosphateConcentration">PolyphosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalChlorideConcentration">TotalChlorideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedOxygenConcentration">DissolvedOxygenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedOrganicCarbonConcentration">DissolvedOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#AmmoniacalNitrogenConcentration">AmmoniacalNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSeleniumConcentration">DissolvedSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OrganicNitrogenConcentration">OrganicNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PheophytinConcentration">PheophytinConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSulfideConcentration">TotalSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalSeleniumConcentration">TotalSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#NitrateConcentration">NitrateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalOrganicCarbonConcentration">TotalOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PolyphosphateConcentration">PolyphosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AmmoniacalNitrogenConcentration">AmmoniacalNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhosphateConcentration">PhosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedOrganicCarbonConcentration">DissolvedOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#CyanideConcentration">CyanideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalChlorideConcentration">TotalChlorideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NitrateConcentration">NitrateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedPhosphorusConcentration">DissolvedPhosphorusConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OxygenSaturation">OxygenSaturation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FlourideConcentration">FlourideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSilicaConcentration">DissolvedSilicaConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NitriteConcentration">NitriteConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalOrganicCarbonConcentration">TotalOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#MethylmercuryConcentration">MethylmercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalPhosphorousConcentration">TotalPhosphorousConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedOxygenConcentration">DissolvedOxygenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2081,12 +1909,57 @@ Environmental Monitoring
             </tr>
         </table>
     </div>
+    <div class="entity class" id="PhysicalChemicalQuality">
+        <h3>PhysicalChemicalQuality<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#PhysicalChemicalQuality</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A gufo:Quality that concerns a physical or chemical trait of a <a href="#MaterialEntity">doce:MaterialEntity</a>.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#TotalAlkalinityAsCaCO3">TotalAlkalinityAsCaCO3</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Hardness_CalciumCarbonateEquivalence">Hardness_CalciumCarbonateEquivalence</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Turbidity">Turbidity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Conductivity">Conductivity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SecchiDiskTransparency">SecchiDiskTransparency</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RedoxPotential">RedoxPotential</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TrueColor">TrueColor</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#pH">pH</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#BiologicalOxygenDemand">BiologicalOxygenDemand</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Temperature">Temperature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Salinity">Salinity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Concentration">Concentration</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="PhysicalChemicalQualityKind">
         <h3>PhysicalChemicalQualityKind<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#PhysicalChemicalQualityKind</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#WaterQualityKind">doce:WaterQualityKind</a> for physical chemical qualities in water quality management. </p>
+<p>Examples include "Temperature", "ArsenicConcentration", "Alkalinity".</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -2125,6 +1998,13 @@ Environmental Monitoring
                 <td><code>http://purl.org/nemo/doce#Preparation</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#ResearchActivity">doce:ResearchActivity</a> whose purpose is to prepare a sample for further analysis. For example, consider activities such as "extractions" in the preparation for measuring the concentration of metals in a water sample.</p>
+<p>In many cases, preparation is not explicitly modeled, and the preparation activities are encompassed in measurement. When preparation is explicit, a <a href="#Preparation">doce:Preparation</a> terminates an original <a href="#Sample">doce:Sample</a>, creating a newly prepared <a href="#Sample">doce:Sample</a>. (See gufo:wasTerminatedIn and gufo:wasCreatedIn.) Explicit preparation creates the opportunity to track the agents involved in handling preparation, the procedures and devices employed.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#ResearchActivity">ResearchActivity</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2157,7 +2037,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#MeterologicalQualityKind">MeterologicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#MetereologicalQualityKind">MetereologicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#WaterQualityKind">WaterQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -2170,7 +2050,22 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#measured">measured</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#measuredQualityKind">measuredQualityKind</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Rainfall">
+        <h3>Rainfall<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#Rainfall</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#MetereologicalQuality">MetereologicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2185,7 +2080,22 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RelativeHumidity">
+        <h3>RelativeHumidity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#RelativeHumidity</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#MetereologicalQuality">MetereologicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2198,6 +2108,18 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#ResearchActivity</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A gufo:Event which is conducted by one or more agents in order to investigate one or more aspects of a phenomenon of interest.</p>
+<p>A <a href="#ResearchActivity">doce:ResearchActivity</a> is a gufo:Event, and as such, can be given temporal boundaries (see the gufo:hasBeginPointInXSDDate, gufo:hasBeginPointInXSDDateTimeStamp, gufo:hasEndPointInXSDDate and gufo:hasEndPointInXSDDateTimeStamp data properties). </p>
+<p>As a <a href="#GeographicallyLocatedEntity">doce:GeographicallyLocatedEntity</a>, it can be located in space (see the <a href="#locatedIn">doce:locatedIn</a> object property).</p>
+<p>A <a href="#ResearchActivity">doce:ResearchActivity</a> is performed by a <a href="#ResearchActivityAgent">doce:ResearchActivityAgent</a> (see the <a href="#performed">doce:performed</a> object property).</p>
+<p>A <a href="#ResearchActivity">doce:ResearchActivity</a> is delegated by a <a href="#ResearchActivityPrincipal">doce:ResearchActivityPrincipal</a> (see the <a href="#delegated">doce:delegated</a> object property).</p>
+<p>A <a href="#ResearchActivityProcedure">doce:ResearchActivityProcedure</a> is adopted in a <a href="#ResearchActivityAgent">doce:ResearchActivityAgent</a> (see the <a href="#wasAdoptedIn">doce:wasAdoptedIn</a> object property).</p>
+<p>A <a href="#Device">doce:Device</a> is used in a <a href="#ResearchActivityAgent">doce:ResearchActivityAgent</a> (see the <a href="#wasUsedIn">doce:wasUsedIn</a> object property).</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#GeographicallyLocatedEntity">GeographicallyLocatedEntity</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2207,18 +2129,18 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#Sampling">Sampling</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Preparation">Preparation</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sampling">Sampling</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#wasUsedIn">wasUsedIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#delegated">delegated</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#performed">performed</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#wasAdoptedIn">wasAdoptedIn</a><sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="#delegated">delegated</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#wasUsedIn">wasUsedIn</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2229,6 +2151,12 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#ResearchActivityAgent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#Agent">doce:Agent</a> that performs a <a href="#ResearchActivity">doce:ResearchActivity</a>.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -2252,6 +2180,12 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#ResearchActivityPrincipal</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#Agent">doce:Agent</a> that delegates the performance of a <a href="#ResearchActivity">doce:ResearchActivity</a>.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#Agent">Agent</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2273,6 +2207,13 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#ResearchActivityProcedure</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A procedure adopted in a <a href="#ResearchActivity">doce:ResearchActivity</a>.</p>
+<p>See <a href="#wasAdoptedIn">doce:wasAdoptedIn</a> for the relation between the <a href="#ResearchActivityProcedure">doce:ResearchActivityProcedure</a> and the <a href="#ResearchActivity">doce:ResearchActivity</a> in which it was adopted.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2286,30 +2227,48 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             </tr>
         </table>
     </div>
-    <div class="entity class" id="ResearchableEntity">
-        <h3>ResearchableEntity<sup title="class" class="sup-c">c</sup></h3>
+    <div class="entity class" id="Reservoir">
+        <h3>Reservoir<sup title="class" class="sup-c">c</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#ResearchableEntity</code></td>
+                <td><code>http://purl.org/nemo/doce#Reservoir</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An artificial <a href="#SurfaceWaterFeature">doce:SurfaceWaterFeature</a> where water accumulates by design to control the flow distribution of surface water.</p>
+<p>For example, the "Candonga Hydroelectric Power Plant Reservoir".</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ArtificialGeographicFeature">ArtificialGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SurfaceWaterFeature">SurfaceWaterFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="River">
+        <h3>River<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#River</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A natural <a href="#SurfaceWaterFeature">doce:SurfaceWaterFeature</a> in which water runs due to gravity.</p>
+<p>For example, the "Carmo river", the "Doce river".</p>
                 </td>
             </tr>
             <tr>
-                <th>Sub-classes</th>
+                <th>Super-classes</th>
                 <td>
-                    <a href="#SampledEntity">SampledEntity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
-                </td>
-            </tr>
-            <tr>
-                <th>In domain of</th>
-                <td>
-                    <a href="#wasMeasuredIn">wasMeasuredIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#NaturalGeographicFeature">NaturalGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SurfaceWaterFeature">SurfaceWaterFeature</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2322,15 +2281,9 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#Salinity</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>http://registry2.it.csiro.au/def/property/practical_salinity</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2343,9 +2296,28 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#Sample</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#MaterialEntity">doce:MaterialEntity</a> that <a href="#represents">doce:represents</a> a <a href="#SampledEntity">doce:SampledEntity</a>.</p>
+<p>See <a href="#Sampling">doce:Sampling</a> for the <a href="#ResearchActivity">doce:ResearchActivity</a> that creates a sample.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#WaterSample">WaterSample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#represents">represents</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2358,9 +2330,22 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#SampledEntity</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#MaterialEntity">doce:MaterialEntity</a> that is subject to <a href="#Sampling">doce:Sampling</a>.</p>
+<p>See <a href="#represents">doce:represents</a> for the relation between a <a href="#Sample">doce:Sample</a> and the <a href="#SampledEntity">doce:SampledEntity</a> it represents.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="#ResearchableEntity">ResearchableEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#represents">represents</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2371,6 +2356,12 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#Sampling</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#ResearchActivity">doce:ResearchActivity</a> whose purpose is to create a <a href="#Sample">doce:Sample</a> that represents a <a href="#SampledEntity">doce:SampledEntity</a>. The created Sample is typically subject to <a href="#Measurement">doce:Measurement</a> later (possibly also through an explicit <a href="#Preparation">doce:Preparation</a> activity.)</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -2405,7 +2396,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2441,9 +2432,9 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
+                    <a href="#TotalDissolvedSolids">TotalDissolvedSolids</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalSolids">TotalSolids</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalSuspendedSolids">TotalSuspendedSolids</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalDissolvedSolids">TotalDissolvedSolids</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SettleableSolids">SettleableSolids</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -2464,6 +2455,57 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             </tr>
         </table>
     </div>
+    <div class="entity class" id="SurfaceWaterFeature">
+        <h3>SurfaceWaterFeature<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#SurfaceWaterFeature</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#HydrographicFeature">doce:HydrographicFeature</a> consisting of water on the surface of continents such as in a river or a lake.</p>
+<p>https://en.wikipedia.org/wiki/Surface_water</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#HydrographicFeature">HydrographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#River">River</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Reservoir">Reservoir</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Lake">Lake</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SurfaceWaterSample">
+        <h3>SurfaceWaterSample<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#SurfaceWaterSample</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#WaterSample">doce:WaterSample</a> from a <a href="#SurfaceWaterFeature">doce:SurfaceWaterFeature</a>.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#WaterSample">WaterSample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="Temperature">
         <h3>Temperature<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -2474,7 +2516,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2487,17 +2529,9 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td><code>http://purl.org/nemo/doce#TotalAlkalinityAsCaCO3</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>http://registry2.it.csiro.au/def/property/_alkalinity_total_CaCO3</p>
-<p>Total alkalinity is measured by collecting a water sample, and measuring the amount of acid needed to bring the sample to a pH of 4.2. At this pH all the alkaline compounds in the sample are "used up." The result is reported as milligrams per liter (mg/l) of calcium carbonate.
-https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-method-ph-and-alkalinity</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2538,12 +2572,6 @@ https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-m
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#TotalArsenicConcentration</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    <p>http://registry2.it.csiro.au/def/property/_arsenic_concentration</p>
-                </td>
             </tr>
             <tr>
                 <th>Super-classes</th>
@@ -2831,12 +2859,6 @@ https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-m
                 <td><code>http://purl.org/nemo/doce#TotalPhosphorousConcentration</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>http://registry2.it.csiro.au/def/property/_phosphorus_concentration</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#NonMetalConcentration">NonMetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2927,12 +2949,6 @@ https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-m
                 <td><code>http://purl.org/nemo/doce#TotalSuspendedSolids</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>http://registry2.it.csiro.au/def/property/_solids-total_suspended</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="#SolidsConcentration">SolidsConcentration</a><sup class="sup-c" title="class">c</sup><br/>
@@ -2978,16 +2994,9 @@ https://wrrc.umass.edu/research/projects/acid-rain-monitoring-project/analysis-m
                 <td><code>http://purl.org/nemo/doce#TrueColor</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>The term “color” is used here to mean true color, that is, the color of water from which turbidity has been removed. 
-https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3002,7 +3011,7 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3017,9 +3026,10 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Corresponds to qudt:Unit</p>
-<p>See: http://qudt.org/2.1/schema/qudt#Unit for definition.</p>
-<p>and "QUDT All Units" http://www.qudt.org/doc/2020/04/DOC_VOCAB-UNITS-ALL-v2.1.html for a catalog of units (namespace http://qudt.org/vocab/unit/)</p>
+                    <p>A <a href="#Unit">doce:Unit</a> partitions a quality structure into parts of equal magnitude.</p>
+<p>Examples include "Meter", "Kilogram", "Meter per Second".</p>
+<p>Corresponds to qudt:Unit. See: http://qudt.org/2.1/schema/qudt#Unit for definition.</p>
+<p>See also "QUDT All Units" http://www.qudt.org/doc/2020/04/DOC_VOCAB-UNITS-ALL-v2.1.html for a catalog of units (namespace http://qudt.org/vocab/unit/)</p>
                 </td>
             </tr>
             <tr>
@@ -3031,8 +3041,8 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#hasApplicableUnit">hasApplicableUnit</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#expressedIn">expressedIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasApplicableUnit">hasApplicableUnit</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3048,6 +3058,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <th>Super-classes</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#FlowRate">FlowRate</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3081,6 +3097,35 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             </tr>
         </table>
     </div>
+    <div class="entity class" id="WaterSample">
+        <h3>WaterSample<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#WaterSample</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A <a href="#Sample">doce:Sample</a> that consists mostly in water.</p>
+<p>A <a href="#WaterSample">doce:WaterSample</a> represents a <a href="#SampledEntity">doce:SampledEntity</a> (see the <a href="#represents">doce:represents</a> object property), typically a <a href="#HydrographicFeature">doce:HydrographicFeature</a> such as a <a href="#Lake">doce:Lake</a> or <a href="#River">doce:River</a>.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AmountOfWater">AmountOfWater</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SurfaceWaterSample">SurfaceWaterSample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="pH">
         <h3>pH<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -3089,15 +3134,9 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <td><code>http://purl.org/nemo/doce#pH</code></td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>
-                    <p>See http://registry2.it.csiro.au/def/property/_PH</p>
-                </td>
-            </tr>
-            <tr>
                 <th>Super-classes</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#Quality">gufo:Quality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3109,10 +3148,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
         <li><a href="#delegated">delegated</a></li>
         <li><a href="#expressedIn">expressedIn</a></li>
         <li><a href="#hasApplicableUnit">hasApplicableUnit</a></li>
-        <li><a href="#hasAssociatedChemicalEntityKind">hasAssociatedChemicalEntityKind</a></li>
+        <li><a href="#hasAssociatedChemicalEntityType">hasAssociatedChemicalEntityType</a></li>
         <li><a href="#locatedIn">locatedIn</a></li>
         <li><a href="#measured">measured</a></li>
+        <li><a href="#measuredQualityKind">measuredQualityKind</a></li>
         <li><a href="#performed">performed</a></li>
+        <li><a href="#represents">represents</a></li>
         <li><a href="#wasAdoptedIn">wasAdoptedIn</a></li>
         <li><a href="#wasMeasuredIn">wasMeasuredIn</a></li>
         <li><a href="#wasUsedIn">wasUsedIn</a></li>
@@ -3123,6 +3164,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#delegated</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#ResearchActivity">doce:ResearchActivity</a> which the <a href="#ResearchActivityPrincipal">doce:ResearchActivityPrincipal</a> delegated.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -3152,6 +3199,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <td><code>http://purl.org/nemo/doce#expressedIn</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#Unit">doce:Unit</a> with which the <a href="#Measurement">doce:Measurement</a> is expressed.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Domain(s)</th>
                 <td>
                     <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup>
@@ -3175,7 +3228,8 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Corresponds to http://qudt.org/schema/qudt/applicableUnit</p>
+                    <p>Identifies a <a href="#Unit">doce:Unit</a> which is applicable to the <a href="#QualityKind">doce:QualityKind</a>.</p>
+<p>Corresponds to http://qudt.org/schema/qudt/applicableUnit</p>
                 </td>
             </tr>
             <tr>
@@ -3192,12 +3246,19 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             </tr>
         </table>
     </div>
-    <div class="entity property" id="hasAssociatedChemicalEntityKind">
-        <h3>hasAssociatedChemicalEntityKind<sup title="object property" class="sup-op">op</sup></h3>
+    <div class="entity property" id="hasAssociatedChemicalEntityType">
+        <h3>hasAssociatedChemicalEntityType<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasAssociatedChemicalEntityKind</code></td>
+                <td><code>http://purl.org/nemo/doce#hasAssociatedChemicalEntityType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies the <a href="#ChemicalEntityType">doce:ChemicalEntityType</a> which is associated to the <a href="#ChemicalEntityConcentrationQualityKind">doce:ChemicalEntityConcentrationQualityKind</a>.</p>
+<p>For example, "Arsenic" (a <a href="#ChemicalEntityType">doce:ChemicalEntityType</a>) is associated with "ArsenicConcentration" (a <a href="#ChemicalEntityConcentrationQualityKind">doce:ChemicalEntityConcentrationQualityKind</a>).</p>
+                </td>
             </tr>
             <tr>
                 <th>Domain(s)</th>
@@ -3208,7 +3269,7 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Range(s)</th>
                 <td>
-                    <a href="#ChemicalEntityKind">ChemicalEntityKind</a><sup class="sup-c" title="class">c</sup>
+                    <a href="#ChemicalEntityType">ChemicalEntityType</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
         </table>
@@ -3223,7 +3284,7 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Identifies a GeographicPoint for a SpatiallyLocatedEntity</p>
+                    <p>Identifies a <a href="#GeographicPoint">doce:GeographicPoint</a> for a <a href="#GeographicallyLocatedEntity">doce:GeographicallyLocatedEntity</a>.</p>
                 </td>
             </tr>
             <tr>
@@ -3254,6 +3315,39 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <td><code>http://purl.org/nemo/doce#measured</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies the gufo:Object measured in a <a href="#Measurement">doce:Measurement</a>.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="measuredQualityKind">
+        <h3>measuredQualityKind<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#measuredQualityKind</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies the <a href="#QualityKind">doce:QualityKind</a> that characterizes the measurement.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Domain(s)</th>
                 <td>
                     <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup>
@@ -3275,6 +3369,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <td><code>http://purl.org/nemo/doce#performed</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#ResearchActivity">doce:ResearchActivity</a> which the <a href="#ResearchActivityAgent">doce:ResearchActivityAgent</a> performed.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-properties</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
@@ -3294,12 +3394,45 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             </tr>
         </table>
     </div>
+    <div class="entity property" id="represents">
+        <h3>represents<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/doce#represents</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies the <a href="#SampleEntity">doce:SampleEntity</a> which the <a href="#Sample">doce:Sample</a> represents.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#SampledEntity">SampledEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="entity property" id="wasAdoptedIn">
         <h3>wasAdoptedIn<sup title="object property" class="sup-op">op</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#wasAdoptedIn</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#ResearchActivity">doce:ResearchActivity</a> in which the <a href="#ResearchActivityProcedure">doce:ResearchActivityProcedure</a> was adopted.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -3329,6 +3462,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <td><code>http://purl.org/nemo/doce#wasMeasuredIn</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#Measurement">doce:Measurement</a> in which the gufo:Object was measured.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-properties</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
@@ -3337,7 +3476,7 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    <a href="#ResearchableEntity">ResearchableEntity</a><sup class="sup-c" title="class">c</sup>
+                    <a href="http://purl.org/nemo/gufo#Object">gufo:Object</a><sup class="sup-c" title="class">c</sup>
                 </td>
             </tr>
             <tr>
@@ -3354,6 +3493,12 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
             <tr>
                 <th>IRI</th>
                 <td><code>http://purl.org/nemo/doce#wasUsedIn</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifies a <a href="#ResearchActivity">doce:ResearchActivity</a> in which the <a href="#Device">doce:Device</a> was used.</p>
+                </td>
             </tr>
             <tr>
                 <th>Super-properties</th>
@@ -3380,27 +3525,9 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
 <section id="datatypeproperties">
     <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#hasConcentrationValue">hasConcentrationValue</a></li>
         <li><a href="#hasLatitude">hasLatitude</a></li>
         <li><a href="#hasLongitude">hasLongitude</a></li>
-        <li><a href="#hasTemperatureValue">hasTemperatureValue</a></li>
-        <li><a href="#hasVolumePerTimeUnitValue">hasVolumePerTimeUnitValue</a></li>
     </ul>
-    <div class="entity property" id="hasConcentrationValue">
-        <h3>hasConcentrationValue<sup title="datatype property" class="sup-dp">dp</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasConcentrationValue</code></td>
-            </tr>
-            <tr>
-                <th>Super-properties</th>
-                <td>
-                    <a href="http://purl.org/nemo/gufo#hasQualityValue">gufo:hasQualityValue</a>
-                </td>
-            </tr>
-        </table>
-    </div>
     <div class="entity property" id="hasLatitude">
         <h3>hasLatitude<sup title="datatype property" class="sup-dp">dp</sup></h3>
         <table>
@@ -3463,42 +3590,6 @@ https://www.standardmethods.org/doi/full/10.2105/SMWW.2882.017</p>
                 <th>Range(s)</th>
                 <td>
                     <a href="http://www.w3.org/2001/XMLSchema#float">xsd:float</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity property" id="hasTemperatureValue">
-        <h3>hasTemperatureValue<sup title="datatype property" class="sup-dp">dp</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasTemperatureValue</code></td>
-            </tr>
-            <tr>
-                <th>Super-properties</th>
-                <td>
-                    <a href="http://purl.org/nemo/gufo#hasQualityValue">gufo:hasQualityValue</a>
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="http://www.w3.org/2001/XMLSchema#double">xsd:double</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity property" id="hasVolumePerTimeUnitValue">
-        <h3>hasVolumePerTimeUnitValue<sup title="datatype property" class="sup-dp">dp</sup></h3>
-        <table>
-            <tr>
-                <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasVolumePerTimeUnitValue</code></td>
-            </tr>
-            <tr>
-                <th>Super-properties</th>
-                <td>
-                    <a href="http://purl.org/nemo/gufo#hasQualityValue">gufo:hasQualityValue</a>
                 </td>
             </tr>
         </table>

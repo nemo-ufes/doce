@@ -12,13 +12,14 @@
 @base <http://purl.org/nemo/doce#> .
 
 <http://purl.org/nemo/doce#> rdf:type owl:Ontology ;
+                              owl:versionIRI <http://purl.org/nemo/doce#/2020-05-04> ;
                               owl:imports gufo: ;
                               dc:creator "Almeida, João Paulo A." ;
                               dc:date "2020-04-22"@en ;
                               dc:title "The doce water quality ontology"@en ;
                               dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
                               vann:preferredNamespaceUri "http://purl.org/nemo/doce#"^^xsd:anyURI ;
-                              rdfs:comment """The doce water quality ontology.
+                              rdfs:comment """This is still work-in-progress. For reuse please wait until a stable version is released.
 
 Based partly on P. M. C. Campos, “Designing a Network of Reference Ontologies for the Integration of Water Quality Data,” Master Thesis, Universidade Federal do Espírito Santo, 2019. 
 

@@ -158,7 +158,8 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
                                 wgs:lat ;
              rdfs:domain :GeographicPoint ;
              rdfs:range xsd:float ;
-             rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
+             rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" ;
+            rdfs:label "hasLatitude"@en .
 
 
 ###  http://purl.org/nemo/doce#hasLongitude
@@ -167,7 +168,8 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
                                  wgs:long ;
               rdfs:domain :GeographicPoint ;
               rdfs:range xsd:float ;
-              rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
+              rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" ;
+              rdfs:label "hasLongitude"@en.
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
@@ -203,12 +205,14 @@ https://en.wikipedia.org/wiki/Abiotic_component"""@en ;
 
 ###  http://purl.org/nemo/doce#AmbientTemperature
 :AmbientTemperature rdf:type owl:Class ;
-                    rdfs:subClassOf :MetereologicalQuality .
+                    rdfs:subClassOf :MetereologicalQuality ;
+                    rdfs:label "AmbientTemperature"@en.
 
 
 ###  http://purl.org/nemo/doce#AmmoniacalNitrogenConcentration
 :AmmoniacalNitrogenConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :NonMetalConcentration .
+                                 rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "AmmoniacalNitrogenConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#AmountOfWater
@@ -231,7 +235,8 @@ Examples include \"Colatina\", the \"Candonga Hydroelectric Power Plant Reservoi
 
 ###  http://purl.org/nemo/doce#BiologicalOxygenDemand
 :BiologicalOxygenDemand rdf:type owl:Class ;
-                        rdfs:subClassOf :PhysicalChemicalQuality .
+                        rdfs:subClassOf :PhysicalChemicalQuality ;
+                        rdfs:label "BiologicalOxygenDemand"@en .
 
 
 ###  http://purl.org/nemo/doce#BiologicalQualityKind
@@ -277,7 +282,8 @@ See Chemical Entities of Biological Interest <https://www.ebi.ac.uk/ols/ontologi
 
 ###  http://purl.org/nemo/doce#ChlorophyllAConcentration
 :ChlorophyllAConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :NonMetalConcentration .
+                           rdfs:subClassOf :NonMetalConcentration ;
+                           rdfs:label "ChlorophyllAConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#Concentration
@@ -289,12 +295,14 @@ See Chemical Entities of Biological Interest <https://www.ebi.ac.uk/ols/ontologi
 
 ###  http://purl.org/nemo/doce#Conductivity
 :Conductivity rdf:type owl:Class ;
-              rdfs:subClassOf :PhysicalChemicalQuality .
+              rdfs:subClassOf :PhysicalChemicalQuality ;
+                           rdfs:label "Conductivity"@en .
 
 
 ###  http://purl.org/nemo/doce#CyanideConcentration
 :CyanideConcentration rdf:type owl:Class ;
-                      rdfs:subClassOf :NonMetalConcentration .
+                      rdfs:subClassOf :NonMetalConcentration  ;
+                           rdfs:label "CyanideConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#Device
@@ -306,162 +314,194 @@ See Chemical Entities of Biological Interest <https://www.ebi.ac.uk/ols/ontologi
 
 ###  http://purl.org/nemo/doce#DissolvedAluminiumConcentration
 :DissolvedAluminiumConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :MetalConcentration .
+                                 rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedAluminiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedAntimonyConcentration
 :DissolvedAntimonyConcentration rdf:type owl:Class ;
-                                rdfs:subClassOf :MetalloidConcentration .
+                                rdfs:subClassOf :MetalloidConcentration ;
+                                 rdfs:label "DissolvedAntimonyConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedArsenicConcentration
 :DissolvedArsenicConcentration rdf:type owl:Class ;
-                               rdfs:subClassOf :MetalloidConcentration .
+                               rdfs:subClassOf :MetalloidConcentration ;
+                                 rdfs:label "DissolvedArsenicConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedBariumConcentration
 :DissolvedBariumConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedBariumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedBerylliumConcentration
 :DissolvedBerylliumConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :MetalConcentration .
+                                 rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedBerylliumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedBoronConcentration
 :DissolvedBoronConcentration rdf:type owl:Class ;
-                             rdfs:subClassOf :MetalloidConcentration .
+                             rdfs:subClassOf :MetalloidConcentration ;
+                                 rdfs:label "DissolvedBoronConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedCadmiumConcentration
 :DissolvedCadmiumConcentration rdf:type owl:Class ;
-                               rdfs:subClassOf :MetalConcentration .
+                               rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedCadmiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedCalciumConcentration
 :DissolvedCalciumConcentration rdf:type owl:Class ;
-                               rdfs:subClassOf :MetalConcentration .
+                               rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedCalciumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedChromiumConcentration
 :DissolvedChromiumConcentration rdf:type owl:Class ;
-                                rdfs:subClassOf :MetalConcentration .
+                                rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedChromiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedCobaltConcentration
 :DissolvedCobaltConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedCobaltConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedCopperConcentration
 :DissolvedCopperConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedCopperConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedIronConcentration
 :DissolvedIronConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedIronConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedLeadConcentration
 :DissolvedLeadConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedLeadConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedMagnesiumConcentration
 :DissolvedMagnesiumConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :MetalConcentration .
+                                 rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedMagnesiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedManganeseConcentration
 :DissolvedManganeseConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :MetalConcentration .
+                                 rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedManganeseConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedMercuryConcentration
 :DissolvedMercuryConcentration rdf:type owl:Class ;
-                               rdfs:subClassOf :MetalConcentration .
+                               rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedMercuryConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedMolybdenumConcentration
 :DissolvedMolybdenumConcentration rdf:type owl:Class ;
-                                  rdfs:subClassOf :MetalConcentration .
+                                  rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedMolybdenumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedNickelConcentration
 :DissolvedNickelConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedNickelConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedOrganicCarbonConcentration
 :DissolvedOrganicCarbonConcentration rdf:type owl:Class ;
-                                     rdfs:subClassOf :NonMetalConcentration .
+                                     rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "DissolvedOrganicCarbonConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedOxygenConcentration
 :DissolvedOxygenConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :NonMetalConcentration .
+                              rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "DissolvedOxygenConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedPhosphorusConcentration
 :DissolvedPhosphorusConcentration rdf:type owl:Class ;
-                                  rdfs:subClassOf :NonMetalConcentration .
+                                  rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "DissolvedPhosphorusConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedPotassiumConcentration
 :DissolvedPotassiumConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :MetalConcentration .
+                                 rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedPotassiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedSeleniumConcentration
 :DissolvedSeleniumConcentration rdf:type owl:Class ;
-                                rdfs:subClassOf :NonMetalConcentration .
+                                rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "DissolvedSeleniumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedSilicaConcentration
 :DissolvedSilicaConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :NonMetalConcentration .
+                              rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "DissolvedSilicaConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedSilverConcentration
 :DissolvedSilverConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedSilverConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedSodiumConcentration
 :DissolvedSodiumConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedSodiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedVanadiumConcentration
 :DissolvedVanadiumConcentration rdf:type owl:Class ;
-                                rdfs:subClassOf :MetalConcentration .
+                                rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedVanadiumConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#DissolvedZincConcentration
 :DissolvedZincConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "DissolvedZincConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#FerricIronIIIConcentration
 :FerricIronIIIConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "FerricIronIIIConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#FerrousIronIIConcentration
 :FerrousIronIIConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+                                 rdfs:label "FerrousIronIIConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#FlourideConcentration
 :FlourideConcentration rdf:type owl:Class ;
-                       rdfs:subClassOf :NonMetalConcentration .
+                       rdfs:subClassOf :NonMetalConcentration ;
+                                 rdfs:label "FlourideConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#FlowRate
 :FlowRate rdf:type owl:Class ;
-          rdfs:subClassOf :VolumePerUnitTime .
+          rdfs:subClassOf :VolumePerUnitTime ;
+                                 rdfs:label "FlowRate"@en.
 
 
 ###  http://purl.org/nemo/doce#GeographicFeature
@@ -499,12 +539,14 @@ See doce:locatedIn to related a doce:GeographicallyLocatedEntity with one or mor
 
 ###  http://purl.org/nemo/doce#Hardness_CalciumCarbonateEquivalence
 :Hardness_CalciumCarbonateEquivalence rdf:type owl:Class ;
-                                      rdfs:subClassOf :PhysicalChemicalQuality .
+                                      rdfs:subClassOf :PhysicalChemicalQuality ;
+                                      rdfs:label "Hardness_CalciumCarbonateEquivalence"@en .
 
 
 ###  http://purl.org/nemo/doce#HydrogenSulfideConcentration
 :HydrogenSulfideConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :NonMetalConcentration .
+                              rdfs:subClassOf :NonMetalConcentration;
+                                      rdfs:label "HydrogenSulfideConcentration"@en  .
 
 
 ###  http://purl.org/nemo/doce#HydrographicFeature
@@ -516,7 +558,8 @@ See doce:locatedIn to related a doce:GeographicallyLocatedEntity with one or mor
 
 ###  http://purl.org/nemo/doce#KjeldahlMethodNitrogenConcentration
 :KjeldahlMethodNitrogenConcentration rdf:type owl:Class ;
-                                     rdfs:subClassOf :NonMetalConcentration .
+                                     rdfs:subClassOf :NonMetalConcentration;
+                                      rdfs:label "KjeldahlMethodNitrogenConcentration"@en  .
 
 
 ###  http://purl.org/nemo/doce#Lake
@@ -589,7 +632,8 @@ Examples include \"RelativeHumidity\", \"AtmosphericPressure\", \"Precipitation\
 
 ###  http://purl.org/nemo/doce#MethylmercuryConcentration
 :MethylmercuryConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :NonMetalConcentration .
+                            rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "MethylmercuryConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#NaturalGeographicFeature
@@ -603,12 +647,14 @@ Examples include the \"Amazon River\", the \"Juparanã Lake\", the \"Jungfrau Mo
 
 ###  http://purl.org/nemo/doce#NitrateConcentration
 :NitrateConcentration rdf:type owl:Class ;
-                      rdfs:subClassOf :NonMetalConcentration .
+                      rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "NitrateConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#NitriteConcentration
 :NitriteConcentration rdf:type owl:Class ;
-                      rdfs:subClassOf :NonMetalConcentration .
+                      rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "NitriteConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#NonMetalConcentration
@@ -619,22 +665,26 @@ Examples include the \"Amazon River\", the \"Juparanã Lake\", the \"Jungfrau Mo
 
 ###  http://purl.org/nemo/doce#OrganicNitrogenConcentration
 :OrganicNitrogenConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :NonMetalConcentration .
+                              rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "OrganicNitrogenConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#OxygenSaturation
 :OxygenSaturation rdf:type owl:Class ;
-                  rdfs:subClassOf :NonMetalConcentration .
+                  rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "OxygenSaturation"@en .
 
 
 ###  http://purl.org/nemo/doce#PheophytinConcentration
 :PheophytinConcentration rdf:type owl:Class ;
-                         rdfs:subClassOf :NonMetalConcentration .
+                         rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "PheophytinConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#PhosphateConcentration
 :PhosphateConcentration rdf:type owl:Class ;
-                        rdfs:subClassOf :NonMetalConcentration .
+                        rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "PhosphateConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#PhysicalChemicalQuality
@@ -655,7 +705,8 @@ Examples include \"Temperature\", \"ArsenicConcentration\", \"Alkalinity\"."""@e
 
 ###  http://purl.org/nemo/doce#PolyphosphateConcentration
 :PolyphosphateConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :NonMetalConcentration .
+                            rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "PolyphosphateConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#Preparation
@@ -669,22 +720,26 @@ In many cases, preparation is not explicitly modeled, and the preparation activi
 
 ###  http://purl.org/nemo/doce#QualityKind
 :QualityKind rdf:type owl:Class ;
-             rdfs:subClassOf gufo:Kind .
+             rdfs:subClassOf gufo:Kind ;
+                                      rdfs:label "QualityKind"@en .
 
 
 ###  http://purl.org/nemo/doce#Rainfall
 :Rainfall rdf:type owl:Class ;
-          rdfs:subClassOf :MetereologicalQuality .
+          rdfs:subClassOf :MetereologicalQuality ;
+                                      rdfs:label "Rainfall"@en .
 
 
 ###  http://purl.org/nemo/doce#RedoxPotential
 :RedoxPotential rdf:type owl:Class ;
-                rdfs:subClassOf :PhysicalChemicalQuality .
+                rdfs:subClassOf :PhysicalChemicalQuality ;
+                                      rdfs:label "RedoxPotential"@en .
 
 
 ###  http://purl.org/nemo/doce#RelativeHumidity
 :RelativeHumidity rdf:type owl:Class ;
-                  rdfs:subClassOf :MetereologicalQuality .
+                  rdfs:subClassOf :MetereologicalQuality ;
+                                      rdfs:label "RelativeHumidity"@en .
 
 
 ###  http://purl.org/nemo/doce#ResearchActivity
@@ -752,7 +807,8 @@ For example, the \"Carmo river\", the \"Doce river\"."""@en ;
 
 ###  http://purl.org/nemo/doce#Salinity
 :Salinity rdf:type owl:Class ;
-          rdfs:subClassOf :PhysicalChemicalQuality .
+          rdfs:subClassOf :PhysicalChemicalQuality ;
+                                      rdfs:label "Salinity"@en .
 
 
 ###  http://purl.org/nemo/doce#Sample
@@ -782,27 +838,32 @@ See doce:represents for the relation between a doce:Sample and the doce:SampledE
 
 ###  http://purl.org/nemo/doce#SamplingDepth
 :SamplingDepth rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Quality .
+               rdfs:subClassOf gufo:Quality ;
+                                      rdfs:label "SamplingDepth"@en .
 
 
 ###  http://purl.org/nemo/doce#SecchiDiskTransparency
 :SecchiDiskTransparency rdf:type owl:Class ;
-                        rdfs:subClassOf :PhysicalChemicalQuality .
+                        rdfs:subClassOf :PhysicalChemicalQuality ;
+                                      rdfs:label "SecchiDiskTransparency"@en .
 
 
 ###  http://purl.org/nemo/doce#SettleableSolids
 :SettleableSolids rdf:type owl:Class ;
-                  rdfs:subClassOf :SolidsConcentration .
+                  rdfs:subClassOf :SolidsConcentration ;
+                                      rdfs:label "SettleableSolids"@en .
 
 
 ###  http://purl.org/nemo/doce#SolidsConcentration
 :SolidsConcentration rdf:type owl:Class ;
-                     rdfs:subClassOf :Concentration .
+                     rdfs:subClassOf :Concentration ;
+                                      rdfs:label "SolidsConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#SulphateConcentration
 :SulphateConcentration rdf:type owl:Class ;
-                       rdfs:subClassOf :NonMetalConcentration .
+                       rdfs:subClassOf :NonMetalConcentration ;
+                                      rdfs:label "SulphateConcentration"@en.
 
 
 ###  http://purl.org/nemo/doce#SurfaceWaterFeature
@@ -823,172 +884,206 @@ https://en.wikipedia.org/wiki/Surface_water"""@en ;
 
 ###  http://purl.org/nemo/doce#Temperature
 :Temperature rdf:type owl:Class ;
-             rdfs:subClassOf :PhysicalChemicalQuality .
+             rdfs:subClassOf :PhysicalChemicalQuality ;
+             rdfs:label "Temperature"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalAlkalinityAsCaCO3
 :TotalAlkalinityAsCaCO3 rdf:type owl:Class ;
-                        rdfs:subClassOf :PhysicalChemicalQuality .
+                        rdfs:subClassOf :PhysicalChemicalQuality ;
+             rdfs:label "TotalAlkalinityAsCaCO3"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalAluminiumConcentration
 :TotalAluminiumConcentration rdf:type owl:Class ;
-                             rdfs:subClassOf :MetalConcentration .
+                             rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalAluminiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalAntimonyConcentration
 :TotalAntimonyConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalloidConcentration .
+                            rdfs:subClassOf :MetalloidConcentration ;
+             rdfs:label "TotalAntimonyConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalArsenicConcentration
 :TotalArsenicConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :MetalloidConcentration .
+                           rdfs:subClassOf :MetalloidConcentration ;
+             rdfs:label "TotalArsenicConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalBariumConcentration
 :TotalBariumConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalBariumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalBerylliumConcentration
 :TotalBerylliumConcentration rdf:type owl:Class ;
-                             rdfs:subClassOf :MetalConcentration .
+                             rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalBerylliumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalBoronConcentration
 :TotalBoronConcentration rdf:type owl:Class ;
-                         rdfs:subClassOf :MetalloidConcentration .
+                         rdfs:subClassOf :MetalloidConcentration ;
+             rdfs:label "TotalBoronConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalCadmiumConcentration
 :TotalCadmiumConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :MetalConcentration .
+                           rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalCadmiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalCalciumConcentration
 :TotalCalciumConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :MetalConcentration .
+                           rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalCalciumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalChlorideConcentration
 :TotalChlorideConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :NonMetalConcentration .
+                            rdfs:subClassOf :NonMetalConcentration ;
+             rdfs:label "TotalChlorideConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalChromiumConcentration
 :TotalChromiumConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalChromiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalCobaltConcentration
 :TotalCobaltConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalCobaltConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalCopperConcentration
 :TotalCopperConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalCopperConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalDissolvedSolids
 :TotalDissolvedSolids rdf:type owl:Class ;
-                      rdfs:subClassOf :SolidsConcentration .
+                      rdfs:subClassOf :SolidsConcentration ;
+             rdfs:label "TotalDissolvedSolids"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalIronConcentration
 :TotalIronConcentration rdf:type owl:Class ;
-                        rdfs:subClassOf :MetalConcentration .
+                        rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalIronConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalLeadConcentration
 :TotalLeadConcentration rdf:type owl:Class ;
-                        rdfs:subClassOf :MetalConcentration .
+                        rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalLeadConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalMagnesiumConcentration
 :TotalMagnesiumConcentration rdf:type owl:Class ;
-                             rdfs:subClassOf :MetalConcentration .
+                             rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalMagnesiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalManganeseConcentration
 :TotalManganeseConcentration rdf:type owl:Class ;
-                             rdfs:subClassOf :MetalConcentration .
+                             rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalManganeseConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalMercuryConcentration
 :TotalMercuryConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :MetalConcentration .
+                           rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalMercuryConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalMolybdenumConcentration
 :TotalMolybdenumConcentration rdf:type owl:Class ;
-                              rdfs:subClassOf :MetalConcentration .
+                              rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalMolybdenumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalNickelConcentration
 :TotalNickelConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalNickelConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalOrganicCarbonConcentration
 :TotalOrganicCarbonConcentration rdf:type owl:Class ;
-                                 rdfs:subClassOf :NonMetalConcentration .
+                                 rdfs:subClassOf :NonMetalConcentration ;
+             rdfs:label "TotalOrganicCarbonConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalPhosphorousConcentration
 :TotalPhosphorousConcentration rdf:type owl:Class ;
-                               rdfs:subClassOf :NonMetalConcentration .
+                               rdfs:subClassOf :NonMetalConcentration ;
+             rdfs:label "TotalPhosphorousConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSeleniumConcentration
 :TotalSeleniumConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :NonMetalConcentration .
+                            rdfs:subClassOf :NonMetalConcentration ;
+             rdfs:label "TotalSeleniumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSilverConcentration
 :TotalSilverConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration  ;
+             rdfs:label "TotalSilverConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSodiumConcentration
 :TotalSodiumConcentration rdf:type owl:Class ;
-                          rdfs:subClassOf :MetalConcentration .
+                          rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalSodiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSolids
 :TotalSolids rdf:type owl:Class ;
-             rdfs:subClassOf :SolidsConcentration .
+             rdfs:subClassOf :SolidsConcentration ;
+             rdfs:label "TotalSolids"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSulfideConcentration
 :TotalSulfideConcentration rdf:type owl:Class ;
-                           rdfs:subClassOf :NonMetalConcentration .
+                           rdfs:subClassOf :NonMetalConcentration ;
+             rdfs:label "TotalSulfideConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalSuspendedSolids
 :TotalSuspendedSolids rdf:type owl:Class ;
-                      rdfs:subClassOf :SolidsConcentration .
+                      rdfs:subClassOf :SolidsConcentration ;
+             rdfs:label "TotalSuspendedSolids"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalVanadiumConcentration
 :TotalVanadiumConcentration rdf:type owl:Class ;
-                            rdfs:subClassOf :MetalConcentration .
+                            rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalVanadiumConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TotalZincConcentration
 :TotalZincConcentration rdf:type owl:Class ;
-                        rdfs:subClassOf :MetalConcentration .
+                        rdfs:subClassOf :MetalConcentration ;
+             rdfs:label "TotalZincConcentration"@en .
 
 
 ###  http://purl.org/nemo/doce#TrueColor
 :TrueColor rdf:type owl:Class ;
-           rdfs:subClassOf :PhysicalChemicalQuality .
+           rdfs:subClassOf :PhysicalChemicalQuality ;
+             rdfs:label "TrueColor"@en .
 
 
 ###  http://purl.org/nemo/doce#Turbidity
 :Turbidity rdf:type owl:Class ;
-           rdfs:subClassOf :PhysicalChemicalQuality .
+           rdfs:subClassOf :PhysicalChemicalQuality ;
+             rdfs:label "Turbidity"@en .
 
 
 ###  http://purl.org/nemo/doce#Unit
@@ -1006,7 +1101,8 @@ See also \"QUDT All Units\" http://www.qudt.org/doc/2020/04/DOC_VOCAB-UNITS-ALL-
 
 ###  http://purl.org/nemo/doce#VolumePerUnitTime
 :VolumePerUnitTime rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Quality .
+                   rdfs:subClassOf gufo:Quality ;
+             rdfs:label "VolumePerUnitTime"@en .
 
 
 ###  http://purl.org/nemo/doce#WaterQualityKind
@@ -1030,7 +1126,8 @@ A doce:WaterSample represents a doce:SampledEntity (see the doce:represents obje
 
 ###  http://purl.org/nemo/doce#pH
 :pH rdf:type owl:Class ;
-    rdfs:subClassOf :PhysicalChemicalQuality .
+    rdfs:subClassOf :PhysicalChemicalQuality ;
+             rdfs:label "pH"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#Geometry

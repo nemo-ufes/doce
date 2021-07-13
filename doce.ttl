@@ -1,8 +1,10 @@
 @prefix : <http://purl.org/nemo/doce#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gufo: <http://purl.org/nemo/gufo#> .
@@ -153,6 +155,7 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
 ###  http://purl.org/nemo/doce#hasLatitude
 :hasLatitude rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasValueComponent ;
+             rdfs:subPropertyOf wgs:lat ;
              rdfs:domain :GeographicPoint ;
              rdfs:range xsd:float ;
              rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
@@ -161,6 +164,7 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
 ###  http://purl.org/nemo/doce#hasLongitude
 :hasLongitude rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf gufo:hasValueComponent ;
+              rdfs:subPropertyOf wgs:long ;
               rdfs:domain :GeographicPoint ;
               rdfs:range xsd:float ;
               rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
@@ -465,6 +469,7 @@ Examples include the \"Doce river\", the \"Juparanã lake\", the city of \"Colat
 ###  http://purl.org/nemo/doce#GeographicPoint
 :GeographicPoint rdf:type owl:Class ;
                  rdfs:subClassOf gufo:QualityValue ;
+                 rdfs:subClassOf geo:Geometry ;
                  rdfs:comment """A <latitude, longitude> coordinate tuple in the WGS84 Coordinate Reference System. Used to conceive of a (0-dimensional) location relative to the Earth's surface.
 
 Identity of a point is given by its latitude and longitude components. See hasLatitude, hasLongitude data properties.
@@ -1017,8 +1022,7 @@ A doce:WaterSample represents a doce:SampledEntity (see the doce:represents obje
 
 ###  http://purl.org/nemo/doce#pH
 :pH rdf:type owl:Class ;
-    rdfs:subClassOf :PhysicalChemicalQuality ;
-    rdfs:label "pH"@en .
+    rdfs:subClassOf :PhysicalChemicalQuality .
 
 
 #################################################################
@@ -1029,6 +1033,13 @@ A doce:WaterSample represents a doce:SampledEntity (see the doce:represents obje
 :AmbientTemperature rdf:type owl:NamedIndividual ,
                              :MetereologicalQualityKind ;
                     :hasApplicableUnit unit:DEG_C .
+
+
+###  http://purl.org/nemo/doce#Conductivity
+:Conductivity rdf:type owl:NamedIndividual ,
+                       :PhysicalChemicalQualityKind ;
+              :hasApplicableUnit unit:MicroS-PER-CentiM ,
+                                 unit:MilliS-PER-CentiM .
 
 
 ###  http://purl.org/nemo/doce#HazenUnit
@@ -1091,12 +1102,6 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
 :OxygenSaturation rdf:type owl:NamedIndividual ,
                            :ChemicalEntityConcentrationQualityKind ;
                   :hasApplicableUnit unit:PERCENT .
-
-
-###  http://purl.org/nemo/doce#PH
-:PH rdf:type owl:NamedIndividual ,
-             :Unit ;
-    rdfs:comment "See http://registry2.it.csiro.au/def/unit/pH" .
 
 
 ###  http://purl.org/nemo/doce#PSU
@@ -1164,7 +1169,8 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
 ###  http://purl.org/nemo/doce#SamplingDepth
 :SamplingDepth rdf:type owl:NamedIndividual ,
                         :WaterQualityKind ;
-               :hasApplicableUnit unit:M .
+               :hasApplicableUnit unit:CentiM ,
+                                  unit:M .
 
 
 ###  http://purl.org/nemo/doce#SecchiDiskTransparency
@@ -1177,12 +1183,6 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
 :SettleableSolids rdf:type owl:NamedIndividual ,
                            :PhysicalChemicalQualityKind ;
                   :hasApplicableUnit unit:MicroGM-PER-L .
-
-
-###  http://purl.org/nemo/doce#SolidsConcentration
-:SolidsConcentration rdf:type owl:NamedIndividual ,
-                              :PhysicalChemicalQualityKind ;
-                     :hasApplicableUnit unit:MicroGM-PER-L .
 
 
 ###  http://purl.org/nemo/doce#SulphateConcentration
@@ -1432,9 +1432,19 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
                    :hasApplicableUnit unit:M3-PER-SEC .
 
 
+###  http://purl.org/nemo/doce#pH
+:pH rdf:type owl:NamedIndividual ,
+             :PhysicalChemicalQualityKind .
+
+
 ###  http://purl.org/nemo/gufo#Quality
 gufo:Quality rdf:type owl:NamedIndividual ,
                       gufo:Category .
+
+
+###  http://qudt.org/vocab/unit/CentiM
+unit:CentiM rdf:type owl:NamedIndividual ,
+                     :Unit .
 
 
 ###  http://qudt.org/vocab/unit/DEG_C
@@ -1479,6 +1489,11 @@ unit:MilliM rdf:type owl:NamedIndividual ,
             rdfs:comment "See http://qudt.org/vocab/unit/MilliM" .
 
 
+###  http://qudt.org/vocab/unit/MilliS-PER-CentiM
+unit:MilliS-PER-CentiM rdf:type owl:NamedIndividual ,
+                                :Unit .
+
+
 ###  http://qudt.org/vocab/unit/MilliV
 unit:MilliV rdf:type owl:NamedIndividual ,
                      :Unit ;
@@ -1494,7 +1509,14 @@ unit:NTU rdf:type owl:NamedIndividual ,
 ###  http://qudt.org/vocab/unit/PERCENT
 unit:PERCENT rdf:type owl:NamedIndividual ,
                       :Unit ;
+             :hasApplicableUnit unit:PH ;
              rdfs:comment "See http://qudt.org/vocab/unit/PERCENT" .
+
+
+###  http://qudt.org/vocab/unit/PH
+unit:PH rdf:type owl:NamedIndividual ,
+                 :Unit ;
+        rdfs:comment "See http://registry2.it.csiro.au/def/unit/pH, http://qudt.org/vocab/unit/PH" .
 
 
 #################################################################
@@ -1513,10 +1535,10 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind"""@en ;
              rdfs:label "QualityKind"@en .
 
 
-:SolidsConcentration rdfs:label "SolidsConcentration"@en .
-
-
 :VolumePerUnitTime rdfs:label "VolumePerUnitTime"@en .
+
+
+:pH rdfs:label "pH"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -154,8 +154,8 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
 
 ###  http://purl.org/nemo/doce#hasLatitude
 :hasLatitude rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasValueComponent ;
-             rdfs:subPropertyOf wgs:lat ;
+             rdfs:subPropertyOf gufo:hasValueComponent ,
+                                wgs:lat ;
              rdfs:domain :GeographicPoint ;
              rdfs:range xsd:float ;
              rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
@@ -163,11 +163,19 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
 
 ###  http://purl.org/nemo/doce#hasLongitude
 :hasLongitude rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf gufo:hasValueComponent ;
-              rdfs:subPropertyOf wgs:long ;
+              rdfs:subPropertyOf gufo:hasValueComponent ,
+                                 wgs:long ;
               rdfs:domain :GeographicPoint ;
               rdfs:range xsd:float ;
               rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+wgs:lat rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+wgs:long rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -468,8 +476,8 @@ Examples include the \"Doce river\", the \"Juparanã lake\", the city of \"Colat
 
 ###  http://purl.org/nemo/doce#GeographicPoint
 :GeographicPoint rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:QualityValue ;
-                 rdfs:subClassOf geo:Geometry ;
+                 rdfs:subClassOf gufo:QualityValue ,
+                                 geo:Geometry ;
                  rdfs:comment """A <latitude, longitude> coordinate tuple in the WGS84 Coordinate Reference System. Used to conceive of a (0-dimensional) location relative to the Earth's surface.
 
 Identity of a point is given by its latitude and longitude components. See hasLatitude, hasLongitude data properties.
@@ -1025,6 +1033,10 @@ A doce:WaterSample represents a doce:SampledEntity (see the doce:represents obje
     rdfs:subClassOf :PhysicalChemicalQuality .
 
 
+###  http://www.opengis.net/ont/geosparql#Geometry
+geo:Geometry rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -1434,7 +1446,8 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
 
 ###  http://purl.org/nemo/doce#pH
 :pH rdf:type owl:NamedIndividual ,
-             :PhysicalChemicalQualityKind .
+             :PhysicalChemicalQualityKind ;
+    :hasApplicableUnit unit:PH .
 
 
 ###  http://purl.org/nemo/gufo#Quality

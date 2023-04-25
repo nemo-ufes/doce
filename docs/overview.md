@@ -220,8 +220,8 @@ Example of a doce:GeographicPoint where the sampling and in-situ measurements to
 
     :RCA-01 rdf:type owl:NamedIndividual ,
                     doce:GeographicPoint ;
-            doce:hasLatitude "-20.3471"^^xsd:float ;
-            doce:hasLongitude "-43.1127"^^xsd:float ;
+            wgs:lat "-20.3471"^^xsd:float ;
+            wgs:long "-43.1127"^^xsd:float ;
             rdfs:comment "Ponte férrea sobre o rio do Carmo, em Acaiaca (MG). Não atingido pelo rejeito. Área de pastagem." ;
             rdfs:label "Acaiaca - Carmo 01" .
 

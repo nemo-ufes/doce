@@ -14,12 +14,11 @@
 @base <http://purl.org/nemo/doce#> .
 
 <http://purl.org/nemo/doce#> rdf:type owl:Ontology ;
-                              owl:versionIRI <http://purl.org/nemo/doce#/2021-07-13> ;
-                              owl:imports gufo: ;
+                              owl:versionIRI <http://purl.org/nemo/doce#/2022-02-23> ;
                               dc:creator "Almeida, João Paulo A." ;
                               dc:date "2020-04-22"@en ;
                               dc:title "The doce water quality ontology"@en ;
-                              dct:rights "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                              dct:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
                               vann:preferredNamespaceUri "http://purl.org/nemo/doce#"^^xsd:anyURI ;
                               rdfs:comment """This is still work-in-progress. For reuse please wait until a stable version is released.
 
@@ -35,6 +34,34 @@ J. P. A. Almeida, \"The doce water quality ontology\", http://purl.org/nemo/doc/
 
 For the source repository, see: <https://github.com/nemo-ufes/doce>""" ;
                               rdfs:label "The doce water quality ontology" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dct:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/nemo/gufo#partitions
+gufo:partitions rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
@@ -148,36 +175,26 @@ For example, \"Arsenic\" (a doce:ChemicalEntityType) is associated with \"Arseni
            rdfs:label "wasUsedIn"@en .
 
 
+###  http://purl.org/nemo/gufo#hasReifiedQualityValue
+gufo:hasReifiedQualityValue rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/nemo/gufo#participatedIn
+gufo:participatedIn rdf:type owl:ObjectProperty .
+
+
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://purl.org/nemo/doce#hasLatitude
-:hasLatitude rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasValueComponent ,
-                                wgs:lat ;
-             rdfs:domain :GeographicPoint ;
-             rdfs:range xsd:float ;
-             rdfs:comment "Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84" ;
-             rdfs:label "hasLatitude"@en .
-
-
-###  http://purl.org/nemo/doce#hasLongitude
-:hasLongitude rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf gufo:hasValueComponent ,
-                                 wgs:long ;
-              rdfs:domain :GeographicPoint ;
-              rdfs:range xsd:float ;
-              rdfs:comment "Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84" ;
-              rdfs:label "hasLongitude"@en .
-
-
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
-wgs:lat rdf:type owl:DatatypeProperty .
+wgs:lat rdf:type owl:DatatypeProperty ;
+        rdfs:comment "Latitude expressed in decimal degrees using datum WGS84. In the doce ontology, used to express the latitude of a GeographicPoint with xsd:float values." .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#long
-wgs:long rdf:type owl:DatatypeProperty .
+wgs:long rdf:type owl:DatatypeProperty ;
+         rdfs:comment "Longitude expressed in decimal degrees using datum WGS84. In the doce ontology, used to express the longitude of a GeographicPoint with xsd:float values." .
 
 
 #################################################################
@@ -518,7 +535,7 @@ Examples include the \"Doce river\", the \"Juparanã lake\", the city of \"Colat
                                  geo:Geometry ;
                  rdfs:comment """A <latitude, longitude> coordinate tuple in the WGS84 Coordinate Reference System. Used to conceive of a (0-dimensional) location relative to the Earth's surface.
 
-Identity of a point is given by its latitude and longitude components. See hasLatitude, hasLongitude data properties.
+Identity of a point is given by its latitude and longitude components. See wgs:lat and wgs:long data properties.
 
 Corresponds to <http://www.w3.org/2003/01/geo/wgs84_pos#Point> and \"coordinate tuple\" in ISO 19111:2007."""@en ;
                  rdfs:label "GeographicPoint"@en .
@@ -1075,6 +1092,46 @@ A doce:WaterSample represents a doce:SampledEntity (see the doce:represents obje
     rdfs:subClassOf :PhysicalChemicalQuality .
 
 
+###  http://purl.org/nemo/gufo#AbstractIndividual
+gufo:AbstractIndividual rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Category
+gufo:Category rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#ConcreteIndividual
+gufo:ConcreteIndividual rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Event
+gufo:Event rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Kind
+gufo:Kind rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Object
+gufo:Object rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Quality
+gufo:Quality rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#QualityValue
+gufo:QualityValue rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#RigidType
+gufo:RigidType rdf:type owl:Class .
+
+
+###  http://purl.org/nemo/gufo#Type
+gufo:Type rdf:type owl:Class .
+
+
 ###  http://www.opengis.net/ont/geosparql#Geometry
 geo:Geometry rdf:type owl:Class .
 
@@ -1187,8 +1244,7 @@ http://qudt.org/vocab/unit/CFU (for an absolute count)""" ;
 
 ###  http://purl.org/nemo/doce#QualityKind
 :QualityKind rdf:type owl:NamedIndividual ,
-                      gufo:Type ;
-             gufo:partitions gufo:Quality .
+                      gufo:Type .
 
 
 ###  http://purl.org/nemo/doce#Rainfall
@@ -1607,7 +1663,8 @@ unit:PH rdf:type owl:NamedIndividual ,
 :PolyphosphateConcentration rdfs:label "PolyphosphateConcentration"@en .
 
 
-:QualityKind rdfs:comment """A gufo:Kind whose instances are qualities. Instances of doce:QualityKind should specialize gufo:Quality.
+:QualityKind gufo:partitions gufo:Quality ;
+             rdfs:comment """A gufo:Kind whose instances are qualities. Instances of doce:QualityKind should specialize gufo:Quality.
 
 Examples include \"Volume\", \"Mass\", \"ElectricalConductivity\".
 

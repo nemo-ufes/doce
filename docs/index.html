@@ -19,13 +19,13 @@
             Almeida, João Paulo A.<br/>
         </dd>
         <dt>Version IRI</dt>
-        <dd><a href="http://purl.org/nemo/doce#/2020-05-04">http://purl.org/nemo/doce#/2020-05-04</a></dd>
+        <dd><a href="http://purl.org/nemo/doce#/2022-03-16">http://purl.org/nemo/doce#/2022-03-16</a></dd>
         <dt>Imports</dt>
         <dd>
-            <a href="http://purl.org/nemo/gufo#">gufo:</a><br/>
+            <a href="http://purl.org/nemo/gufo#/1.0.0">gufo:/1.0.0</a><br/>
         </dd>
-        <dt>Rights</dt>
-        <dd>This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode></dd>
+        <dt>License</dt>
+        <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">https://creativecommons.org/licenses/by/4.0/legalcode</a></dd>
         <dt>Ontology Source</dt>
         <dd><a href="https://purl.org/nemo/doce#">RDF (Turtle)</a></dd>
     </dl>
@@ -51,11 +51,6 @@
 <li>5. <a href="#material">Material Entities of Interest</a></li>
 <li>6. <a href="#qualities">Water Qualities and their Types</a></li>
 <li>7. <a href="#measurement">Measurement (incl. units)</a></li>
-<li>8. <a href="#monitoring">Environmental Monitoring</a><ul>
-<li>8.1. <a href="#program">Monitoring Program</a></li>
-<li>8.2. <a href="#norms">Environmental Quality Norms</a></li>
-</ul>
-</li>
 </ul>
 <p>See also <a href="#toc">reference table of contents</a>.</p>
 <p><a name="overview"></a></p>
@@ -223,7 +218,7 @@
 <li>Doce <em>instantiates</em> gUFO classes in the taxonomy of types<br />
    For example, <code>doce:Agent rdf:type gufo:Category</code>, <code>doce:SampledEntity rdf:type gufo:Role</code>.</li>
 </ol>
-<p>Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the <code>unit</code> prefix is used for namespace http://qudt.org/vocab/unit/.  Some corresponds to QUDT Quantity Kinds are also identified. Corresponds to  Chemical Entities of Biological Interest (CHEBI) <a href="https://www.ebi.ac.uk/ols/ontologies/chebi">https://www.ebi.ac.uk/ols/ontologies/chebi</a> are also indicated. </p>
+<p>Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the <code>unit</code> prefix is used for namespace <a href="http://qudt.org/vocab/unit/">http://qudt.org/vocab/unit/</a>.  Some correspondences to QUDT Quantity Kinds are also identified. Correspondences to  Chemical Entities of Biological Interest (CHEBI) <a href="https://www.ebi.ac.uk/ols/ontologies/chebi">https://www.ebi.ac.uk/ols/ontologies/chebi</a> are also indicated. </p>
 <p><a name="activities"></a></p>
 <h3>2. Research Activities</h3>
 <p>The taxonomy of research activities has the following overall structure:</p>
@@ -250,7 +245,7 @@
                             gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
                             gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp .
 </code></pre>
-<p>The following fragment shows the doce:Sample created in the sampling above. A doce:Sample represents a doce:SampledEntity. In this particular case, the sample entity is the Rio Doce (which is previously defined in doce with the URI doce:RioDoce).</p>
+<p>The following fragment shows the doce:Sample created in the sampling above. A doce:Sample represents a doce:SampledEntity. In this particular case, the sampled entity is the Rio Doce (which is previously defined in doce with the URI doce:RioDoce).</p>
 <pre><code>:WaterSample314020-2017-1 rdf:type owl:NamedIndividual ,
                                 doce:SurfaceWaterSample ;
                         doce:represents doce:RioDoce ;
@@ -265,7 +260,7 @@
                             doce:measuredQualityKind doce:TotalAlkalinityAsCaCO3 ;
                             gufo:hasQualityValue "22.0"^^xsd:double .
 </code></pre>
-<p>For an in-situ doce:Measurement, the measured gufo:Object is often a doce:GeographicFeature, such as a river of a lake. Note that for an in-situ measurement of a doce:MetereologicalQuality, no specific gufo:Object is indicated.</p>
+<p>For an in-situ doce:Measurement (or a less detailed record of a measurement abstracting away from the sampling event and the sample), the measured gufo:Object is often a doce:GeographicFeature, such as a river (instance of doce:River) or a lake (instance of doce:Lake). Note that for the measurement of a doce:MetereologicalQuality, no specific gufo:Object is indicated.</p>
 <p>The following fragment represents the (in-situ) measurement of water temperature (no sampling involved in this case.) The location of the measurement itself is now relevant (in this case point RCA-01). The quality kind measured is doce:Temperature and the measurement is expressed in degrees Celsius (unit:DEC_C). (See <a href="#measurement">more on units</a>.) The measured value is represented with the gufo:hasQualityValue data property. In this case, the water in point RCA-01 measured 21.21 degrees Celsius on the 17th August 2009 at 14:24 Brasília Time:</p>
 <pre><code>:WaterTemperatureMeasurement314020-2017-1 rdf:type owl:NamedIndividual ,
                                                 doce:Measurement ;
@@ -291,7 +286,6 @@
 <p>Finally, a doce:Preparation activity is a doce:ResearchActivity whose purpose is to prepare a sample for further analysis. For example, consider activities such as "extractions" in the preparation for measuring the concentration of metals in a water sample. In many cases, preparation is not explicitly modeled, and the preparation activities are encompassed in measurement. When preparation is explicit, a doce:Preparation terminates an original doce:Sample, creating a newly prepared doce:Sample. (See gufo:wasTerminatedIn and gufo:wasCreatedIn.) Explicit preparation creates the opportunity to track the agents involved in handling preparation, the procedures and devices employed.</p>
 <p><a name="agentsdevices"></a></p>
 <h3>3. Agents and Devices</h3>
-<p>TODO</p>
 <p>Example of a doce:ResearchActivityPrincipal responsible for delegating the sampling and measurement activities discussed earlier:</p>
 <pre><code>:Renova rdf:type owl:NamedIndividual ,
                 doce:Agent ;
@@ -302,33 +296,175 @@
 </code></pre>
 <p><a name="location"></a></p>
 <h3>4. Location and Geographical Features</h3>
-<p>TODO</p>
-<p>Example of a doce:GeographicPoint where the sampling and in-situ measurements took place:</p>
+<p>Example of a doce:GeographicPoint where the sampling and in-situ measurements exemplified above took place:</p>
 <pre><code>:RCA-01 rdf:type owl:NamedIndividual ,
                 doce:GeographicPoint ;
-        doce:hasLatitude "-20.3471"^^xsd:float ;
-        doce:hasLongitude "-43.1127"^^xsd:float ;
+        wgs:lat "-20.3471"^^xsd:float ;
+        wgs:long "-43.1127"^^xsd:float ;
         rdfs:comment "Ponte férrea sobre o rio do Carmo, em Acaiaca (MG). Não atingido pelo rejeito. Área de pastagem." ;
         rdfs:label "Acaiaca - Carmo 01" .
 </code></pre>
+<p>Latitude and longitude are expressed in decimal degrees using datum WGS84, with data properties <code>wgs:lat</code> and <code>wgs:long</code> with xsd:float values. Note that <code>doce:GeographicPoint</code> corresponds to <a href="http://www.w3.org/2003/01/geo/wgs84_pos#Point">http://www.w3.org/2003/01/geo/wgs84_pos#Point</a> and "coordinate tuple" in ISO 19111:2007. Altitude information can also be included with <code>wgs:alt</code>. See <a href="http://www.w3.org/2003/01/geo/">http://www.w3.org/2003/01/geo/</a> for further information.</p>
 <p><a name="material"></a></p>
 <h3>5. Material Entities of Interest</h3>
-<p>TODO</p>
+<p>The taxonomy of material entities has the following overall structure:</p>
+<blockquote>
+<ul>
+<li>MaterialEntity<ul>
+<li>AbioticEntity<ul>
+<li>AmountOfWater<ul>
+<li>WaterSample<ul>
+<li>SurfaceWaterSample</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GeographicFeature<ul>
+<li>ArtificialGeographicFeature<ul>
+<li>Reservoir</li>
+</ul>
+</li>
+<li>NaturalGeographicFeature<ul>
+<li>Lake</li>
+<li>River</li>
+</ul>
+</li>
+<li>HydrographicFeature<ul>
+<li>SurfaceWaterFeature<ul>
+<li>Lake</li>
+<li>Reservoir</li>
+<li>River</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Example of an instance of doce:River:</p>
+<pre><code>:RioDoce rdf:type owl:NamedIndividual ,
+                :River .
+</code></pre>
+<p>See example of doce:SurfaceWaterSample above under <a href="#activities">activities</a>.</p>
 <p><a name="qualities"></a></p>
 <h3>6. Water Qualities and their Types</h3>
-<p>TODO</p>
+<p>The taxonomy of qualities concerns those aspects of the material entities that are subject to measurement and further investigation. </p>
+<p>The following metereological qualities have been defined: </p>
+<blockquote>
+<ul>
+<li>MetereologicalQuality<ul>
+<li>AmbientTemperature</li>
+<li>Rainfall</li>
+<li>RelativeHumidity</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>The following physical-chemical qualities that apply to water have been defined:</p>
+<blockquote>
+<ul>
+<li>PhysicalChemicalQuality<ul>
+<li>BiologicalOxygenDemand</li>
+<li>Concentration<ul>
+<li>MetalConcentration</li>
+<li>MetalloidConcentration</li>
+<li>NonMetalConcentration</li>
+<li>SolidsConcentration</li>
+</ul>
+</li>
+<li>Conductivity</li>
+<li>Hardness_CalciumCarbonateEquivalence</li>
+<li>pH</li>
+<li>RedoxPotential</li>
+<li>Salinity</li>
+<li>SecchiDiskTransparency</li>
+<li>Temperature</li>
+<li>TotalAlkalinityAsCaCO3</li>
+<li>TrueColor</li>
+<li>Turbidity</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>The following qualities characterize the point of the body of water in which measurement or sampling takes place.</p>
+<blockquote>
+<ul>
+<li>SamplingDepth</li>
+<li>VolumePerUnitTime<ul>
+<li>FlowRate</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Additional (metereological, biological and physical-chemical) qualities may be defined instantiating the taxonomy of Quality Kinds which are special types of kinds. Instances of these MetereologicalQualityKind and PhysicalChemicalQualityKind should be defined as subclasses of MetereologicalQuality, PhysicalChemicalQuality.</p>
+<blockquote>
+<ul>
+<li>QualityKind<ul>
+<li>MetereologicalQualityKind</li>
+<li>WaterQualityKind<ul>
+<li>BiologicalQualityKind</li>
+<li>PhysicalChemicalQualityKind<ul>
+<li>ChemicalEntityConcentrationQualityKind</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 <p><a name="measurement"></a></p>
 <h3>7. Measurement (incl. units)</h3>
-<p>TODO</p>
-<p><a name="monitoring"></a></p>
-<h3>8. Environmental Monitoring</h3>
-<p>TODO</p>
-<p><a name="program"></a></p>
-<h3>8.1. Monitoring Program</h3>
-<p>TODO</p>
-<p><a name="norms"></a></p>
-<h3>8.2. Environmental Quality Norms</h3>
-<p>TODO</p>
+<p>Declarations in doce are provided to establish the units that are applicable to the various quality kinds. For example, the specification states that oxygen saturation is measured with percentages and that conductivity can be measured with μS/cm or mS/cm:</p>
+<pre><code>:OxygenSaturation rdf:type owl:NamedIndividual ,
+                       :ChemicalEntityConcentrationQualityKind ;
+              :hasApplicableUnit unit:PERCENT .
+
+:Conductivity rdf:type owl:NamedIndividual ,
+                   :PhysicalChemicalQualityKind ;
+          :hasApplicableUnit unit:MicroS-PER-CentiM ,
+                             unit:MilliS-PER-CentiM .
+</code></pre>
+<p>Doce reuses some units of measurement QUDT 2.1 vocabularies with the <code>unit</code> prefix denoting the namespace <a href="http://qudt.org/vocab/unit/">http://qudt.org/vocab/unit/</a>, as follows: </p>
+<pre><code>#  http://qudt.org/vocab/unit/CentiM
+unit:CentiM rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/DEG_C
+unit:DEG_C rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/M
+unit:M rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/M3-PER-SEC
+unit:M3-PER-SEC rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/MicroGM-PER-L
+unit:MicroGM-PER-L rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/MicroS-PER-CentiM
+unit:MicroS-PER-CentiM rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/MilliGM-PER-L
+unit:MilliGM-PER-L rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/MilliM
+unit:MilliM rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/MilliS-PER-CentiM
+unit:MilliS-PER-CentiM rdf:type owl:NamedIndividual, :Unit .    
+#  http://qudt.org/vocab/unit/MilliV
+unit:MilliV rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/NTU
+unit:NTU rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/PERCENT
+unit:PERCENT rdf:type owl:NamedIndividual, :Unit .
+#  http://qudt.org/vocab/unit/PH
+unit:PH rdf:type owl:NamedIndividual, :Unit .
+</code></pre>
+<p>Other units not available for reuse for QUDT have been defined. They are particularly relevant to the domain of water quality.</p>
+<p>For example, doce:MPN-PER-Decil refers to <a href="https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf">Most Probable Number per deciliter, in Portuguese NMP/100ml</a>, doce:HazenUnit refers to units for color measurement following <a href="https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en">ISO 2211:1973</a>.</p>
+<pre><code>:MPN-PER-DeciL rdf:type owl:NamedIndividual ,
+                    :Unit .
+:HazenUnit rdf:type owl:NamedIndividual ,
+                :Unit .
+</code></pre>
 </section>
 <section id="toc">
     <h2>Reference Table of Contents</h2>
@@ -344,6 +480,7 @@
     <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
         <li><a href="#AbioticEntity">AbioticEntity</a></li>
+        <li><a href="#AbstractIndividual">AbstractIndividual</a></li>
         <li><a href="#Agent">Agent</a></li>
         <li><a href="#AmbientTemperature">AmbientTemperature</a></li>
         <li><a href="#AmmoniacalNitrogenConcentration">AmmoniacalNitrogenConcentration</a></li>
@@ -352,10 +489,12 @@
         <li><a href="#BiologicalOxygenDemand">BiologicalOxygenDemand</a></li>
         <li><a href="#BiologicalQualityKind">BiologicalQualityKind</a></li>
         <li><a href="#BioticEntity">BioticEntity</a></li>
+        <li><a href="#Category">Category</a></li>
         <li><a href="#ChemicalEntityConcentrationQualityKind">ChemicalEntityConcentrationQualityKind</a></li>
         <li><a href="#ChemicalEntityType">ChemicalEntityType</a></li>
         <li><a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a></li>
         <li><a href="#Concentration">Concentration</a></li>
+        <li><a href="#ConcreteIndividual">ConcreteIndividual</a></li>
         <li><a href="#Conductivity">Conductivity</a></li>
         <li><a href="#CyanideConcentration">CyanideConcentration</a></li>
         <li><a href="#Device">Device</a></li>
@@ -387,6 +526,7 @@
         <li><a href="#DissolvedSodiumConcentration">DissolvedSodiumConcentration</a></li>
         <li><a href="#DissolvedVanadiumConcentration">DissolvedVanadiumConcentration</a></li>
         <li><a href="#DissolvedZincConcentration">DissolvedZincConcentration</a></li>
+        <li><a href="#Event">Event</a></li>
         <li><a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a></li>
         <li><a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a></li>
         <li><a href="#FlourideConcentration">FlourideConcentration</a></li>
@@ -394,9 +534,11 @@
         <li><a href="#GeographicFeature">GeographicFeature</a></li>
         <li><a href="#GeographicPoint">GeographicPoint</a></li>
         <li><a href="#GeographicallyLocatedEntity">GeographicallyLocatedEntity</a></li>
+        <li><a href="#Geometry">Geometry</a></li>
         <li><a href="#Hardness_CalciumCarbonateEquivalence">Hardness_CalciumCarbonateEquivalence</a></li>
         <li><a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a></li>
         <li><a href="#HydrographicFeature">HydrographicFeature</a></li>
+        <li><a href="#Kind">Kind</a></li>
         <li><a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a></li>
         <li><a href="#Lake">Lake</a></li>
         <li><a href="#MaterialEntity">MaterialEntity</a></li>
@@ -410,6 +552,7 @@
         <li><a href="#NitrateConcentration">NitrateConcentration</a></li>
         <li><a href="#NitriteConcentration">NitriteConcentration</a></li>
         <li><a href="#NonMetalConcentration">NonMetalConcentration</a></li>
+        <li><a href="#Object">Object</a></li>
         <li><a href="#OrganicNitrogenConcentration">OrganicNitrogenConcentration</a></li>
         <li><a href="#OxygenSaturation">OxygenSaturation</a></li>
         <li><a href="#PheophytinConcentration">PheophytinConcentration</a></li>
@@ -418,7 +561,9 @@
         <li><a href="#PhysicalChemicalQualityKind">PhysicalChemicalQualityKind</a></li>
         <li><a href="#PolyphosphateConcentration">PolyphosphateConcentration</a></li>
         <li><a href="#Preparation">Preparation</a></li>
+        <li><a href="#Quality">Quality</a></li>
         <li><a href="#QualityKind">QualityKind</a></li>
+        <li><a href="#QualityValue">QualityValue</a></li>
         <li><a href="#Rainfall">Rainfall</a></li>
         <li><a href="#RedoxPotential">RedoxPotential</a></li>
         <li><a href="#RelativeHumidity">RelativeHumidity</a></li>
@@ -427,6 +572,7 @@
         <li><a href="#ResearchActivityPrincipal">ResearchActivityPrincipal</a></li>
         <li><a href="#ResearchActivityProcedure">ResearchActivityProcedure</a></li>
         <li><a href="#Reservoir">Reservoir</a></li>
+        <li><a href="#RigidType">RigidType</a></li>
         <li><a href="#River">River</a></li>
         <li><a href="#Salinity">Salinity</a></li>
         <li><a href="#Sample">Sample</a></li>
@@ -473,6 +619,7 @@
         <li><a href="#TotalZincConcentration">TotalZincConcentration</a></li>
         <li><a href="#TrueColor">TrueColor</a></li>
         <li><a href="#Turbidity">Turbidity</a></li>
+        <li><a href="#Type">Type</a></li>
         <li><a href="#Unit">Unit</a></li>
         <li><a href="#VolumePerUnitTime">VolumePerUnitTime</a></li>
         <li><a href="#WaterQualityKind">WaterQualityKind</a></li>
@@ -778,9 +925,9 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
+                    <a href="#MetalConcentration">MetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#MetalloidConcentration">MetalloidConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#NonMetalConcentration">NonMetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#MetalConcentration">MetalConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SolidsConcentration">SolidsConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -1347,9 +1494,9 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#NaturalGeographicFeature">NaturalGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#HydrographicFeature">HydrographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#ArtificialGeographicFeature">ArtificialGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#HydrographicFeature">HydrographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NaturalGeographicFeature">NaturalGeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1365,7 +1512,7 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
                 <th>Description</th>
                 <td>
                     <p>A <latitude, longitude> coordinate tuple in the WGS84 Coordinate Reference System. Used to conceive of a (0-dimensional) location relative to the Earth's surface.</p>
-<p>Identity of a point is given by its latitude and longitude components. See hasLatitude, hasLongitude data properties.</p>
+<p>Identity of a point is given by its latitude and longitude components. See wgs:lat and wgs:long data properties.</p>
 <p>Corresponds to <a href="http://www.w3.org/2003/01/geo/wgs84_pos#Point">http://www.w3.org/2003/01/geo/wgs84_pos#Point</a> and "coordinate tuple" in ISO 19111:2007.</p>
                 </td>
             </tr>
@@ -1373,13 +1520,7 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
                 <th>Super-classes</th>
                 <td>
                     <a href="http://purl.org/nemo/gufo#QualityValue">gufo:QualityValue</a><sup class="sup-c" title="class">c</sup><br/>
-                </td>
-            </tr>
-            <tr>
-                <th>In domain of</th>
-                <td>
-                    <a href="#hasLongitude">hasLongitude</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
-                    <a href="#hasLatitude">hasLatitude</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.opengis.net/ont/geosparql#Geometry">geo:Geometry</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1414,8 +1555,8 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#ResearchActivity">ResearchActivity</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#GeographicFeature">GeographicFeature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ResearchActivity">ResearchActivity</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1544,9 +1685,9 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AbioticEntity">AbioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#BioticEntity">BioticEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SampledEntity">SampledEntity</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -1581,8 +1722,8 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
                 <th>In domain of</th>
                 <td>
                     <a href="#expressedIn">expressedIn</a><sup class="sup-op" title="object property">op</sup><br/>
-                    <a href="#measuredQualityKind">measuredQualityKind</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#measured">measured</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#measuredQualityKind">measuredQualityKind</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1609,47 +1750,47 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#TotalMolybdenumConcentration">TotalMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedPotassiumConcentration">DissolvedPotassiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedManganeseConcentration">DissolvedManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSodiumConcentration">TotalSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedAluminiumConcentration">DissolvedAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBariumConcentration">DissolvedBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBerylliumConcentration">DissolvedBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedCadmiumConcentration">DissolvedCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedCalciumConcentration">DissolvedCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalNickelConcentration">TotalNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedBariumConcentration">DissolvedBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalChromiumConcentration">TotalChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalMagnesiumConcentration">TotalMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCobaltConcentration">TotalCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedBerylliumConcentration">DissolvedBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSilverConcentration">TotalSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalManganeseConcentration">TotalManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedIronConcentration">DissolvedIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalBerylliumConcentration">TotalBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCobaltConcentration">DissolvedCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedNickelConcentration">DissolvedNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSodiumConcentration">DissolvedSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalVanadiumConcentration">TotalVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedCopperConcentration">DissolvedCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedVanadiumConcentration">DissolvedVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedMercuryConcentration">DissolvedMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalBariumConcentration">TotalBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedMolybdenumConcentration">DissolvedMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalAluminiumConcentration">TotalAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCopperConcentration">TotalCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalMercuryConcentration">TotalMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalLeadConcentration">TotalLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSilverConcentration">DissolvedSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedAluminiumConcentration">DissolvedAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCadmiumConcentration">TotalCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalIronConcentration">TotalIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedLeadConcentration">DissolvedLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalCalciumConcentration">TotalCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedChromiumConcentration">DissolvedChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalZincConcentration">TotalZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedZincConcentration">DissolvedZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCobaltConcentration">DissolvedCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedCopperConcentration">DissolvedCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedIronConcentration">DissolvedIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedLeadConcentration">DissolvedLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedMagnesiumConcentration">DissolvedMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedManganeseConcentration">DissolvedManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedMercuryConcentration">DissolvedMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedMolybdenumConcentration">DissolvedMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedNickelConcentration">DissolvedNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedPotassiumConcentration">DissolvedPotassiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSilverConcentration">DissolvedSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSodiumConcentration">DissolvedSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedVanadiumConcentration">DissolvedVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedZincConcentration">DissolvedZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FerricIronIIIConcentration">FerricIronIIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FerrousIronIIConcentration">FerrousIronIIConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalAluminiumConcentration">TotalAluminiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalBariumConcentration">TotalBariumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalBerylliumConcentration">TotalBerylliumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCadmiumConcentration">TotalCadmiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCalciumConcentration">TotalCalciumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalChromiumConcentration">TotalChromiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCobaltConcentration">TotalCobaltConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalCopperConcentration">TotalCopperConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalIronConcentration">TotalIronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalLeadConcentration">TotalLeadConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalMagnesiumConcentration">TotalMagnesiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalManganeseConcentration">TotalManganeseConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalMercuryConcentration">TotalMercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalMolybdenumConcentration">TotalMolybdenumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalNickelConcentration">TotalNickelConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSilverConcentration">TotalSilverConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSodiumConcentration">TotalSodiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalVanadiumConcentration">TotalVanadiumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalZincConcentration">TotalZincConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1670,12 +1811,12 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#TotalArsenicConcentration">TotalArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedBoronConcentration">DissolvedBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalBoronConcentration">TotalBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalAntimonyConcentration">TotalAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedAntimonyConcentration">DissolvedAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedArsenicConcentration">DissolvedArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedBoronConcentration">DissolvedBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalAntimonyConcentration">TotalAntimonyConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalArsenicConcentration">TotalArsenicConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalBoronConcentration">TotalBoronConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1703,9 +1844,9 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#RelativeHumidity">RelativeHumidity</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AmbientTemperature">AmbientTemperature</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Rainfall">Rainfall</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RelativeHumidity">RelativeHumidity</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1770,8 +1911,8 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#River">River</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Lake">Lake</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#River">River</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1822,31 +1963,31 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#FlourideConcentration">FlourideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#OrganicNitrogenConcentration">OrganicNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedOrganicCarbonConcentration">DissolvedOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PolyphosphateConcentration">PolyphosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedPhosphorusConcentration">DissolvedPhosphorusConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PhosphateConcentration">PhosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PheophytinConcentration">PheophytinConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedOxygenConcentration">DissolvedOxygenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#CyanideConcentration">CyanideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSeleniumConcentration">TotalSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#NitriteConcentration">NitriteConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DissolvedSilicaConcentration">DissolvedSilicaConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AmmoniacalNitrogenConcentration">AmmoniacalNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#SulphateConcentration">SulphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalPhosphorousConcentration">TotalPhosphorousConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#NitrateConcentration">NitrateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSulfideConcentration">TotalSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalOrganicCarbonConcentration">TotalOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#OxygenSaturation">OxygenSaturation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ChlorophyllAConcentration">ChlorophyllAConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#CyanideConcentration">CyanideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedOrganicCarbonConcentration">DissolvedOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedOxygenConcentration">DissolvedOxygenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedPhosphorusConcentration">DissolvedPhosphorusConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DissolvedSeleniumConcentration">DissolvedSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalChlorideConcentration">TotalChlorideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DissolvedSilicaConcentration">DissolvedSilicaConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#FlourideConcentration">FlourideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#HydrogenSulfideConcentration">HydrogenSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#KjeldahlMethodNitrogenConcentration">KjeldahlMethodNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#MethylmercuryConcentration">MethylmercuryConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NitrateConcentration">NitrateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#NitriteConcentration">NitriteConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OrganicNitrogenConcentration">OrganicNitrogenConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#OxygenSaturation">OxygenSaturation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PheophytinConcentration">PheophytinConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhosphateConcentration">PhosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PolyphosphateConcentration">PolyphosphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SulphateConcentration">SulphateConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalChlorideConcentration">TotalChlorideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalOrganicCarbonConcentration">TotalOrganicCarbonConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalPhosphorousConcentration">TotalPhosphorousConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSeleniumConcentration">TotalSeleniumConcentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSulfideConcentration">TotalSulfideConcentration</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -1933,18 +2074,18 @@ https://en.wikipedia.org/wiki/Biotic_component</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
+                    <a href="#BiologicalOxygenDemand">BiologicalOxygenDemand</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Concentration">Concentration</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Conductivity">Conductivity</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Hardness_CalciumCarbonateEquivalence">Hardness_CalciumCarbonateEquivalence</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#RedoxPotential">RedoxPotential</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Turbidity">Turbidity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Concentration">Concentration</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Salinity">Salinity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TrueColor">TrueColor</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalAlkalinityAsCaCO3">TotalAlkalinityAsCaCO3</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#pH">pH</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Temperature">Temperature</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Conductivity">Conductivity</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#BiologicalOxygenDemand">BiologicalOxygenDemand</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SecchiDiskTransparency">SecchiDiskTransparency</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Temperature">Temperature</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalAlkalinityAsCaCO3">TotalAlkalinityAsCaCO3</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TrueColor">TrueColor</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Turbidity">Turbidity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#pH">pH</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2039,8 +2180,8 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#WaterQualityKind">WaterQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#MetereologicalQualityKind">MetereologicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#WaterQualityKind">WaterQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -2131,17 +2272,17 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#Sampling">Sampling</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Preparation">Preparation</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Preparation">Preparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sampling">Sampling</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#wasAdoptedIn">wasAdoptedIn</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#delegated">delegated</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#performed">performed</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#wasAdoptedIn">wasAdoptedIn</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#wasUsedIn">wasUsedIn</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
@@ -2436,8 +2577,8 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
                 <td>
                     <a href="#SettleableSolids">SettleableSolids</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalDissolvedSolids">TotalDissolvedSolids</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#TotalSuspendedSolids">TotalSuspendedSolids</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#TotalSolids">TotalSolids</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#TotalSuspendedSolids">TotalSuspendedSolids</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -2480,9 +2621,9 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
+                    <a href="#Lake">Lake</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Reservoir">Reservoir</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#River">River</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Lake">Lake</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3043,8 +3184,8 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>In range of</th>
                 <td>
-                    <a href="#hasApplicableUnit">hasApplicableUnit</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#expressedIn">expressedIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hasApplicableUnit">hasApplicableUnit</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3093,8 +3234,8 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#PhysicalChemicalQualityKind">PhysicalChemicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#BiologicalQualityKind">BiologicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQualityKind">PhysicalChemicalQualityKind</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -3143,6 +3284,177 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             </tr>
         </table>
     </div>
+    <div class="entity class" id="AbstractIndividual">
+        <h3>AbstractIndividual<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#AbstractIndividual</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Unit">Unit</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Category">
+        <h3>Category<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Category</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ConcreteIndividual">
+        <h3>ConcreteIndividual<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#ConcreteIndividual</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#GeographicallyLocatedEntity">GeographicallyLocatedEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Event">
+        <h3>Event<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Event</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ResearchActivity">ResearchActivity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Kind">
+        <h3>Kind<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Kind</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#QualityKind">QualityKind</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Object">
+        <h3>Object<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Object</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Agent">Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Device">Device</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#MaterialEntity">MaterialEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ResearchActivityProcedure">ResearchActivityProcedure</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#wasMeasuredIn">wasMeasuredIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#measured">measured</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Quality">
+        <h3>Quality<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Quality</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#MetereologicalQuality">MetereologicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PhysicalChemicalQuality">PhysicalChemicalQuality</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SamplingDepth">SamplingDepth</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#VolumePerUnitTime">VolumePerUnitTime</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="QualityValue">
+        <h3>QualityValue<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#QualityValue</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#GeographicPoint">GeographicPoint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RigidType">
+        <h3>RigidType<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#RigidType</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ChemicalEntityType">ChemicalEntityType</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Type">
+        <h3>Type<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#Type</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Geometry">
+        <h3>Geometry<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://www.opengis.net/ont/geosparql#Geometry</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#GeographicPoint">GeographicPoint</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
 </section>
 <section id="objectproperties">
     <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -3159,6 +3471,8 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
         <li><a href="#wasAdoptedIn">wasAdoptedIn</a></li>
         <li><a href="#wasMeasuredIn">wasMeasuredIn</a></li>
         <li><a href="#wasUsedIn">wasUsedIn</a></li>
+        <li><a href="#hasReifiedQualityValue">hasReifiedQualityValue</a></li>
+        <li><a href="#participatedIn">participatedIn</a></li>
     </ul>
     <div class="entity property" id="delegated">
         <h3>delegated<sup title="object property" class="sup-op">op</sup></h3>
@@ -3176,7 +3490,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
+                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3292,7 +3606,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#hasReifiedQualityValue">gufo:hasReifiedQualityValue</a>
+                    <a href="http://purl.org/nemo/gufo#hasReifiedQualityValue">gufo:hasReifiedQualityValue</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3379,7 +3693,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
+                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3439,7 +3753,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
+                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3472,7 +3786,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
+                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3505,7 +3819,7 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             <tr>
                 <th>Super-properties</th>
                 <td>
-                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a>
+                    <a href="http://purl.org/nemo/gufo#participatedIn">gufo:participatedIn</a><sup class="sup-op" title="object property">op</sup>
                 </td>
             </tr>
             <tr>
@@ -3522,76 +3836,58 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
             </tr>
         </table>
     </div>
+    <div class="entity property" id="hasReifiedQualityValue">
+        <h3>hasReifiedQualityValue<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#hasReifiedQualityValue</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="participatedIn">
+        <h3>participatedIn<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>http://purl.org/nemo/gufo#participatedIn</code></td>
+            </tr>
+        </table>
+    </div>
 </section>
 
 <section id="datatypeproperties">
     <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <ul class="hlist">
-        <li><a href="#hasLatitude">hasLatitude</a></li>
-        <li><a href="#hasLongitude">hasLongitude</a></li>
+        <li><a href="#lat">lat</a></li>
+        <li><a href="#long">long</a></li>
     </ul>
-    <div class="entity property" id="hasLatitude">
-        <h3>hasLatitude<sup title="datatype property" class="sup-dp">dp</sup></h3>
+    <div class="entity property" id="lat">
+        <h3>lat<sup title="datatype property" class="sup-dp">dp</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasLatitude</code></td>
+                <td><code>http://www.w3.org/2003/01/geo/wgs84_pos#lat</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Latitude of a GeographicPoint expressed in decimal degrees using datum WGS84</p>
-                </td>
-            </tr>
-            <tr>
-                <th>Super-properties</th>
-                <td>
-                    <a href="http://purl.org/nemo/gufo#hasValueComponent">gufo:hasValueComponent</a>
-                </td>
-            </tr>
-            <tr>
-                <th>Domain(s)</th>
-                <td>
-                    <a href="#GeographicPoint">GeographicPoint</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="http://www.w3.org/2001/XMLSchema#float">xsd:float</a><sup class="sup-c" title="class">c</sup>
+                    <p>Latitude expressed in decimal degrees using datum WGS84. In the doce ontology, used to express the latitude of a GeographicPoint with xsd:float values.</p>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="entity property" id="hasLongitude">
-        <h3>hasLongitude<sup title="datatype property" class="sup-dp">dp</sup></h3>
+    <div class="entity property" id="long">
+        <h3>long<sup title="datatype property" class="sup-dp">dp</sup></h3>
         <table>
             <tr>
                 <th>IRI</th>
-                <td><code>http://purl.org/nemo/doce#hasLongitude</code></td>
+                <td><code>http://www.w3.org/2003/01/geo/wgs84_pos#long</code></td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>
-                    <p>Longitude of a GeographicPoint expressed in decimal degrees using datum WGS84</p>
-                </td>
-            </tr>
-            <tr>
-                <th>Super-properties</th>
-                <td>
-                    <a href="http://purl.org/nemo/gufo#hasValueComponent">gufo:hasValueComponent</a>
-                </td>
-            </tr>
-            <tr>
-                <th>Domain(s)</th>
-                <td>
-                    <a href="#GeographicPoint">GeographicPoint</a><sup class="sup-c" title="class">c</sup>
-                </td>
-            </tr>
-            <tr>
-                <th>Range(s)</th>
-                <td>
-                    <a href="http://www.w3.org/2001/XMLSchema#float">xsd:float</a><sup class="sup-c" title="class">c</sup>
+                    <p>Longitude expressed in decimal degrees using datum WGS84. In the doce ontology, used to express the longitude of a GeographicPoint with xsd:float values.</p>
                 </td>
             </tr>
         </table>
@@ -3605,22 +3901,66 @@ See: http://qudt.org/2.1/schema/qudt#QuantityKind</p>
         <dd><code>http://purl.org/nemo/doce#</code></dd>
         <dt>:</dt>
         <dd><code>http://purl.org/nemo/doce#</code></dd>
+        <dt>brick</dt>
+        <dd><code>https://brickschema.org/schema/Brick#</code></dd>
+        <dt>csvw</dt>
+        <dd><code>http://www.w3.org/ns/csvw#</code></dd>
         <dt>dc</dt>
         <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>dcam</dt>
+        <dd><code>http://purl.org/dc/dcam/</code></dd>
+        <dt>dcat</dt>
+        <dd><code>http://www.w3.org/ns/dcat#</code></dd>
+        <dt>dcmitype</dt>
+        <dd><code>http://purl.org/dc/dcmitype/</code></dd>
         <dt>dct</dt>
         <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>doap</dt>
+        <dd><code>http://usefulinc.com/ns/doap#</code></dd>
+        <dt>foaf</dt>
+        <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
+        <dt>geo</dt>
+        <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
         <dt>gufo</dt>
         <dd><code>http://purl.org/nemo/gufo#</code></dd>
+        <dt>odrl</dt>
+        <dd><code>http://www.w3.org/ns/odrl/2/</code></dd>
+        <dt>org</dt>
+        <dd><code>http://www.w3.org/ns/org#</code></dd>
         <dt>owl</dt>
         <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prof</dt>
+        <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>qb</dt>
+        <dd><code>http://purl.org/linked-data/cube#</code></dd>
         <dt>rdf</dt>
         <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
         <dt>rdfs</dt>
         <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>schema</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>sh</dt>
+        <dd><code>http://www.w3.org/ns/shacl#</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>sosa</dt>
+        <dd><code>http://www.w3.org/ns/sosa/</code></dd>
+        <dt>ssn</dt>
+        <dd><code>http://www.w3.org/ns/ssn/</code></dd>
+        <dt>time</dt>
+        <dd><code>http://www.w3.org/2006/time#</code></dd>
         <dt>unit</dt>
         <dd><code>http://qudt.org/vocab/unit/</code></dd>
         <dt>vann</dt>
         <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>void</dt>
+        <dd><code>http://rdfs.org/ns/void#</code></dd>
+        <dt>wgs</dt>
+        <dd><code>https://www.w3.org/2003/01/geo/wgs84_pos#</code></dd>
+        <dt>wgs1</dt>
+        <dd><code>http://www.w3.org/2003/01/geo/wgs84_pos#</code></dd>
         <dt>xml</dt>
         <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
         <dt>xsd</dt>

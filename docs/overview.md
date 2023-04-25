@@ -9,9 +9,6 @@
 * 5\. [Material Entities of Interest](#material)
 * 6\. [Water Qualities and their Types](#qualities)
 * 7\. [Measurement (incl. units)](#measurement)
-* 8\. [Environmental Monitoring](#monitoring)
-    * 8.1\. [Monitoring Program](#program)
-    * 8.2\. [Environmental Quality Norms](#norms)
 
 See also [reference table of contents](#toc).
 
@@ -118,7 +115,7 @@ Doce is anchored in gUFO in the following ways:
 3. Doce *instantiates* gUFO classes in the taxonomy of types  
    For example, `doce:Agent rdf:type gufo:Category`, `doce:SampledEntity rdf:type gufo:Role`.
 
-Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the `unit` prefix is used for namespace http://qudt.org/vocab/unit/.  Some correspondences to QUDT Quantity Kinds are also identified. Correspondences to  Chemical Entities of Biological Interest (CHEBI) <https://www.ebi.ac.uk/ols/ontologies/chebi> are also indicated. 
+Doce reuses some units of measurement QUDT 2.1 vocabularies. Correspondences are indicated when necessary, and the `unit` prefix is used for namespace <http://qudt.org/vocab/unit/>.  Some correspondences to QUDT Quantity Kinds are also identified. Correspondences to  Chemical Entities of Biological Interest (CHEBI) <https://www.ebi.ac.uk/ols/ontologies/chebi> are also indicated. 
 
 
 <a name="activities"></a>
@@ -147,7 +144,7 @@ The following example shows a fragment representing the sampling of water in a g
                                 gufo:hasBeginPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp ;
                                 gufo:hasEndPointInXSDDateTimeStamp "2009-08-17T14:24:00-03:00"^^xsd:dateTimeStamp .
 
-The following fragment shows the doce:Sample created in the sampling above. A doce:Sample represents a doce:SampledEntity. In this particular case, the sample entity is the Rio Doce (which is previously defined in doce with the URI doce:RioDoce).
+The following fragment shows the doce:Sample created in the sampling above. A doce:Sample represents a doce:SampledEntity. In this particular case, the sampled entity is the Rio Doce (which is previously defined in doce with the URI doce:RioDoce).
 
     :WaterSample314020-2017-1 rdf:type owl:NamedIndividual ,
                                     doce:SurfaceWaterSample ;
@@ -165,7 +162,7 @@ The following example represents the (ex-situ) measurement of alkalinity (doce:T
                                 doce:measuredQualityKind doce:TotalAlkalinityAsCaCO3 ;
                                 gufo:hasQualityValue "22.0"^^xsd:double .
 
-For an in-situ doce:Measurement, the measured gufo:Object is often a doce:GeographicFeature, such as a river of a lake. Note that for an in-situ measurement of a doce:MetereologicalQuality, no specific gufo:Object is indicated.
+For an in-situ doce:Measurement (or a less detailed record of a measurement abstracting away from the sampling event and the sample), the measured gufo:Object is often a doce:GeographicFeature, such as a river (instance of doce:River) or a lake (instance of doce:Lake). Note that for the measurement of a doce:MetereologicalQuality, no specific gufo:Object is indicated.
 
 The following fragment represents the (in-situ) measurement of water temperature (no sampling involved in this case.) The location of the measurement itself is now relevant (in this case point RCA-01). The quality kind measured is doce:Temperature and the measurement is expressed in degrees Celsius (unit:DEC_C). (See [more on units](#measurement).) The measured value is represented with the gufo:hasQualityValue data property. In this case, the water in point RCA-01 measured 21.21 degrees Celsius on the 17th August 2009 at 14:24 Brasília Time:
 
@@ -198,8 +195,6 @@ Finally, a doce:Preparation activity is a doce:ResearchActivity whose purpose is
 
 ### 3. Agents and Devices
 
-TODO
-
 Example of a doce:ResearchActivityPrincipal responsible for delegating the sampling and measurement activities discussed earlier:
 
     :Renova rdf:type owl:NamedIndividual ,
@@ -214,9 +209,7 @@ Example of a doce:ResearchActivityPrincipal responsible for delegating the sampl
 
 ### 4. Location and Geographical Features
 
-TODO
-
-Example of a doce:GeographicPoint where the sampling and in-situ measurements took place:
+Example of a doce:GeographicPoint where the sampling and in-situ measurements exemplified above took place:
 
     :RCA-01 rdf:type owl:NamedIndividual ,
                     doce:GeographicPoint ;
@@ -225,45 +218,143 @@ Example of a doce:GeographicPoint where the sampling and in-situ measurements to
             rdfs:comment "Ponte férrea sobre o rio do Carmo, em Acaiaca (MG). Não atingido pelo rejeito. Área de pastagem." ;
             rdfs:label "Acaiaca - Carmo 01" .
 
+ Latitude and longitude are expressed in decimal degrees using datum WGS84, with data properties `wgs:lat` and `wgs:long` with xsd:float values. Note that `doce:GeographicPoint` corresponds to <http://www.w3.org/2003/01/geo/wgs84_pos#Point> and "coordinate tuple" in ISO 19111:2007. Altitude information can also be included with `wgs:alt`. See <http://www.w3.org/2003/01/geo/> for further information.
 
 
 <a name="material"></a>
 
 ### 5. Material Entities of Interest
 
-TODO
+The taxonomy of material entities has the following overall structure:
+
+> 	* MaterialEntity
+> 	    * AbioticEntity
+> 			* AmountOfWater
+> 				* WaterSample
+> 					* SurfaceWaterSample
+> 			* GeographicFeature
+> 				* ArtificialGeographicFeature
+> 					* Reservoir
+> 				* NaturalGeographicFeature
+> 					* Lake
+> 					* River
+> 				* HydrographicFeature
+> 					* SurfaceWaterFeature
+> 						* Lake
+> 						* Reservoir
+> 						* River
+
+Example of an instance of doce:River:
+
+    :RioDoce rdf:type owl:NamedIndividual ,
+                    :River .
+
+See example of doce:SurfaceWaterSample above under [activities](#activities).
+
 
 <a name="qualities"></a>
 
 ### 6. Water Qualities and their Types
 
-TODO
+The taxonomy of qualities concerns those aspects of the material entities that are subject to measurement and further investigation. 
+
+The following metereological qualities have been defined: 
+
+> 	* MetereologicalQuality
+> 		* AmbientTemperature
+> 		* Rainfall
+> 		* RelativeHumidity
+
+The following physical-chemical qualities that apply to water have been defined:
+
+> 	* PhysicalChemicalQuality
+> 		* BiologicalOxygenDemand
+> 		* Concentration
+> 			* MetalConcentration
+> 			* MetalloidConcentration
+> 			* NonMetalConcentration
+> 			* SolidsConcentration
+> 		* Conductivity
+>		* Hardness_CalciumCarbonateEquivalence
+> 		* pH
+> 		* RedoxPotential
+> 		* Salinity
+> 		* SecchiDiskTransparency
+> 		* Temperature
+> 		* TotalAlkalinityAsCaCO3
+> 		* TrueColor
+> 		* Turbidity
+
+The following qualities characterize the point of the body of water in which measurement or sampling takes place.
+
+> 	* SamplingDepth
+> 	* VolumePerUnitTime
+> 		* FlowRate
+
+Additional (metereological, biological and physical-chemical) qualities may be defined instantiating the taxonomy of Quality Kinds which are special types of kinds. Instances of these MetereologicalQualityKind and PhysicalChemicalQualityKind should be defined as subclasses of MetereologicalQuality, PhysicalChemicalQuality.
+
+>   * QualityKind
+> 		* MetereologicalQualityKind
+> 		* WaterQualityKind
+> 			* BiologicalQualityKind
+> 			* PhysicalChemicalQualityKind
+> 				* ChemicalEntityConcentrationQualityKind
+
 
 <a name="measurement"></a>
 
 ### 7. Measurement (incl. units)
 
-TODO
+Declarations in doce are provided to establish the units that are applicable to the various quality kinds. For example, the specification states that oxygen saturation is measured with percentages and that conductivity can be measured with μS/cm or mS/cm:
 
-<a name="monitoring"></a>
+    :OxygenSaturation rdf:type owl:NamedIndividual ,
+                           :ChemicalEntityConcentrationQualityKind ;
+                  :hasApplicableUnit unit:PERCENT .
 
-### 8. Environmental Monitoring
+    :Conductivity rdf:type owl:NamedIndividual ,
+                       :PhysicalChemicalQualityKind ;
+              :hasApplicableUnit unit:MicroS-PER-CentiM ,
+                                 unit:MilliS-PER-CentiM .
 
-TODO
 
-<a name="program"></a>
+Doce reuses some units of measurement QUDT 2.1 vocabularies with the `unit` prefix denoting the namespace <http://qudt.org/vocab/unit/>, as follows: 
 
-### 8.1. Monitoring Program
+    #  http://qudt.org/vocab/unit/CentiM
+    unit:CentiM rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/DEG_C
+    unit:DEG_C rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/M
+    unit:M rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/M3-PER-SEC
+    unit:M3-PER-SEC rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/MicroGM-PER-L
+    unit:MicroGM-PER-L rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/MicroS-PER-CentiM
+    unit:MicroS-PER-CentiM rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/MilliGM-PER-L
+    unit:MilliGM-PER-L rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/MilliM
+    unit:MilliM rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/MilliS-PER-CentiM
+    unit:MilliS-PER-CentiM rdf:type owl:NamedIndividual, :Unit .    
+    #  http://qudt.org/vocab/unit/MilliV
+    unit:MilliV rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/NTU
+    unit:NTU rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/PERCENT
+    unit:PERCENT rdf:type owl:NamedIndividual, :Unit .
+    #  http://qudt.org/vocab/unit/PH
+    unit:PH rdf:type owl:NamedIndividual, :Unit .
 
-TODO
+Other units not available for reuse for QUDT have been defined. They are particularly relevant to the domain of water quality.
 
-<a name="norms"></a>
+For example, doce:MPN-PER-Decil refers to [Most Probable Number per deciliter, in Portuguese NMP/100ml](https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf), doce:HazenUnit refers to units for color measurement following [ISO 2211:1973](https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en).
 
-### 8.2. Environmental Quality Norms
+    :MPN-PER-DeciL rdf:type owl:NamedIndividual ,
+                        :Unit .
+    :HazenUnit rdf:type owl:NamedIndividual ,
+                    :Unit .
 
-TODO
-
- 
 
 [gufo:Individual]: #Individual
 [individual]: #Individual

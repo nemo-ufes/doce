@@ -18,12 +18,6 @@
         <dd>
             Almeida, João Paulo A.<br/>
         </dd>
-        <dt>Version IRI</dt>
-        <dd><a href="http://purl.org/nemo/doce#/2022-03-16">http://purl.org/nemo/doce#/2022-03-16</a></dd>
-        <dt>Imports</dt>
-        <dd>
-            <a href="http://purl.org/nemo/gufo#/1.0.0">gufo:/1.0.0</a><br/>
-        </dd>
         <dt>License</dt>
         <dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode">https://creativecommons.org/licenses/by/4.0/legalcode</a></dd>
         <dt>Ontology Source</dt>
@@ -31,7 +25,7 @@
     </dl>
     <h2>Description</h2>
     <div id="description">
-        <p>This is still work-in-progress. For reuse please wait until a stable version is released.</p>
+        <p>This ontology enables the sharing of water quality data. </p>
 <p>Based partly on P. M. C. Campos, “Designing a Network of Reference Ontologies for the Integration of Water Quality Data,” Master Thesis, Universidade Federal do Espírito Santo, 2019. </p>
 <p>See <a href="https://nemo.inf.ufes.br/en/projetos/integradoce/">https://nemo.inf.ufes.br/en/projetos/integradoce/</a> for background on the project and publications. </p>
 <p>The doce water quality ontology specializes the gUFO implementation of UFO. See <a href="http://purl.org/nemo/doc/gufo">http://purl.org/nemo/doc/gufo</a> for reference documentation.</p>
@@ -459,11 +453,13 @@ unit:PERCENT rdf:type owl:NamedIndividual, :Unit .
 unit:PH rdf:type owl:NamedIndividual, :Unit .
 </code></pre>
 <p>Other units not available for reuse for QUDT have been defined. They are particularly relevant to the domain of water quality.</p>
-<p>For example, doce:MPN-PER-Decil refers to <a href="https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf">Most Probable Number per deciliter, in Portuguese NMP/100ml</a>, doce:HazenUnit refers to units for color measurement following <a href="https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en">ISO 2211:1973</a>.</p>
+<p>For example, doce:MPN-PER-Decil refers to Most Probable Number per deciliter (in Portuguese NMP/100ml) which can be used to measure <a href="https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf">total coliforms</a>, doce:HazenUnit refers to units for color measurement following <a href="https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en">ISO 2211:1973</a> and doce:PSU to Practical Salinity Units.</p>
 <pre><code>:MPN-PER-DeciL rdf:type owl:NamedIndividual ,
                     :Unit .
 :HazenUnit rdf:type owl:NamedIndividual ,
-                :Unit .
+                    :Unit .
+:PSU rdf:type owl:NamedIndividual ,
+                    :Unit .
 </code></pre>
 </section>
 <section id="toc">

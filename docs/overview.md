@@ -348,12 +348,14 @@ Doce reuses some units of measurement QUDT 2.1 vocabularies with the `unit` pref
 
 Other units not available for reuse for QUDT have been defined. They are particularly relevant to the domain of water quality.
 
-For example, doce:MPN-PER-Decil refers to [Most Probable Number per deciliter, in Portuguese NMP/100ml](https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf), doce:HazenUnit refers to units for color measurement following [ISO 2211:1973](https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en).
+For example, doce:MPN-PER-Decil refers to Most Probable Number per deciliter (in Portuguese NMP/100ml) which can be used to measure [total coliforms](https://cetesb.sp.gov.br/wp-content/uploads/2018/01/Para-enviar-ao-PCSM_-NTC-L5.202_5ªed-_dez.-2018.pdf), doce:HazenUnit refers to units for color measurement following [ISO 2211:1973](https://www.iso.org/obp/ui/#iso:std:iso:2211:ed-1:v1:en) and doce:PSU to Practical Salinity Units.
 
     :MPN-PER-DeciL rdf:type owl:NamedIndividual ,
                         :Unit .
     :HazenUnit rdf:type owl:NamedIndividual ,
-                    :Unit .
+                        :Unit .
+    :PSU rdf:type owl:NamedIndividual ,
+                        :Unit .
 
 
 [gufo:Individual]: #Individual

@@ -1,6 +1,6 @@
 # The doce water quality ontology
 
-This is still work-in-progress. For reuse please wait until a stable version is released.
+This is the repository for an ontology implementation that enables the sharing of water quality data using Semantic Web technologies. 
 
 Based partly on P. M. C. Campos, “Designing a Network of Reference Ontologies for the Integration of Water Quality Data,” Master Thesis, Universidade Federal do Espírito Santo, 2019. 
 

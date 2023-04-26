@@ -357,6 +357,12 @@ For example, doce:MPN-PER-Decil refers to Most Probable Number per deciliter (in
     :PSU rdf:type owl:NamedIndividual ,
                         :Unit .
 
+doce:HazenUnit is used as applicable unit for the doce:TrueColor quality kind:
+
+    :TrueColor rdf:type owl:NamedIndividual ,
+                    :PhysicalChemicalQualityKind ;
+           :hasApplicableUnit :HazenUnit .
+
 
 [gufo:Individual]: #Individual
 [individual]: #Individual
